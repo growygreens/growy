@@ -1,20 +1,28 @@
 module Main exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (..)
+import Navigation exposing (Location)
+import Nav
+import Routing
+import Catalog exposing (..)
 
 
 type alias Model =
-    {}
+    { route : Routing.Route }
 
 
 type Msg
     = NoOp
+    | OnLocationChange Location
 
 
-init : ( Model, Cmd Msg )
-init =
-    {} ! []
+init : Location -> ( Model, Cmd Msg )
+init location =
+    let
+        currentRoute =
+            Routing.parseLocation location
+    in
+        { route = currentRoute } ! []
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -22,6 +30,13 @@ update msg model =
     case msg of
         NoOp ->
             model ! []
+
+        OnLocationChange location ->
+            let
+                newRoute =
+                    Routing.parseLocation location
+            in
+                { model | route = newRoute } ! []
 
 
 subscriptions : Model -> Sub Msg
@@ -31,30 +46,27 @@ subscriptions _ =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ navigationView model
-        , currentPageView model
-        ]
+    let
+        body =
+            case model.route of
+                Routing.CatalogRoute ->
+                    Catalog.view
 
+                Routing.ProfileRoute ->
+                    text "this is the profile page place holder"
 
-navigationView : Model -> Html Msg
-navigationView model =
-    nav []
-        [ ul []
-            [ li [] [ a [ href "#" ] [ text "Catalog" ] ]
-            , li [] [ a [ href "#" ] [ text "Profile" ] ]
+                Routing.NotFoundRoute ->
+                    text "404-ish - Not found!"
+    in
+        div []
+            [ Nav.view
+            , body
             ]
-        ]
-
-
-currentPageView : Model -> Html Msg
-currentPageView model =
-    text "dummy page"
 
 
 main : Program Never Model Msg
 main =
-    Html.program
+    Navigation.program OnLocationChange
         { init = init
         , update = update
         , view = view
