@@ -8,17 +8,15 @@ cache:
 node_js:
   - "node"
 
-before_install:
-  - cd webapp
-
 install:
   - npm install -g elm@0.18.0 elm-test
+  - pushd webapp
   - npm install
   - elm package install -y
-
-before_script:
-  - cd webapp
+  - popd
 
 script:
+  - pushd webapp
   - npm run build
   - npm run test
+  - popd
