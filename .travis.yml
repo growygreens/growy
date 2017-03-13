@@ -4,7 +4,7 @@ cache:
   directories:
     - webapp/elm-stuff/packages
     - webapp/tests/elm-stuff/packages
-    - webapp/sysconfcpus
+    - sysconfcpus
 
 node_js:
   - "node"
