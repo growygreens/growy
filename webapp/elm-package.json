@@ -2,7 +2,7 @@
     "version": "0.1.0",
     "summary": "Growy plant catalog and gardening helper",
     "repository": "https://github.com/user/project.git",
-    "license": "AGPL-v3",
+    "license": "AGPL-3.0",
     "source-directories": [
         "src"
     ],
