@@ -2,9 +2,9 @@ language: node_js
 
 cache:
   directories:
-    - elm-stuff/packages
-    - tests/elm-stuff/packages
-    - sysconfcpus
+    - webapp/elm-stuff/packages
+    - webapp/tests/elm-stuff/packages
+    - webapp/sysconfcpus
 
 node_js:
   - "node"
