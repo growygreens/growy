@@ -1,0 +1,24 @@
+language: node_js
+
+cache:
+  directories:
+    - elm-stuff/packages
+    - tests/elm-stuff/packages
+
+node_js:
+  - "node"
+
+before_install:
+  - cd webapp
+
+install:
+  - npm install -g elm@0.18.0 elm-test
+  - npm install
+  - elm package install -y
+
+before_script:
+  - cd webapp
+
+script:
+  - npm run build
+  - npm run test
