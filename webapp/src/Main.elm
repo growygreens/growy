@@ -87,7 +87,7 @@ viewBody : Model -> Html Msg
 viewBody model =
     case model.route of
         Routing.CatalogRoute ->
-            Catalog.view
+            Catalog.view model
 
         Routing.ProfileRoute ->
             text "this is the profile page place holder"
@@ -101,7 +101,6 @@ view model =
     Layout.render Mdl
         model.mdl
         [ Layout.fixedHeader
-          --, Layout.fixedDrawer
         ]
         { header = [ viewHeader model ]
         , drawer = [ viewDrawer model ]
