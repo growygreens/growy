@@ -29,16 +29,23 @@ type Msg
     | Mdl (Material.Msg Msg)
 
 
+initModel : Model
+initModel =
+    { route = Routing.CatalogRoute
+    , mdl = Material.model
+    }
+
+
 init : Location -> ( Model, Cmd Msg )
 init location =
     let
         currentRoute =
             Routing.parseLocation location
+
+        model =
+            initModel
     in
-        { route = currentRoute
-        , mdl = Material.model
-        }
-            ! []
+        { model | route = currentRoute } ! []
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
