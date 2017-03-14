@@ -3,6 +3,8 @@ module Domain exposing (..)
 import Routing exposing (..)
 import Material
 import Navigation exposing (newUrl, Location)
+import I18n exposing (Language)
+import Phrases exposing (..)
 
 
 type alias CultivarId =
@@ -51,6 +53,7 @@ type alias Cultivar =
 
 type alias Model =
     { route : Routing.Route
+    , language : Language
     , cultivars : List Cultivar
     , selectedCultivar : Maybe CultivarId
     , mdl : Material.Model
@@ -69,13 +72,20 @@ type Msg
     | SelectCultivar CultivarId
     | DismissSelectedCultivar
 
+
 initModel : Model
 initModel =
     { route = Routing.CatalogRoute
+    , language = I18n.SvSe
     , cultivars = devCreateMockPlants
     , selectedCultivar = Nothing
     , mdl = Material.model
     }
+
+
+tr : Model -> Phrases -> String
+tr model phrase =
+    I18n.translate model.language phrase
 
 
 devCreateMockPlants : List Cultivar

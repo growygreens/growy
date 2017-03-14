@@ -6,6 +6,7 @@ import List
 import Material.Card as Card
 import Material.List as List
 import Material.Options as Options exposing (css)
+import Phrases exposing (..)
 
 
 itemView : Model -> Cultivar -> Html Msg
@@ -28,8 +29,8 @@ cultivarById id model =
     List.filter (\x -> Just x.id == model.selectedCultivar) model.cultivars |> List.head
 
 
-selectedCultivarView : Cultivar -> Html Msg
-selectedCultivarView c =
+selectedCultivarView : Model -> Cultivar -> Html Msg
+selectedCultivarView model c =
     Card.view
         [ css "width" "256px"
         , css "margin" "0"
@@ -40,7 +41,7 @@ selectedCultivarView c =
             , Card.subhead [] [ text "Etiam vel tortor sodales tellus ultricies commodo.  " ]
             ]
         , Card.actions []
-            [ text <| Maybe.withDefault "no desc" c.description ]
+            [ text <| Maybe.withDefault (tr model Phrases.DescriptionMissing) c.description ]
         ]
 
 
@@ -56,6 +57,6 @@ view model =
                     []
 
                 Just c ->
-                    [ selectedCultivarView c ]
+                    [ selectedCultivarView model c ]
     in
         div [] (cultivarList ++ selectedCultivar)
