@@ -38,7 +38,7 @@ selectedCultivarView model c =
         [ Card.title
             [ css "flex-direction" "column" ]
             [ Card.head [] [ text c.name ]
-            , Card.subhead [] [ text "Etiam vel tortor sodales tellus ultricies commodo.  " ]
+            , Card.subhead [] [ text <| translatePlantType model c.plantType ]
             ]
         , Card.actions []
             [ text <| Maybe.withDefault (tr model Phrases.DescriptionMissing) c.description ]

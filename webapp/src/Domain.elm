@@ -87,6 +87,19 @@ tr : Model -> Phrases -> String
 tr model phrase =
     I18n.translate model.language phrase
 
+translatePlantType : Model -> PlantType -> String
+translatePlantType model plantType =
+
+    case plantType of
+        Carrot subType ->
+            tr model Phrases.Carrot
+
+        Onion subType ->
+            tr model Phrases.Onion
+
+        Tomato subType ->
+            tr model Phrases.Tomato
+
 
 devCreateMockPlants : List Cultivar
 devCreateMockPlants =
