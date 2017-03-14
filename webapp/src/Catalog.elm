@@ -2,30 +2,28 @@ module Catalog exposing (..)
 
 import Html exposing (Html, div, text)
 import Material.List as List
-import Material.Card as Card
-import Material.Elevation as Elevation
 import Material.Color as Color
 import Domain exposing (..)
+import Material.Options as Options exposing (css)
 
 
-itemView : Cultivar -> Html msg
-itemView plant =
+itemView : Model -> Cultivar -> Html Msg
+itemView model plant =
     List.li
         []
-        [ List.content [] [ text plant.name ] ]
+        [ List.content
+            [ Options.onClick (SelectCultivar plant.id)
+            , if (model.selectedCultivar == Just plant.id) then
+                css "color" "red"
+              else
+                css "color" "black"
+            ]
+            [ text plant.name ]
+        ]
 
 
-view : Model -> Html msg
+view : Model -> Html Msg
 view model =
     div []
-        [ List.ul [] (List.map itemView model.cultivars)
-        , Card.view
-            [ Elevation.e2 ]
-            [ Card.title
-                [ Color.background Color.primary
-                , Color.text Color.white
-                ]
-                [ Card.head [] [ text "CardHead" ] ]
-            , Card.text [] [ text "Text" ]
-            ]
+        [ List.ul [] (List.map (itemView model) model.cultivars)
         ]

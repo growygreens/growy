@@ -44,6 +44,12 @@ update msg model =
         Mdl msg_ ->
             Material.update Mdl msg_ model
 
+        SelectCultivar id ->
+            { model | selectedCultivar = Just id } ! []
+
+        DismissSelectedCultivar ->
+            { model | selectedCultivar = Nothing } ! []
+
 
 subscriptions : Model -> Sub Msg
 subscriptions model =

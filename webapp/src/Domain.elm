@@ -52,6 +52,7 @@ type alias Cultivar =
 type alias Model =
     { route : Routing.Route
     , cultivars : List Cultivar
+    , selectedCultivar : Maybe CultivarId
     , mdl : Material.Model
     }
 
@@ -65,12 +66,14 @@ type Msg
     | SetRoute Route
     | OnLocationChange Location
     | Mdl (Material.Msg Msg)
-
+    | SelectCultivar CultivarId
+    | DismissSelectedCultivar
 
 initModel : Model
 initModel =
     { route = Routing.CatalogRoute
     , cultivars = devCreateMockPlants
+    , selectedCultivar = Nothing
     , mdl = Material.model
     }
 
