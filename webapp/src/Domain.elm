@@ -87,9 +87,9 @@ tr : Model -> Phrases -> String
 tr model phrase =
     I18n.translate model.language phrase
 
+
 translatePlantType : Model -> PlantType -> String
 translatePlantType model plantType =
-
     case plantType of
         Carrot subType ->
             tr model Phrases.Carrot
@@ -106,61 +106,61 @@ devCreateMockPlants =
     [ { id = 0
       , name = "Early Nantes"
       , description = Just "Phasellus at dui in ligula mollis ultricies.  Cras placerat accumsan nulla.  Nulla posuere.  "
-      , imgUrl = Just "/img/generic-cultivar.png"
+      , imgUrl = Just "img/carrot.png"
       , plantType = Carrot <| Just NantesCarrot
       }
     , { id = 1
       , name = "Autumn King"
       , description = Just "Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Etiam laoreet quam sed arcu.  "
-      , imgUrl = Nothing
+      , imgUrl = Just "img/carrot.png"
       , plantType = Carrot <| Just FlakkerCarror
       }
     , { id = 2
       , name = "London Torg"
       , description = Just "Aenean in sem ac leo mollis blandit.  Aliquam feugiat tellus ut neque.  Nunc rutrum turpis sed pede.  Nullam libero mauris, consequat quis, varius et, dictum id, arcu.  "
-      , imgUrl = Nothing
+      , imgUrl = Just "img/carrot.png"
       , plantType = Carrot <| Just ChantenayCarrot
       }
     , { id = 3
       , name = "Oxhella"
       , description = Nothing
-      , imgUrl = Nothing
+      , imgUrl = Just "img/carrot.png"
       , plantType = Carrot Nothing
       }
     , { id = 4
       , name = "Sturon"
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
-      , imgUrl = Nothing
+      , imgUrl = Just "img/onion.png"
       , plantType = Onion <| Just BulbOnion
       }
     , { id = 5
       , name = "Rijnsburger Bajosta"
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
-      , imgUrl = Nothing
+      , imgUrl = Just "img/onion.png"
       , plantType = Onion <| Just BulbOnion
       }
     , { id = 6
       , name = "Giant Stuttgart"
       , description = Nothing
-      , imgUrl = Nothing
+      , imgUrl = Just "img/onion.png"
       , plantType = Onion <| Just BulbOnion
       }
     , { id = 7
       , name = "Ida Gold"
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
-      , imgUrl = Nothing
+      , imgUrl = Just "img/tomato.png"
       , plantType = Tomato <| Just DeterminateTomato
       }
     , { id = 8
       , name = "Sub-Arctic Plenty"
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
-      , imgUrl = Nothing
+      , imgUrl = Just "img/tomato.png"
       , plantType = Tomato <| Just DeterminateTomato
       }
     , { id = 9
       , name = "Taxi"
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
-      , imgUrl = Nothing
+      , imgUrl = Just "img/tomato.png"
       , plantType = Tomato <| Just DeterminateTomato
       }
     ]
