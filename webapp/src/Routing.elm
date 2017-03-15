@@ -4,10 +4,6 @@ import Navigation exposing (Location)
 import UrlParser exposing (..)
 
 
-type alias Model =
-    Maybe Location
-
-
 type Route
     = CatalogRoute
     | ProfileRoute
