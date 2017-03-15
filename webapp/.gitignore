@@ -3,3 +3,4 @@ dist
 node_modules
 npm-debug.log
 tests/elm-stuff
+elm.js
