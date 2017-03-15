@@ -1,7 +1,8 @@
 module Catalog exposing (..)
 
 import Domain exposing (..)
-import Html exposing (Html, div, text)
+import Html exposing (Html, div, img, text)
+import Html.Attributes exposing (src)
 import List
 import Material.Card as Card
 import Material.Button as Button
@@ -10,7 +11,7 @@ import Material.Icon as Icon
 import Material.List as List
 import Material.Options as Options exposing (css)
 import Phrases exposing (..)
-
+import Maybe
 
 itemView : Model -> Cultivar -> Html Msg
 itemView model plant =
@@ -32,6 +33,10 @@ cultivarById id model =
     List.filter (\x -> Just x.id == model.selectedCultivar) model.cultivars |> List.head
 
 
+imgUrl : Cultivar -> Url
+imgUrl c =
+    Maybe.withDefault  "/img/generic-cultivar.png" c.imgUrl
+
 selectedCultivarView : Model -> Cultivar -> Html Msg
 selectedCultivarView model c =
     Card.view
@@ -40,7 +45,9 @@ selectedCultivarView model c =
         ]
         [ Card.title
             [ css "flex-direction" "column" ]
-            [ Card.head [] [ text c.name ]
+            [
+             img [src <| imgUrl c][]
+             , Card.head [] [ text c.name ]
             , Card.subhead [] [ text <| translatePlantType model c.plantType ]
             ]
         , Card.menu []

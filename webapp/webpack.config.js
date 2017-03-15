@@ -13,16 +13,23 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.html$/,
         exclude: /node_modules/,
-        loader: 'file-loader?name=[name].[ext]'
+        use: 'file-loader?name=[name].[ext]'
+      },
+      {
+        test: /\.png$/,
+        use: 'file-loader?name=img/[name].[ext]'
       },
       {
         test: /\.elm$/,
         exclude: [/elm-stuff/, /node_modules/],
-        loader: 'elm-hot-loader!elm-webpack-loader'
+        use: [
+          'elm-hot-loader',
+          'elm-webpack-loader'
+        ]
       }
     ],
 

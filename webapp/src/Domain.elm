@@ -106,7 +106,7 @@ devCreateMockPlants =
     [ { id = 0
       , name = "Early Nantes"
       , description = Just "Phasellus at dui in ligula mollis ultricies.  Cras placerat accumsan nulla.  Nulla posuere.  "
-      , imgUrl = Nothing
+      , imgUrl = Just "/img/generic-cultivar.png"
       , plantType = Carrot <| Just NantesCarrot
       }
     , { id = 1
