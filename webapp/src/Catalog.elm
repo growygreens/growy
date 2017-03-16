@@ -109,14 +109,15 @@ emptyNode =
 cultivarListItemView : Model -> Cultivar -> Html Msg
 cultivarListItemView model plant =
     List.li
-        []
+        [ Options.onClick (SelectCultivar plant.id)
+        , css "margin" "0 16px 0 16px"
+        , if (model.selectedCultivar == Just plant.id) then
+            Options.many <| [ css "font-weight" "bold", Elevation.e2 ]
+          else
+            css "font-weight" "normal"
+        ]
         [ List.content
-            [ Options.onClick (SelectCultivar plant.id)
-            , if (model.selectedCultivar == Just plant.id) then
-                css "color" "red"
-              else
-                css "color" "black"
-            ]
+            []
             [ text plant.name ]
         ]
 
