@@ -65,7 +65,7 @@ selectedCultivarCard model c =
             [ img
                 [ style
                     [ ( "width", "256px" )
-                    , ( "height", "256px" )
+                    , ( "height", "158px" )
                     ]
                 , src <| imgUrl c
                 ]
@@ -108,8 +108,8 @@ cultivarListItemView : Model -> Cultivar -> Html Msg
 cultivarListItemView model c =
     Card.view
         [ Options.onClick (SelectCultivar c.id)
-        , css "width" "128px"
-        , css "background-color" "#408040"
+        , css "width" "162px"
+        , css "background-color" "#80a080"
         , css "margin" "8px"
         , Elevation.transition 250
         , if model.selectedCultivar == Just c.id then
@@ -119,21 +119,17 @@ cultivarListItemView model c =
         ]
         [ Card.media
             [ css "background" ("url('" ++ (imgUrl c) ++ "') center / cover")
-            , css "height" "64px"
-            , css "width" "128px"
+            , css "height" "100px"
+            , css "width" "162px"
             ]
             []
         , Card.title
-            [ css "height" "64px"
-            , css "padding" "8px"
+            [ css "padding" "8px"
             ]
             [ Card.head
                 [ css "font-size" "14px"
                 ]
                 [ text c.name ]
-            , Card.subhead
-                []
-                [ text <| translatePlantType model c.plantType ]
             ]
         ]
 
