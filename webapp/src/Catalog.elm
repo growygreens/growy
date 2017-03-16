@@ -14,21 +14,6 @@ import Phrases exposing (..)
 import Maybe
 
 
-itemView : Model -> Cultivar -> Html Msg
-itemView model plant =
-    List.li
-        []
-        [ List.content
-            [ Options.onClick (SelectCultivar plant.id)
-            , if (model.selectedCultivar == Just plant.id) then
-                css "color" "red"
-              else
-                css "color" "black"
-            ]
-            [ text plant.name ]
-        ]
-
-
 cultivarById : Maybe CultivarId -> Model -> Maybe Cultivar
 cultivarById id model =
     List.filter (\x -> Just x.id == model.selectedCultivar) model.cultivars |> List.head
@@ -121,30 +106,45 @@ emptyNode =
     Html.text ""
 
 
+cultivarListItemView : Model -> Cultivar -> Html Msg
+cultivarListItemView model plant =
+    List.li
+        []
+        [ List.content
+            [ Options.onClick (SelectCultivar plant.id)
+            , if (model.selectedCultivar == Just plant.id) then
+                css "color" "red"
+              else
+                css "color" "black"
+            ]
+            [ text plant.name ]
+        ]
+
+
+cultivarListView : Model -> Html Msg
+cultivarListView model =
+    div
+        [ style
+            [ ( "background-color", "#80ffff" )
+            , ( "display", "flex" )
+            , ( "flex-direction", "column" )
+            , ( "flex-grow", "1" )
+            , ( "overflow-y", "auto" )
+            ]
+        ]
+        [ List.ul [] (List.map (cultivarListItemView model) model.cultivars) ]
+
+
 view : Model -> Html Msg
 view model =
-    let
-        cultivarList =
-            List.ul [] (List.map (itemView model) model.cultivars)
-    in
-        div
-            [ style
-                [ ( "border", "1px solid orange" )
-                , ( "flex-direction", "row" )
-                , ( "display", "flex" )
-                , ( "flex-grow", "1" )
-                , ( "height", "100%" )
-                ]
+    div
+        -- Top layout is row, and fills up then height of view
+        [ style
+            [ ( "display", "flex" )
+            , ( "flex-direction", "row" )
+            , ( "height", "100%" )
             ]
-            [ div
-                [ style
-                    [ ( "background-color", "#80ffff" )
-                    , ( "display", "flex" )
-                    , ( "flex-direction", "column" )
-                    , ( "flex-grow", "1" )
-                    , ( "overflow-y", "auto" )
-                    ]
-                ]
-                [ cultivarList ]
-            , maybeSelectedCultivar model
-            ]
+        ]
+        [ cultivarListView model
+        , maybeSelectedCultivar model
+        ]
