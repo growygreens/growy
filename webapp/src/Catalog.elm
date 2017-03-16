@@ -45,7 +45,7 @@ selectedCultivarView model c =
         [ css "width" "256px"
         , css "margin" "10px"
         , css "padding" "0"
-        , Elevation.e2
+        , Elevation.e4
         ]
         [ Card.title
             [ css "padding" "0"
@@ -110,6 +110,9 @@ view model =
                             , ( "display", "flex" )
                             , ( "flex-direction", "column" )
                             , ( "justify-content", "flex-start" )
+                            , ( "padding", "10px 10px 0 0" )
+                            , ( "overflow-y", "auto" )
+                            , ( "overflow-x", "hidden" )
                             ]
                         ]
                         [ div
@@ -132,6 +135,7 @@ view model =
                     , ( "display", "flex" )
                     , ( "flex-direction", "column" )
                     , ( "flex-grow", "1" )
+                    , ( "overflow-y", "auto" )
                     ]
                 ]
                 [ cultivarList ]
