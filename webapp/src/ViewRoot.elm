@@ -68,7 +68,7 @@ viewRoot model =
         , tabs = ( [], [] )
         , main =
             [ div
-                []
+                [ style [ ( "height", "100%" ) ] ]
                 [ viewBody model ]
             ]
         }

@@ -1,17 +1,18 @@
 module Catalog exposing (..)
 
 import Domain exposing (..)
-import Html exposing (Html, div, img, text)
-import Html.Attributes exposing (src)
+import Html exposing (Html, div, img, text, hr)
+import Html.Attributes exposing (src, style)
 import List
 import Material.Card as Card
 import Material.Button as Button
-import Material.Grid exposing (..)
+import Material.Elevation as Elevation
 import Material.Icon as Icon
 import Material.List as List
 import Material.Options as Options exposing (css)
 import Phrases exposing (..)
 import Maybe
+
 
 itemView : Model -> Cultivar -> Html Msg
 itemView model plant =
@@ -35,20 +36,38 @@ cultivarById id model =
 
 imgUrl : Cultivar -> Url
 imgUrl c =
-    Maybe.withDefault  "/img/generic-cultivar.png" c.imgUrl
+    Maybe.withDefault "/img/generic-cultivar.png" c.imgUrl
+
 
 selectedCultivarView : Model -> Cultivar -> Html Msg
 selectedCultivarView model c =
     Card.view
         [ css "width" "256px"
-        , css "margin" "0"
+        , css "margin" "10px"
+        , css "padding" "0"
+        , Elevation.e2
         ]
         [ Card.title
-            [ css "flex-direction" "column" ]
-            [
-             img [src <| imgUrl c][]
-             , Card.head [] [ text c.name ]
-            , Card.subhead [] [ text <| translatePlantType model c.plantType ]
+            [ css "padding" "0"
+            ]
+            [ img
+                [ style
+                    [ ( "width", "256px" )
+                    , ( "height", "256px" )
+                    ]
+                , src <| imgUrl c
+                ]
+                []
+            , Card.head
+                [ css "padding-left" "16px"
+                , css "padding-top" "16px"
+                ]
+                [ text c.name ]
+            , Card.subhead
+                [ css "padding-left" "16px"
+                , css "font-style" "italic"
+                ]
+                [ text <| translatePlantType model c.plantType ]
             ]
         , Card.menu []
             [ Button.render Mdl
@@ -60,8 +79,11 @@ selectedCultivarView model c =
                 ]
                 [ Icon.i "close" ]
             ]
-        , Card.actions []
-            [ text <| Maybe.withDefault (tr model Phrases.DescriptionMissing) c.description ]
+        , Card.text
+            [ css "padding-top" "0px" ]
+            [ hr [] []
+            , text <| Maybe.withDefault (tr model Phrases.DescriptionMissing) c.description
+            ]
         ]
 
 
@@ -82,11 +104,36 @@ view model =
                     emptyNode
 
                 Just c ->
-                    selectedCultivarView model c
+                    div
+                        [ style
+                            [ ( "background-color", "#808080" )
+                            , ( "display", "flex" )
+                            , ( "flex-direction", "column" )
+                            , ( "justify-content", "flex-start" )
+                            ]
+                        ]
+                        [ div
+                            []
+                            [ selectedCultivarView model c ]
+                        ]
     in
-        grid []
-            [ cell [ size All 6, size Tablet 4, size Phone 2 ]
+        div
+            [ style
+                [ ( "border", "1px solid orange" )
+                , ( "flex-direction", "row" )
+                , ( "display", "flex" )
+                , ( "flex-grow", "1" )
+                , ( "height", "100%" )
+                ]
+            ]
+            [ div
+                [ style
+                    [ ( "background-color", "#80ffff" )
+                    , ( "display", "flex" )
+                    , ( "flex-direction", "column" )
+                    , ( "flex-grow", "1" )
+                    ]
+                ]
                 [ cultivarList ]
-            , cell [ size All 6, size Tablet 4, size Phone 2 ]
-                [ selectedCultivar ]
+            , selectedCultivar
             ]
