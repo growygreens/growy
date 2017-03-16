@@ -3,15 +3,13 @@ module Catalog exposing (..)
 import Domain exposing (..)
 import Html exposing (Html, div, img, text, hr)
 import Html.Attributes exposing (src, style)
-import List
-import Material.Card as Card
 import Material.Button as Button
+import Material.Card as Card
 import Material.Elevation as Elevation
 import Material.Icon as Icon
-import Material.List as List
 import Material.Options as Options exposing (css)
-import Phrases exposing (..)
 import Maybe
+import Phrases exposing (..)
 
 
 cultivarById : Maybe CultivarId -> Model -> Maybe Cultivar
@@ -38,11 +36,11 @@ selectedCultivarView : Model -> Cultivar -> Html Msg
 selectedCultivarView model c =
     div
         [ style
-            [ ( "background-color", "#808080" )
-            , ( "display", "flex" )
+            [ ( "display", "flex" )
+            , ( "min-width", "276px" )
             , ( "flex-direction", "column" )
             , ( "justify-content", "flex-start" )
-            , ( "padding", "10px 10px 0 0" )
+            , ( "padding-right", "8px" )
             , ( "overflow-y", "auto" )
             , ( "overflow-x", "hidden" )
             ]
@@ -59,7 +57,7 @@ selectedCultivarCard model c =
         [ css "width" "256px"
         , css "margin" "10px"
         , css "padding" "0"
-        , Elevation.e4
+        , Elevation.e6
         ]
         [ Card.title
             [ css "padding" "0"
@@ -107,18 +105,36 @@ emptyNode =
 
 
 cultivarListItemView : Model -> Cultivar -> Html Msg
-cultivarListItemView model plant =
-    List.li
-        [ Options.onClick (SelectCultivar plant.id)
-        , css "margin" "0 16px 0 16px"
-        , if (model.selectedCultivar == Just plant.id) then
-            Options.many <| [ css "font-weight" "bold", Elevation.e2 ]
+cultivarListItemView model c =
+    Card.view
+        [ Options.onClick (SelectCultivar c.id)
+        , css "width" "128px"
+        , css "background-color" "#408040"
+        , css "margin" "8px"
+        , Elevation.transition 250
+        , if model.selectedCultivar == Just c.id then
+            Elevation.e6
           else
-            css "font-weight" "normal"
+            Elevation.e2
         ]
-        [ List.content
+        [ Card.media
+            [ css "background" ("url('" ++ (imgUrl c) ++ "') center / cover")
+            , css "height" "64px"
+            , css "width" "128px"
+            ]
             []
-            [ text plant.name ]
+        , Card.title
+            [ css "height" "64px"
+            , css "padding" "8px"
+            ]
+            [ Card.head
+                [ css "font-size" "14px"
+                ]
+                [ text c.name ]
+            , Card.subhead
+                []
+                [ text <| translatePlantType model c.plantType ]
+            ]
         ]
 
 
@@ -126,14 +142,21 @@ cultivarListView : Model -> Html Msg
 cultivarListView model =
     div
         [ style
-            [ ( "background-color", "#80ffff" )
-            , ( "display", "flex" )
+            [ ( "display", "flex" )
             , ( "flex-direction", "column" )
-            , ( "flex-grow", "1" )
+            , ( "flex-grow", "0" )
             , ( "overflow-y", "auto" )
             ]
         ]
-        [ List.ul [] (List.map (cultivarListItemView model) model.cultivars) ]
+        [ div
+            [ style
+                [ ( "display", "flex" )
+                , ( "flex-direction", "row" )
+                , ( "flex-wrap", "wrap" )
+                ]
+            ]
+            (List.map (cultivarListItemView model) model.cultivars)
+        ]
 
 
 view : Model -> Html Msg
