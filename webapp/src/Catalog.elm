@@ -39,8 +39,37 @@ imgUrl c =
     Maybe.withDefault "/img/generic-cultivar.png" c.imgUrl
 
 
+maybeSelectedCultivar : Model -> Html Msg
+maybeSelectedCultivar model =
+    case cultivarById model.selectedCultivar model of
+        Nothing ->
+            emptyNode
+
+        Just c ->
+            selectedCultivarView model c
+
+
 selectedCultivarView : Model -> Cultivar -> Html Msg
 selectedCultivarView model c =
+    div
+        [ style
+            [ ( "background-color", "#808080" )
+            , ( "display", "flex" )
+            , ( "flex-direction", "column" )
+            , ( "justify-content", "flex-start" )
+            , ( "padding", "10px 10px 0 0" )
+            , ( "overflow-y", "auto" )
+            , ( "overflow-x", "hidden" )
+            ]
+        ]
+        [ div
+            []
+            [ selectedCultivarCard model c ]
+        ]
+
+
+selectedCultivarCard : Model -> Cultivar -> Html Msg
+selectedCultivarCard model c =
     Card.view
         [ css "width" "256px"
         , css "margin" "10px"
@@ -97,28 +126,6 @@ view model =
     let
         cultivarList =
             List.ul [] (List.map (itemView model) model.cultivars)
-
-        selectedCultivar =
-            case cultivarById model.selectedCultivar model of
-                Nothing ->
-                    emptyNode
-
-                Just c ->
-                    div
-                        [ style
-                            [ ( "background-color", "#808080" )
-                            , ( "display", "flex" )
-                            , ( "flex-direction", "column" )
-                            , ( "justify-content", "flex-start" )
-                            , ( "padding", "10px 10px 0 0" )
-                            , ( "overflow-y", "auto" )
-                            , ( "overflow-x", "hidden" )
-                            ]
-                        ]
-                        [ div
-                            []
-                            [ selectedCultivarView model c ]
-                        ]
     in
         div
             [ style
@@ -139,5 +146,5 @@ view model =
                     ]
                 ]
                 [ cultivarList ]
-            , selectedCultivar
+            , maybeSelectedCultivar model
             ]
