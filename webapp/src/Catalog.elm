@@ -5,6 +5,7 @@ import Html exposing (Html, div, img, text, hr)
 import Html.Attributes exposing (src, style, class)
 import Material.Button as Button
 import Material.Card as Card
+import Material.Color as Color
 import Material.Elevation as Elevation
 import Material.Icon as Icon
 import Material.Options as Options exposing (css, cs)
@@ -77,7 +78,8 @@ selectedCultivarCard model c =
                 [ Button.icon
                 , Button.ripple
                 , Options.onClick DismissSelectedCultivar
-                , css "background-color" "#80a080"
+                , Color.background Color.primaryDark
+                , Color.text Color.white
                 ]
                 [ Icon.i "close" ]
             ]
@@ -99,7 +101,7 @@ cultivarListItemView model c =
     Card.view
         [ Options.onClick (SelectCultivar c.id)
         , css "width" "162px"
-        , css "background-color" "#80a080"
+        , Color.background (Color.color Color.Green Color.S200)
         , css "margin" "8px"
         , Elevation.transition 250
         , if model.selectedCultivar == Just c.id then
@@ -117,7 +119,7 @@ cultivarListItemView model c =
             [ css "padding" "8px"
             ]
             [ Card.head
-                [ css "font-size" "14px"
+                [ css "font-size" "16px"
                 ]
                 [ text c.name ]
             ]
