@@ -46,7 +46,6 @@ selectedCultivarCard : Model -> Cultivar -> Html Msg
 selectedCultivarCard model c =
     Card.view
         [ Elevation.e6
-        , css "width" "256px"
         , cs "selected-cultivar-card"
         ]
         [ Card.title

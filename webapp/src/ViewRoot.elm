@@ -76,4 +76,3 @@ viewRoot model =
                 [ viewBody model ]
             ]
         }
-        |> Material.Scheme.top
