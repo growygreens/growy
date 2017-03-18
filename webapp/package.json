@@ -5,9 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "elm-test tests/TestMain.elm",
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "dev": "webpack-dev-server --port 3000"
+    "build": "BUILD_ENV='production' webpack --optimize-minimize",
+    "serve": "webpack-dev-server --port 3000 --hot"
   },
   "keywords": [
     "growy"
@@ -22,6 +21,13 @@
     "webpack-dev-server": "^2.4.1"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.4.1"
+    "css-loader": "^0.27.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.14.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
   }
 }

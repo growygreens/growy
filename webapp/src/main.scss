@@ -1,0 +1,15 @@
+.selected-cultivar-box {
+  display: flex;
+  min-width: 276px;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-right: 8px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.selected-cultivar-card {
+  width: 256px;
+  margin: 10px;
+  padding: 0;
+}

@@ -2,12 +2,12 @@ module Catalog exposing (..)
 
 import Domain exposing (..)
 import Html exposing (Html, div, img, text, hr)
-import Html.Attributes exposing (src, style)
+import Html.Attributes exposing (src, style, class)
 import Material.Button as Button
 import Material.Card as Card
 import Material.Elevation as Elevation
 import Material.Icon as Icon
-import Material.Options as Options exposing (css)
+import Material.Options as Options exposing (css, cs)
 import Maybe
 import Phrases exposing (..)
 
@@ -35,16 +35,7 @@ maybeSelectedCultivar model =
 selectedCultivarView : Model -> Cultivar -> Html Msg
 selectedCultivarView model c =
     div
-        [ style
-            [ ( "display", "flex" )
-            , ( "min-width", "276px" )
-            , ( "flex-direction", "column" )
-            , ( "justify-content", "flex-start" )
-            , ( "padding-right", "8px" )
-            , ( "overflow-y", "auto" )
-            , ( "overflow-x", "hidden" )
-            ]
-        ]
+        [ class "selected-cultivar-box" ]
         [ div
             []
             [ selectedCultivarCard model c ]
@@ -54,10 +45,9 @@ selectedCultivarView model c =
 selectedCultivarCard : Model -> Cultivar -> Html Msg
 selectedCultivarCard model c =
     Card.view
-        [ css "width" "256px"
-        , css "margin" "10px"
-        , css "padding" "0"
-        , Elevation.e6
+        [ Elevation.e6
+        , css "width" "256px"
+        , cs "selected-cultivar-card"
         ]
         [ Card.title
             [ css "padding" "0"
