@@ -71,7 +71,11 @@ selectedCultivarCard model c =
                 ]
                 [ text <| translatePlantType model c.plantType ]
             ]
-        , Card.menu []
+        , Card.menu
+            [ css "width" "100%"
+            , css "left" "0"
+            , css "top" "14px"
+            ]
             [ Button.render Mdl
                 [ 0, 0 ]
                 model.mdl
@@ -80,8 +84,22 @@ selectedCultivarCard model c =
                 , Options.onClick DismissSelectedCultivar
                 , Color.background Color.primaryDark
                 , Color.text Color.white
+                , css "position" "absolute"
+                , css "right" "16px"
                 ]
                 [ Icon.i "close" ]
+            , Button.render Mdl
+                [ 0, 0 ]
+                model.mdl
+                [ Button.icon
+                , Button.ripple
+                , Options.onClick DismissSelectedCultivar
+                , Color.background Color.primaryDark
+                , Color.text Color.white
+                , css "position" "absolute"
+                , css "left" "16px"
+                ]
+                [ Icon.i "compare" ]
             ]
         , Card.text
             [ css "padding-top" "0px" ]
