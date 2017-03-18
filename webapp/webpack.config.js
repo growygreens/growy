@@ -27,6 +27,10 @@ module.exports = {
         use: 'file-loader?name=img/[name].[ext]'
       },
       {
+        test: /\.css$/,
+        use: 'file-loader?name=[name].[ext]'
+      },
+      {
         test: /\.elm$/,
         exclude: [/elm-stuff/, /node_modules/],
         use: [
