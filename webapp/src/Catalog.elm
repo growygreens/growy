@@ -78,6 +78,7 @@ selectedCultivarCard model c =
                 [ Button.icon
                 , Button.ripple
                 , Options.onClick DismissSelectedCultivar
+                , css "background-color" "#80a080"
                 ]
                 [ Icon.i "close" ]
             ]
