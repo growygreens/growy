@@ -95,8 +95,8 @@ primaryCardMenu model =
             [ Button.icon
             , Button.ripple
             , Options.onClick DismissSelectedCultivar
-            , Color.background Color.primaryDark
-            , Color.text Color.white
+            , Color.background Color.accent
+            , Color.text Color.accentContrast
             , css "position" "absolute"
             , css "right" "16px"
             ]
@@ -107,8 +107,8 @@ primaryCardMenu model =
             [ Button.icon
             , Button.ripple
             , Options.onClick PinSelectedCultivar
-            , Color.background Color.primaryDark
-            , Color.text Color.white
+            , Color.background Color.accent
+            , Color.text Color.accentContrast
             , css "position" "absolute"
             , css "left" "16px"
             ]
@@ -182,12 +182,33 @@ cultivarListItemView model c =
         , Color.background (Color.color Color.Green Color.S200)
         , css "margin" "8px"
         , Elevation.transition 250
-        , if model.selectedCultivar == Just c.id then
+        , if model.selectedCultivar == Just c.id || model.secondarySelectedCultivar == Just c.id then
             Elevation.e6
           else
             Elevation.e2
         ]
-        [ Card.media
+        [ Card.menu
+            [ css "width" "100%"
+            , css "left" "0"
+            , css "top" "14px"
+            ]
+            [ if model.selectedCultivar == Just c.id && model.pinnedSelectedCultivar == Just True then
+                Button.render Mdl
+                    [ 0, 0 ]
+                    model.mdl
+                    [ Button.icon
+                    , Button.ripple
+                    , Button.disabled
+                    , Color.background Color.accent
+                    , Color.text Color.accentContrast
+                    , css "position" "absolute"
+                    , css "right" "16px"
+                    ]
+                    [ Icon.i "compare" ]
+              else
+                emptyNode
+            ]
+        , Card.media
             [ css "background" ("url('" ++ (imgUrl c) ++ "') center / cover")
             , css "height" "100px"
             , css "width" "162px"
