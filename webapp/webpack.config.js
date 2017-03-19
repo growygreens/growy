@@ -49,6 +49,10 @@ module.exports = {
           // use style-loader in development
           fallback: "style-loader"
         })
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: 'file-loader?name=fonts/[name].[ext]'
       }
     ],
 

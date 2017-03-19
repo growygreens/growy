@@ -1,7 +1,7 @@
 module Catalog exposing (..)
 
 import Domain exposing (..)
-import Html exposing (Html, div, img, text, hr)
+import Html exposing (Html, div, img, text, hr, i)
 import Html.Attributes exposing (src, style, class)
 import Material.Button as Button
 import Material.Card as Card
@@ -112,12 +112,18 @@ primaryCardMenu model =
             , css "position" "absolute"
             , css "left" "16px"
             ]
-            [ Icon.i "compare" ]
+            [ if model.pinnedSelectedCultivar == Just True then
+                i [ class "fa fa-lock" ] []
+              else
+                i [ class "fa fa-unlock" ] []
+            ]
         ]
+
 
 secondaryCardMenu : Model -> Card.Block Msg
 secondaryCardMenu model =
     Card.menu [] []
+
 
 selectedCultivarCard : Model -> Cultivar -> CultivarCardRole -> Html Msg
 selectedCultivarCard model c role =
