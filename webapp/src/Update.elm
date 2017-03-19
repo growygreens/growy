@@ -26,7 +26,36 @@ update msg model =
             Material.update Mdl msg_ model
 
         SelectCultivar id ->
-            { model | selectedCultivar = Just id } ! []
+            case model.pinnedSelectedCultivar of
+                Just True ->
+                    if model.selectedCultivar == Just id then
+                        -- Trying to select same cultivar for both primary and secondary: NOP
+                        model ! []
+                    else
+                        { model | secondarySelectedCultivar = Just id } ! []
+
+                _ ->
+                    { model
+                        | selectedCultivar = Just id
+                        , pinnedSelectedCultivar = Just False
+                    }
+                        ! []
 
         DismissSelectedCultivar ->
-            { model | selectedCultivar = Nothing } ! []
+            { model
+                | selectedCultivar = Nothing
+                , pinnedSelectedCultivar = Nothing
+                , secondarySelectedCultivar = Nothing
+            }
+                ! []
+
+        PinSelectedCultivar ->
+            case model.selectedCultivar of
+                Just sel ->
+                    { model | pinnedSelectedCultivar = Just True } ! []
+
+                Nothing ->
+                    model ! []
+
+        DismissSecondarySelectedCultivar ->
+            model ! []

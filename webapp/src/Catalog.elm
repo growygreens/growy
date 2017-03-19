@@ -15,7 +15,7 @@ import Phrases exposing (..)
 
 cultivarById : Maybe CultivarId -> Model -> Maybe Cultivar
 cultivarById id model =
-    List.filter (\x -> Just x.id == model.selectedCultivar) model.cultivars |> List.head
+    List.filter (\x -> Just x.id == id) model.cultivars |> List.head
 
 
 imgUrl : Cultivar -> Url
@@ -33,13 +33,47 @@ maybeSelectedCultivar model =
             selectedCultivarView model c
 
 
+maybeSecondarySelection : Model -> Html Msg
+maybeSecondarySelection model =
+    case cultivarById model.secondarySelectedCultivar model of
+        Nothing ->
+            emptyNode
+
+        Just c ->
+            selectedCultivarCard model c
+
+
+selectionBoxWidth : Model -> String
+selectionBoxWidth model =
+    case model.secondarySelectedCultivar of
+        Just _ ->
+            "532px"
+
+        _ ->
+            "276px"
+
+
 selectedCultivarView : Model -> Cultivar -> Html Msg
 selectedCultivarView model c =
     div
-        [ class "selected-cultivar-box" ]
+        [ style
+            [ ( "min-width", selectionBoxWidth model )
+            ]
+        , class "selected-cultivar-box"
+        ]
         [ div
             []
-            [ selectedCultivarCard model c ]
+            [ div
+                [ style
+                    [ ( "display", "flex" )
+                    , ( "flex-direction", "row" )
+                    , ( "flex-wrap", "nowrap" )
+                    ]
+                ]
+                [ maybeSecondarySelection model
+                , selectedCultivarCard model c
+                ]
+            ]
         ]
 
 
@@ -63,6 +97,8 @@ selectedCultivarCard model c =
             , Card.head
                 [ css "padding-left" "16px"
                 , css "padding-top" "16px"
+                , css "flex-direction" "row"
+                , css "justify-content" "space-between"
                 ]
                 [ text c.name ]
             , Card.subhead
@@ -93,7 +129,7 @@ selectedCultivarCard model c =
                 model.mdl
                 [ Button.icon
                 , Button.ripple
-                , Options.onClick DismissSelectedCultivar
+                , Options.onClick PinSelectedCultivar
                 , Color.background Color.primaryDark
                 , Color.text Color.white
                 , css "position" "absolute"

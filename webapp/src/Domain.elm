@@ -56,6 +56,8 @@ type alias Model =
     , language : Language
     , cultivars : List Cultivar
     , selectedCultivar : Maybe CultivarId
+    , pinnedSelectedCultivar : Maybe Bool
+    , secondarySelectedCultivar : Maybe CultivarId
     , mdl : Material.Model
     }
 
@@ -71,6 +73,8 @@ type Msg
     | Mdl (Material.Msg Msg)
     | SelectCultivar CultivarId
     | DismissSelectedCultivar
+    | PinSelectedCultivar
+    | DismissSecondarySelectedCultivar
 
 
 initModel : Model
@@ -79,6 +83,8 @@ initModel =
     , language = I18n.SvSe
     , cultivars = devCreateMockPlants
     , selectedCultivar = Nothing
+    , pinnedSelectedCultivar = Nothing
+    , secondarySelectedCultivar = Nothing
     , mdl = Material.model
     }
 
