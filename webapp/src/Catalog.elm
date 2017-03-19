@@ -13,6 +13,11 @@ import Maybe
 import Phrases exposing (..)
 
 
+type CultivarCardRole
+    = Primary
+    | Secondary
+
+
 cultivarById : Maybe CultivarId -> Model -> Maybe Cultivar
 cultivarById id model =
     List.filter (\x -> Just x.id == id) model.cultivars |> List.head
@@ -40,7 +45,7 @@ maybeSecondarySelection model =
             emptyNode
 
         Just c ->
-            selectedCultivarCard model c
+            selectedCultivarCard model c Secondary
 
 
 selectionBoxWidth : Model -> String
@@ -71,14 +76,51 @@ selectedCultivarView model c =
                     ]
                 ]
                 [ maybeSecondarySelection model
-                , selectedCultivarCard model c
+                , selectedCultivarCard model c Primary
                 ]
             ]
         ]
 
 
-selectedCultivarCard : Model -> Cultivar -> Html Msg
-selectedCultivarCard model c =
+primaryCardMenu : Model -> Card.Block Msg
+primaryCardMenu model =
+    Card.menu
+        [ css "width" "100%"
+        , css "left" "0"
+        , css "top" "14px"
+        ]
+        [ Button.render Mdl
+            [ 0, 0 ]
+            model.mdl
+            [ Button.icon
+            , Button.ripple
+            , Options.onClick DismissSelectedCultivar
+            , Color.background Color.primaryDark
+            , Color.text Color.white
+            , css "position" "absolute"
+            , css "right" "16px"
+            ]
+            [ Icon.i "close" ]
+        , Button.render Mdl
+            [ 0, 0 ]
+            model.mdl
+            [ Button.icon
+            , Button.ripple
+            , Options.onClick PinSelectedCultivar
+            , Color.background Color.primaryDark
+            , Color.text Color.white
+            , css "position" "absolute"
+            , css "left" "16px"
+            ]
+            [ Icon.i "compare" ]
+        ]
+
+secondaryCardMenu : Model -> Card.Block Msg
+secondaryCardMenu model =
+    Card.menu [] []
+
+selectedCultivarCard : Model -> Cultivar -> CultivarCardRole -> Html Msg
+selectedCultivarCard model c role =
     Card.view
         [ Elevation.e6
         , cs "selected-cultivar-card"
@@ -107,36 +149,12 @@ selectedCultivarCard model c =
                 ]
                 [ text <| translatePlantType model c.plantType ]
             ]
-        , Card.menu
-            [ css "width" "100%"
-            , css "left" "0"
-            , css "top" "14px"
-            ]
-            [ Button.render Mdl
-                [ 0, 0 ]
-                model.mdl
-                [ Button.icon
-                , Button.ripple
-                , Options.onClick DismissSelectedCultivar
-                , Color.background Color.primaryDark
-                , Color.text Color.white
-                , css "position" "absolute"
-                , css "right" "16px"
-                ]
-                [ Icon.i "close" ]
-            , Button.render Mdl
-                [ 0, 0 ]
-                model.mdl
-                [ Button.icon
-                , Button.ripple
-                , Options.onClick PinSelectedCultivar
-                , Color.background Color.primaryDark
-                , Color.text Color.white
-                , css "position" "absolute"
-                , css "left" "16px"
-                ]
-                [ Icon.i "compare" ]
-            ]
+        , case role of
+            Primary ->
+                primaryCardMenu model
+
+            Secondary ->
+                secondaryCardMenu model
         , Card.text
             [ css "padding-top" "0px" ]
             [ hr [] []

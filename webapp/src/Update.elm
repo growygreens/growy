@@ -50,12 +50,21 @@ update msg model =
                 ! []
 
         PinSelectedCultivar ->
-            case model.selectedCultivar of
-                Just sel ->
-                    { model | pinnedSelectedCultivar = Just True } ! []
+            case model.pinnedSelectedCultivar of
+                Just True ->
+                    { model
+                        | pinnedSelectedCultivar = Nothing
+                        , secondarySelectedCultivar = Nothing
+                    }
+                        ! []
 
-                Nothing ->
-                    model ! []
+                _ ->
+                    case model.selectedCultivar of
+                        Just sel ->
+                            { model | pinnedSelectedCultivar = Just True } ! []
+
+                        Nothing ->
+                            model ! []
 
         DismissSecondarySelectedCultivar ->
             model ! []

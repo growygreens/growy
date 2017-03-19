@@ -49,6 +49,28 @@ tests =
                             |> updateModel PinSelectedCultivar
                 in
                     Expect.equal newModel.pinnedSelectedCultivar Nothing
+        , test "Pin again to unpin" <|
+            \() ->
+                let
+                    newModel =
+                        initModel
+                            |> updateModel (SelectCultivar 1)
+                            |> updateModel PinSelectedCultivar
+                            |> updateModel (SelectCultivar 2)
+                            |> updateModel PinSelectedCultivar
+                in
+                    Expect.equal newModel.pinnedSelectedCultivar Nothing
+        , test "Pin again to dismiss secondary" <|
+            \() ->
+                let
+                    newModel =
+                        initModel
+                            |> updateModel (SelectCultivar 1)
+                            |> updateModel PinSelectedCultivar
+                            |> updateModel (SelectCultivar 2)
+                            |> updateModel PinSelectedCultivar
+                in
+                    Expect.equal newModel.secondarySelectedCultivar Nothing
         , test "Select when pinned, selects second cultivar" <|
             \() ->
                 let
