@@ -6,41 +6,68 @@ import Html exposing (..)
 import Html.Attributes exposing (href, class, style)
 import Material.Button as Button
 import Material.Layout as Layout
-import Material.Options as Options exposing (css)
+import Material.Options as Options exposing (css, cs)
 import Material.Scheme
 import Routing exposing (Route(..))
-
-
-viewDrawer : Model -> Html Msg
-viewDrawer model =
-    div []
-        [ Button.render Mdl
-            [ 0 ]
-            model.mdl
-            [ Options.onClick (SetRoute CatalogRoute), css "margin" "0 24px" ]
-            [ text "Catalog" ]
-        , Button.render Mdl
-            [ 1 ]
-            model.mdl
-            [ Options.onClick (SetRoute ProfileRoute), css "margin" "0 24px" ]
-            [ text "Profile" ]
-        ]
 
 
 viewHeader : Model -> Html Msg
 viewHeader model =
     div
+        -- Outer header row
         [ style
-            [ ( "text-align", "center" )
+            [ ( "display", "flex" )
+            , ( "flex-direction", "row" )
+            , ( "align-items", "center" )
+            , ( "justify-content", "space-between" )
+            , ( "height", "100%" )
+            , ( "min-height", "64px" )
             ]
         ]
         [ h4
             [ style
-                [ ( "padding", "12px" )
+                [ ( "padding", "0 0 0 22px" )
                 , ( "margin", "0px" )
                 ]
             ]
-            [ text "Growy" ]
+            [ i
+                [ class "fa fa-leaf fa-flip-horizontal"
+                , style [ ( "padding", "0 0 0 16px" ) ]
+                ]
+                []
+            , text "Growy"
+            ]
+        , span [ style [ ( "flex-grow", "1" ) ] ] []
+        , span [ style [ ( "padding", "0 16px 0 0" ) ] ]
+            [ Button.render Mdl
+                [ 0 ]
+                model.mdl
+                [ Options.onClick NoOp
+                , cs "header-button"
+                ]
+                [ i [ class "fa fa-search" ] [] ]
+            , Button.render Mdl
+                [ 1 ]
+                model.mdl
+                [ Options.onClick (SetRoute CatalogRoute)
+                , cs "header-button"
+                ]
+                [ i [ class "fa fa-table" ] [] ]
+            , Button.render Mdl
+                [ 2 ]
+                model.mdl
+                [ Options.onClick NoOp
+                , cs "header-button"
+                ]
+                [ i [ class "fa fa-bookmark" ] [] ]
+            , Button.render Mdl
+                [ 3 ]
+                model.mdl
+                [ Options.onClick (SetRoute ProfileRoute)
+                , cs "header-button"
+                ]
+                [ i [ class "fa fa-user-circle" ] [] ]
+            ]
         ]
 
 
@@ -64,7 +91,7 @@ viewRoot model =
         [ Layout.fixedHeader
         ]
         { header = [ viewHeader model ]
-        , drawer = [ viewDrawer model ]
+        , drawer = []
         , tabs = ( [], [] )
         , main =
             [ div
