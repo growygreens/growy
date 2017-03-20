@@ -225,6 +225,77 @@ cultivarListItemView model c =
         ]
 
 
+allCultivars : Model -> List Cultivar
+allCultivars model =
+    model.cultivars
+
+
+plantTypeSpacerView : Model -> PlantType -> Html Msg
+plantTypeSpacerView model plantType =
+    div
+        [ style
+            [ ( "width", "100%" )
+            , ( "margin", "10px 10px 0 10px" )
+            , ( "color", "#606060" )
+            ]
+        ]
+        [ hr
+            [ style
+                [ ( "margin", "10px 0 2px 0" )
+                ]
+            ]
+            []
+        , div
+            [ style
+                [ ( "font-style", "italic" ) ]
+            ]
+            [ text <| translatePlantType model plantType ]
+        ]
+
+
+cultivarListItemsView : Model -> List (Html Msg)
+cultivarListItemsView model =
+    let
+        selectedName =
+            case cultivarById model.selectedCultivar model of
+                Just sel ->
+                    toString sel.plantType
+
+                Nothing ->
+                    ""
+
+        someCultivars =
+            if model.pinnedSelectedCultivar == Just True then
+                List.filter
+                    (\a -> (toString a.plantType) == selectedName)
+                    model.cultivars
+            else
+                model.cultivars
+
+        groupedByType =
+            groupCultivarsOnType someCultivars
+
+        typeViewFromGroup =
+            \cultivarGroup ->
+                case List.head cultivarGroup of
+                    Just plant ->
+                        plantTypeSpacerView model plant.plantType
+
+                    Nothing ->
+                        emptyNode
+
+        processCultivarGroup =
+            \cultivarGroup ->
+                [ typeViewFromGroup cultivarGroup ]
+                    ++ (List.map (cultivarListItemView model) <| cultivarGroup)
+    in
+        List.concat (List.map processCultivarGroup groupedByType)
+
+
+
+--            ++
+
+
 cultivarListView : Model -> Html Msg
 cultivarListView model =
     div
@@ -242,7 +313,7 @@ cultivarListView model =
                 , ( "flex-wrap", "wrap" )
                 ]
             ]
-            (List.map (cultivarListItemView model) model.cultivars)
+            (cultivarListItemsView model)
         ]
 
 
