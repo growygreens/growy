@@ -24,7 +24,7 @@ cultivarListView model =
 cultivarListItemsView : Model -> List (Html Msg)
 cultivarListItemsView model =
     let
-        selectedName =
+        selectedType =
             case cultivarById model.selectedCultivar model of
                 Just sel ->
                     toString sel.plantType
@@ -32,16 +32,16 @@ cultivarListItemsView model =
                 Nothing ->
                     ""
 
-        someCultivars =
+        filteredCultivars =
             if model.pinnedSelectedCultivar == Just True then
                 List.filter
-                    (\a -> (toString a.plantType) == selectedName)
+                    (\a -> (toString a.plantType) == selectedType)
                     model.cultivars
             else
                 model.cultivars
 
         groupedByType =
-            groupCultivarsOnType someCultivars
+            groupCultivarsOnType filteredCultivars
 
         typeViewFromGroup =
             \cultivarGroup ->
