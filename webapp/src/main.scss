@@ -1,3 +1,25 @@
+.main-box {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.header-button {
+  min-width: 32px;
+  margin: 0;
+  padding: 0 12px 0 12px;
+  font-size: 18px;
+  color: #404040;
+}
+
+.header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 64px;
+}
+
 .selected-cultivar-box {
   display: flex;
   flex-direction: column;
@@ -11,12 +33,4 @@
   width: 256px;
   margin: 10px;
   padding: 0;
-}
-
-.header-button {
-  min-width: 32px;
-  margin: 0;
-  padding: 0 12px 0 12px;
-  font-size: 18px;
-  color: #404040;
 }
