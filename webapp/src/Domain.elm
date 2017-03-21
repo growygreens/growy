@@ -96,6 +96,9 @@ initModel =
     , mdl = Material.model
     }
 
+cultivarById : Maybe CultivarId -> Model -> Maybe Cultivar
+cultivarById id model =
+    List.filter (\x -> Just x.id == id) model.cultivars |> List.head
 
 groupBy : (a -> comparable) -> List a -> List (List a)
 groupBy fn list =
