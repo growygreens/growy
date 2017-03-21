@@ -5,8 +5,6 @@ import Domain exposing (Model, Msg(..))
 import Html exposing (..)
 import Html.Attributes exposing (href, class, style)
 import Material.Layout as Layout
-import Material.Options as Options exposing (css, cs)
-import Material.Scheme
 import Routing exposing (Route(..))
 import Header exposing (viewHeader)
 

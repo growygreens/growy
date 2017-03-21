@@ -233,22 +233,10 @@ allCultivars model =
 plantTypeSpacerView : Model -> PlantType -> Html Msg
 plantTypeSpacerView model plantType =
     div
-        [ style
-            [ ( "width", "100%" )
-            , ( "margin", "10px 10px 0 10px" )
-            , ( "color", "#606060" )
-            ]
-        ]
-        [ hr
-            [ style
-                [ ( "margin", "10px 0 2px 0" )
-                ]
-            ]
+        [ class "catalog-type-spacer" ]
+        [ hr [ class "catalog-type-spacer-hr" ]
             []
-        , div
-            [ style
-                [ ( "font-style", "italic" ) ]
-            ]
+        , div [ class "catalog-type-spacer-text" ]
             [ text <| translatePlantType model plantType ]
         ]
 
