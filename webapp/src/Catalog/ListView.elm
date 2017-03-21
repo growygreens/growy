@@ -15,21 +15,8 @@ import ViewHelpers exposing (..)
 
 cultivarListView : Model -> Html Msg
 cultivarListView model =
-    div
-        [ style
-            [ ( "display", "flex" )
-            , ( "flex-direction", "column" )
-            , ( "flex-grow", "0" )
-            , ( "overflow-y", "auto" )
-            ]
-        ]
-        [ div
-            [ style
-                [ ( "display", "flex" )
-                , ( "flex-direction", "row" )
-                , ( "flex-wrap", "wrap" )
-                ]
-            ]
+    div [ class "catalog-box-outer" ]
+        [ div [ class "catalog-box-inner" ]
             (cultivarListItemsView model)
         ]
 

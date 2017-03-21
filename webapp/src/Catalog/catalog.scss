@@ -1,0 +1,41 @@
+.catalog-box-outer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  overflow-y:auto;
+}
+
+.catalog-box-inner {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.selected-cultivar-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-right: 8px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.selected-cultivar-card {
+  width: 256px;
+  margin: 10px;
+  padding: 0;
+}
+
+.catalog-type-spacer {
+  width:100%;
+  margin: 10px 10px 0 10px;
+  color: #606060;
+}
+
+.catalog-type-spacer-hr {
+  margin: 10px 0 2px 0;
+}
+
+.catalog-type-spacer-text {
+  font-style: italic;
+}
