@@ -11,7 +11,7 @@
   flex-wrap: wrap;
 }
 
-.selected-cultivar-box {
+.selected-cultivar-box-outer {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -20,10 +20,42 @@
   overflow-x: hidden;
 }
 
-.selected-cultivar-card {
+.selected-cultivar-box-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.catalog-sel-card-menu {
+  width: 100%;
+  left: 0;
+  top: 14px;
+}
+
+.catalog-sel-card {
   width: 256px;
   margin: 10px;
   padding: 0;
+}
+
+.catalog-sel-card-title {
+  padding: 0;
+}
+
+.catalog-sel-card-head {
+  padding-left:16px;
+  padding-top: 16px;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.catalog-sel-card-subhead {
+  padding-left: 16px;
+  font-style: italic;
+}
+
+.catalog-list-item-card-text {
+  padding-top: 0px;
 }
 
 .catalog-type-spacer {

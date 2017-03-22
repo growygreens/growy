@@ -52,20 +52,11 @@ selectionBoxWidth model =
 selectedCultivarView : Model -> Cultivar -> Html Msg
 selectedCultivarView model c =
     div
-        [ style
-            [ ( "min-width", selectionBoxWidth model )
-            ]
-        , class "selected-cultivar-box"
+        [ style [ ( "min-width", selectionBoxWidth model ) ]
+        , class "selected-cultivar-box-outer"
         ]
-        [ div
-            []
-            [ div
-                [ style
-                    [ ( "display", "flex" )
-                    , ( "flex-direction", "row" )
-                    , ( "flex-wrap", "nowrap" )
-                    ]
-                ]
+        [ div []
+            [ div [ class "selected-cultivar-box-inner" ]
                 [ maybeSecondarySelection model
                 , selectedCultivarCard model c Primary
                 ]
@@ -73,41 +64,47 @@ selectedCultivarView model c =
         ]
 
 
+pinButton : Model -> Html Msg
+pinButton model =
+    Button.render Mdl
+        [ 0, 0 ]
+        model.mdl
+        [ Button.icon
+        , Button.ripple
+        , Options.onClick PinSelectedCultivar
+        , Color.background Color.accent
+        , Color.text Color.accentContrast
+        , css "position" "absolute"
+        , css "left" "16px"
+        ]
+        [ if model.pinnedSelectedCultivar == Just True then
+            i [ class "fa fa-lock" ] []
+          else
+            i [ class "fa fa-unlock" ] []
+        ]
+
+
+dismissSelectedButton : Model -> Html Msg
+dismissSelectedButton model =
+    Button.render Mdl
+        [ 0, 0 ]
+        model.mdl
+        [ Button.icon
+        , Button.ripple
+        , Options.onClick DismissSelectedCultivar
+        , Color.background Color.accent
+        , Color.text Color.accentContrast
+        , css "position" "absolute"
+        , css "right" "16px"
+        ]
+        [ Icon.i "close" ]
+
+
 primaryCardMenu : Model -> Card.Block Msg
 primaryCardMenu model =
-    Card.menu
-        [ css "width" "100%"
-        , css "left" "0"
-        , css "top" "14px"
-        ]
-        [ Button.render Mdl
-            [ 0, 0 ]
-            model.mdl
-            [ Button.icon
-            , Button.ripple
-            , Options.onClick DismissSelectedCultivar
-            , Color.background Color.accent
-            , Color.text Color.accentContrast
-            , css "position" "absolute"
-            , css "right" "16px"
-            ]
-            [ Icon.i "close" ]
-        , Button.render Mdl
-            [ 0, 0 ]
-            model.mdl
-            [ Button.icon
-            , Button.ripple
-            , Options.onClick PinSelectedCultivar
-            , Color.background Color.accent
-            , Color.text Color.accentContrast
-            , css "position" "absolute"
-            , css "left" "16px"
-            ]
-            [ if model.pinnedSelectedCultivar == Just True then
-                i [ class "fa fa-lock" ] []
-              else
-                i [ class "fa fa-unlock" ] []
-            ]
+    Card.menu [ cs "catalog-sel-card-menu" ]
+        [ dismissSelectedButton model
+        , pinButton model
         ]
 
 
@@ -116,15 +113,23 @@ secondaryCardMenu model =
     Card.menu [] []
 
 
+cardMenu : Model -> CultivarCardRole -> Card.Block Msg
+cardMenu model role =
+    case role of
+        Primary ->
+            primaryCardMenu model
+
+        Secondary ->
+            secondaryCardMenu model
+
+
 selectedCultivarCard : Model -> Cultivar -> CultivarCardRole -> Html Msg
 selectedCultivarCard model c role =
     Card.view
         [ Elevation.e6
-        , cs "selected-cultivar-card"
+        , cs "catalog-sel-card"
         ]
-        [ Card.title
-            [ css "padding" "0"
-            ]
+        [ Card.title [ cs "catalog-sel-card-title" ]
             [ img
                 [ style
                     [ ( "width", "256px" )
@@ -133,27 +138,13 @@ selectedCultivarCard model c role =
                 , src <| imgUrl c
                 ]
                 []
-            , Card.head
-                [ css "padding-left" "16px"
-                , css "padding-top" "16px"
-                , css "flex-direction" "row"
-                , css "justify-content" "space-between"
-                ]
+            , Card.head [ cs "catalog-sel-card-head" ]
                 [ text c.name ]
-            , Card.subhead
-                [ css "padding-left" "16px"
-                , css "font-style" "italic"
-                ]
+            , Card.subhead [ cs "catalog-sel-card-subhead" ]
                 [ text <| translatePlantType model c.plantType ]
             ]
-        , case role of
-            Primary ->
-                primaryCardMenu model
-
-            Secondary ->
-                secondaryCardMenu model
-        , Card.text
-            [ css "padding-top" "0px" ]
+        , cardMenu model role
+        , Card.text [ cs "catalog-list-item-card-text" ]
             [ hr [] []
             , text <| Maybe.withDefault (tr model Phrases.DescriptionMissing) c.description
             ]
