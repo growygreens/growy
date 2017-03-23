@@ -17,7 +17,7 @@ init location =
         model =
             initModel
     in
-        { model | route = currentRoute } ! []
+        { model | route = currentRoute } ! [ Material.init Mdl ]
 
 
 subscriptions : Model -> Sub Msg
