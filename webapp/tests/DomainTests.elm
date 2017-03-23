@@ -14,10 +14,11 @@ makeTestCultivar id name plantType plantSubType =
     , name = "Early Nantes"
     , description = Nothing
     , imgUrl = Nothing
-    , hardinessZone = 5
+    , hardinessZone = ( 5, 6 )
     , lifeCycle = Biennial
     , sunExposureRequirements = FullSun
     , cultivationPlans = [ DirectSow ]
+    , germinationTimeDays = ( 10, 30 )
     , plantType = plantType
     , plantSubType = plantSubType
     }

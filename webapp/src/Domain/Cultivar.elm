@@ -74,6 +74,10 @@ type alias HardinessZone =
     Int
 
 
+type alias HardinessZoneRequirement =
+    ( HardinessZone, HardinessZone )
+
+
 type PlantLifeCycle
     = Annual
     | Biennial
@@ -84,7 +88,13 @@ type SunExposureRequirement
     = FullSun
     | DappledSun
     | PartialShade
+    | FullSunToPartialShade
+    | PartialShadeToFullShade
     | FullShade
+
+
+type alias GerminationTimeDays =
+    ( Int, Int )
 
 
 type alias Cultivar =
@@ -93,9 +103,10 @@ type alias Cultivar =
     , description : Maybe String
     , imgUrl : Maybe Url
     , lifeCycle : PlantLifeCycle
-    , hardinessZone : HardinessZone
+    , hardinessZone : HardinessZoneRequirement
     , sunExposureRequirements : SunExposureRequirement
     , cultivationPlans : CultivationPlans
+    , germinationTimeDays : GerminationTimeDays
     , plantType : PlantType
     , plantSubType : Maybe PlantSubType
     }
@@ -135,8 +146,9 @@ devCreateMockPlants =
       , description = Just "Phasellus at dui in ligula mollis ultricies.  Cras placerat accumsan nulla.  Nulla posuere.  "
       , imgUrl = Just "img/carrot-1.png"
       , lifeCycle = Annual
-      , hardinessZone = 5
+      , hardinessZone = ( 4, 5 )
       , sunExposureRequirements = FullSun
+      , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
       , plantType = Carrot ({})
       , plantSubType = Just <| CarrotSubType NantesCarrot
@@ -146,8 +158,9 @@ devCreateMockPlants =
       , description = Just "Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Etiam laoreet quam sed arcu.  "
       , imgUrl = Just "img/carrot-2.png"
       , lifeCycle = Annual
-      , hardinessZone = 5
+      , hardinessZone = ( 4, 5 )
       , sunExposureRequirements = FullSun
+      , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
       , plantType = Carrot {}
       , plantSubType = Just <| CarrotSubType FlakkerCarror
@@ -157,8 +170,9 @@ devCreateMockPlants =
       , description = Just "Aenean in sem ac leo mollis blandit.  Aliquam feugiat tellus ut neque.  Nunc rutrum turpis sed pede.  Nullam libero mauris, consequat quis, varius et, dictum id, arcu.  "
       , imgUrl = Just "img/carrot-3.png"
       , lifeCycle = Annual
-      , hardinessZone = 5
+      , hardinessZone = ( 5, 5 )
       , sunExposureRequirements = FullSun
+      , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
       , plantType = Carrot {}
       , plantSubType = Just <| CarrotSubType ChantenayCarrot
@@ -168,8 +182,9 @@ devCreateMockPlants =
       , description = Nothing
       , imgUrl = Just "img/carrot-1.png"
       , lifeCycle = Annual
-      , hardinessZone = 5
+      , hardinessZone = ( 5, 5 )
       , sunExposureRequirements = FullSun
+      , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ DirectSow ]
       , plantType = Carrot {}
       , plantSubType = Nothing
@@ -179,8 +194,9 @@ devCreateMockPlants =
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
       , imgUrl = Just "img/onion-1.png"
       , lifeCycle = Annual
-      , hardinessZone = 5
+      , hardinessZone = ( 5, 5 )
       , sunExposureRequirements = FullSun
+      , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ DirectSow ]
       , plantType = Onion {}
       , plantSubType = Just <| OnionSubType BulbOnion
@@ -190,8 +206,9 @@ devCreateMockPlants =
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
       , imgUrl = Just "img/onion-1.png"
       , lifeCycle = Annual
-      , hardinessZone = 5
+      , hardinessZone = ( 5, 6 )
       , sunExposureRequirements = FullSun
+      , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ DirectSow ]
       , plantType = Onion {}
       , plantSubType = Just <| OnionSubType BulbOnion
@@ -201,8 +218,9 @@ devCreateMockPlants =
       , description = Nothing
       , imgUrl = Just "img/onion-1.png"
       , lifeCycle = Annual
-      , hardinessZone = 5
+      , hardinessZone = ( 5, 7 )
       , sunExposureRequirements = FullSun
+      , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ DirectSow ]
       , plantType = Onion {}
       , plantSubType = Just <| OnionSubType BulbOnion
@@ -212,8 +230,9 @@ devCreateMockPlants =
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
       , imgUrl = Just "img/tomato-1.png"
       , lifeCycle = Annual
-      , hardinessZone = 5
+      , hardinessZone = ( 5, 8 )
       , sunExposureRequirements = FullSun
+      , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
       , plantType = Tomato {}
       , plantSubType = Just <| TomatoSubType DeterminateTomato
@@ -223,8 +242,9 @@ devCreateMockPlants =
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
       , imgUrl = Just "img/tomato-2.png"
       , lifeCycle = Annual
-      , hardinessZone = 5
+      , hardinessZone = ( 1, 5 )
       , sunExposureRequirements = FullSun
+      , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
       , plantType = Tomato {}
       , plantSubType = Just <| TomatoSubType DeterminateTomato
@@ -234,8 +254,9 @@ devCreateMockPlants =
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
       , imgUrl = Just "img/tomato-1.png"
       , lifeCycle = Annual
-      , hardinessZone = 5
+      , hardinessZone = ( 1, 5 )
       , sunExposureRequirements = FullSun
+      , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
       , plantType = Tomato {}
       , plantSubType = Just <| TomatoSubType DeterminateTomato
