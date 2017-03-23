@@ -16,10 +16,22 @@ type alias Url =
     String
 
 
+type alias CarrotData =
+    {}
+
+
+type alias OnionData =
+    {}
+
+
+type alias TomatoData =
+    {}
+
+
 type PlantType
-    = Carrot
-    | Onion
-    | Tomato
+    = Carrot CarrotData
+    | Onion OnionData
+    | Tomato TomatoData
 
 
 type TomatoSubType
@@ -33,6 +45,19 @@ type OnionSubType
     = BulbOnion
     | LeekOnion
     | SpringOnion
+
+
+type alias CultivationPlans =
+    List CultivationPlan
+
+
+type CultivationPlan
+    = SowInAutumn
+    | PlanInFall
+    | BuyPlant
+    | DirectSow
+    | StartIndoor
+    | Greenhouse
 
 
 type CarrotSubType
@@ -49,11 +74,32 @@ type PlantSubType
     | CarrotSubType CarrotSubType
 
 
+type alias HardinessZone =
+    Int
+
+
+type PlantLifeCycle
+    = Annual
+    | Biennial
+    | Perennial
+
+
+type SunExposureRequirement
+    = FullSun
+    | DappledSun
+    | PartialShade
+    | FullShade
+
+
 type alias Cultivar =
     { id : CultivarId
     , name : String
     , description : Maybe String
     , imgUrl : Maybe Url
+    , lifeCycle : PlantLifeCycle
+    , hardinessZone : HardinessZone
+    , sunExposureRequirements : SunExposureRequirement
+    , cultivationPlans : CultivationPlans
     , plantType : PlantType
     , plantSubType : Maybe PlantSubType
     }
@@ -96,9 +142,11 @@ initModel =
     , mdl = Material.model
     }
 
+
 cultivarById : Maybe CultivarId -> Model -> Maybe Cultivar
 cultivarById id model =
     List.filter (\x -> Just x.id == id) model.cultivars |> List.head
+
 
 groupBy : (a -> comparable) -> List a -> List (List a)
 groupBy fn list =
@@ -122,13 +170,13 @@ tr model phrase =
 translatePlantType : Model -> PlantType -> String
 translatePlantType model plantType =
     case plantType of
-        Carrot ->
+        Carrot _ ->
             tr model Phrases.Carrot
 
-        Onion ->
+        Onion _ ->
             tr model Phrases.Onion
 
-        Tomato ->
+        Tomato _ ->
             tr model Phrases.Tomato
 
 
@@ -138,70 +186,110 @@ devCreateMockPlants =
       , name = "Early Nantes"
       , description = Just "Phasellus at dui in ligula mollis ultricies.  Cras placerat accumsan nulla.  Nulla posuere.  "
       , imgUrl = Just "img/carrot-1.png"
-      , plantType = Carrot
+      , lifeCycle = Annual
+      , hardinessZone = 5
+      , sunExposureRequirements = FullSun
+      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , plantType = Carrot ({})
       , plantSubType = Just <| CarrotSubType NantesCarrot
       }
     , { id = 1
       , name = "Autumn King"
       , description = Just "Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Etiam laoreet quam sed arcu.  "
       , imgUrl = Just "img/carrot-2.png"
-      , plantType = Carrot
+      , lifeCycle = Annual
+      , hardinessZone = 5
+      , sunExposureRequirements = FullSun
+      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , plantType = Carrot {}
       , plantSubType = Just <| CarrotSubType FlakkerCarror
       }
     , { id = 2
       , name = "London Torg"
       , description = Just "Aenean in sem ac leo mollis blandit.  Aliquam feugiat tellus ut neque.  Nunc rutrum turpis sed pede.  Nullam libero mauris, consequat quis, varius et, dictum id, arcu.  "
       , imgUrl = Just "img/carrot-3.png"
-      , plantType = Carrot
+      , lifeCycle = Annual
+      , hardinessZone = 5
+      , sunExposureRequirements = FullSun
+      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , plantType = Carrot {}
       , plantSubType = Just <| CarrotSubType ChantenayCarrot
       }
     , { id = 3
       , name = "Oxhella"
       , description = Nothing
       , imgUrl = Just "img/carrot-1.png"
-      , plantType = Carrot
+      , lifeCycle = Annual
+      , hardinessZone = 5
+      , sunExposureRequirements = FullSun
+      , cultivationPlans = [ DirectSow ]
+      , plantType = Carrot {}
       , plantSubType = Nothing
       }
     , { id = 4
       , name = "Sturon"
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
       , imgUrl = Just "img/onion-1.png"
-      , plantType = Onion
+      , lifeCycle = Annual
+      , hardinessZone = 5
+      , sunExposureRequirements = FullSun
+      , cultivationPlans = [ DirectSow ]
+      , plantType = Onion {}
       , plantSubType = Just <| OnionSubType BulbOnion
       }
     , { id = 5
-      , name = "Rijnsburger Bajosta"
+      , name = "Ginsburg Bajosta"
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
       , imgUrl = Just "img/onion-1.png"
-      , plantType = Onion
+      , lifeCycle = Annual
+      , hardinessZone = 5
+      , sunExposureRequirements = FullSun
+      , cultivationPlans = [ DirectSow ]
+      , plantType = Onion {}
       , plantSubType = Just <| OnionSubType BulbOnion
       }
     , { id = 6
       , name = "Giant Stuttgart"
       , description = Nothing
       , imgUrl = Just "img/onion-1.png"
-      , plantType = Onion
+      , lifeCycle = Annual
+      , hardinessZone = 5
+      , sunExposureRequirements = FullSun
+      , cultivationPlans = [ DirectSow ]
+      , plantType = Onion {}
       , plantSubType = Just <| OnionSubType BulbOnion
       }
     , { id = 7
       , name = "Ida Gold"
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
       , imgUrl = Just "img/tomato-1.png"
-      , plantType = Tomato
+      , lifeCycle = Annual
+      , hardinessZone = 5
+      , sunExposureRequirements = FullSun
+      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , plantType = Tomato {}
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
     , { id = 8
       , name = "Sub-Arctic Plenty"
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
       , imgUrl = Just "img/tomato-2.png"
-      , plantType = Tomato
+      , lifeCycle = Annual
+      , hardinessZone = 5
+      , sunExposureRequirements = FullSun
+      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , plantType = Tomato {}
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
     , { id = 9
       , name = "Taxi"
       , description = Just "Etiam vel neque nec dui dignissim bibendum.  "
       , imgUrl = Just "img/tomato-1.png"
-      , plantType = Tomato
+      , lifeCycle = Annual
+      , hardinessZone = 5
+      , sunExposureRequirements = FullSun
+      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , plantType = Tomato {}
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
     ]
