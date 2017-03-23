@@ -88,6 +88,8 @@ type alias GerminationTimeDays =
 type alias Week =
     Int
 
+type alias HeightCm =
+    Int
 
 type alias StartTime =
     ( Week, Week )
@@ -108,6 +110,7 @@ type alias Cultivar =
     , cultivationPlans : CultivationPlans
     , germinationTimeDays : GerminationTimeDays
     , daysToMaturity : DaysToMaturity
+    , height : Maybe HeightCm
     , plantType : PlantType
     , plantSubType : Maybe PlantSubType
     }
@@ -152,6 +155,7 @@ devCreateMockPlants =
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
       , daysToMaturity = 62
+      , height = Just 40
       , plantType = Carrot
       , plantSubType = Just <| CarrotSubType NantesCarrot
       }
@@ -165,6 +169,7 @@ devCreateMockPlants =
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
       , daysToMaturity = 62
+      , height = Just 40
       , plantType = Carrot
       , plantSubType = Just <| CarrotSubType FlakkerCarror
       }
@@ -178,6 +183,7 @@ devCreateMockPlants =
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
       , daysToMaturity = 62
+      , height = Just 40
       , plantType = Carrot
       , plantSubType = Just <| CarrotSubType ChantenayCarrot
       }
@@ -191,6 +197,7 @@ devCreateMockPlants =
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
       , daysToMaturity = 62
+      , height = Just 40
       , plantType = Carrot
       , plantSubType = Nothing
       }
@@ -204,6 +211,7 @@ devCreateMockPlants =
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
       , daysToMaturity = 62
+      , height = Just 40
       , plantType = Onion
       , plantSubType = Just <| OnionSubType BulbOnion
       }
@@ -217,6 +225,7 @@ devCreateMockPlants =
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
       , daysToMaturity = 62
+      , height = Just 40
       , plantType = Onion
       , plantSubType = Just <| OnionSubType BulbOnion
       }
@@ -230,6 +239,7 @@ devCreateMockPlants =
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
       , daysToMaturity = 62
+      , height = Just 40
       , plantType = Onion
       , plantSubType = Just <| OnionSubType BulbOnion
       }
@@ -243,6 +253,7 @@ devCreateMockPlants =
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
       , daysToMaturity = 62
+      , height = Just 40
       , plantType = Tomato
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
@@ -256,6 +267,7 @@ devCreateMockPlants =
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
       , daysToMaturity = 62
+      , height = Just 40
       , plantType = Tomato
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
@@ -269,6 +281,7 @@ devCreateMockPlants =
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
       , daysToMaturity = 62
+      , height = Just 40
       , plantType = Tomato
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
