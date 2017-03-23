@@ -12,22 +12,10 @@ type alias CultivarId =
     Int
 
 
-type alias CarrotData =
-    {}
-
-
-type alias OnionData =
-    {}
-
-
-type alias TomatoData =
-    {}
-
-
 type PlantType
-    = Carrot CarrotData
-    | Onion OnionData
-    | Tomato TomatoData
+    = Carrot
+    | Onion
+    | Tomato
 
 
 type TomatoSubType
@@ -129,13 +117,13 @@ groupCultivarsOnType cultivars =
 translatePlantType : PlantType -> Phrases
 translatePlantType plantType =
     case plantType of
-        Carrot _ ->
+        Carrot ->
             Phrases.Carrot
 
-        Onion _ ->
+        Onion ->
             Phrases.Onion
 
-        Tomato _ ->
+        Tomato ->
             Phrases.Tomato
 
 
@@ -150,7 +138,7 @@ devCreateMockPlants =
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
-      , plantType = Carrot ({})
+      , plantType = Carrot
       , plantSubType = Just <| CarrotSubType NantesCarrot
       }
     , { id = 1
@@ -162,7 +150,7 @@ devCreateMockPlants =
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
-      , plantType = Carrot {}
+      , plantType = Carrot
       , plantSubType = Just <| CarrotSubType FlakkerCarror
       }
     , { id = 2
@@ -174,7 +162,7 @@ devCreateMockPlants =
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
-      , plantType = Carrot {}
+      , plantType = Carrot
       , plantSubType = Just <| CarrotSubType ChantenayCarrot
       }
     , { id = 3
@@ -186,7 +174,7 @@ devCreateMockPlants =
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ DirectSow ]
-      , plantType = Carrot {}
+      , plantType = Carrot
       , plantSubType = Nothing
       }
     , { id = 4
@@ -198,7 +186,7 @@ devCreateMockPlants =
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ DirectSow ]
-      , plantType = Onion {}
+      , plantType = Onion
       , plantSubType = Just <| OnionSubType BulbOnion
       }
     , { id = 5
@@ -210,7 +198,7 @@ devCreateMockPlants =
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ DirectSow ]
-      , plantType = Onion {}
+      , plantType = Onion
       , plantSubType = Just <| OnionSubType BulbOnion
       }
     , { id = 6
@@ -222,7 +210,7 @@ devCreateMockPlants =
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ DirectSow ]
-      , plantType = Onion {}
+      , plantType = Onion
       , plantSubType = Just <| OnionSubType BulbOnion
       }
     , { id = 7
@@ -234,7 +222,7 @@ devCreateMockPlants =
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
-      , plantType = Tomato {}
+      , plantType = Tomato
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
     , { id = 8
@@ -246,7 +234,7 @@ devCreateMockPlants =
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
-      , plantType = Tomato {}
+      , plantType = Tomato
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
     , { id = 9
@@ -258,7 +246,7 @@ devCreateMockPlants =
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
       , cultivationPlans = [ StartIndoor, BuyPlant ]
-      , plantType = Tomato {}
+      , plantType = Tomato
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
     ]
