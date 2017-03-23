@@ -144,6 +144,41 @@ translatePlantType plantType =
             Phrases.Tomato
 
 
+translateSunRequirement : SunExposureRequirement -> Phrases
+translateSunRequirement sunRequirement =
+    case sunRequirement of
+        FullSun ->
+            Phrases.FullSun
+
+        DappledSun ->
+            Phrases.DappledSun
+
+        PartialShade ->
+            Phrases.PartialShade
+
+        FullSunToPartialShade ->
+            Phrases.FullSunToPartialShade
+
+        PartialShadeToFullShade ->
+            Phrases.PartialShadeToFullShade
+
+        FullShade ->
+            Phrases.FullShade
+
+
+translatePlantLifeCycle : PlantLifeCycle -> Phrases
+translatePlantLifeCycle lifeCycle =
+    case lifeCycle of
+        Annual ->
+            Phrases.Annual
+
+        Biennial ->
+            Phrases.Biennial
+
+        Perennial ->
+            Phrases.Perennial
+
+
 devCreateMockPlants : List Cultivar
 devCreateMockPlants =
     [ { id = 105295136411772

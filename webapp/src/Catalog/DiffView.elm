@@ -147,6 +147,17 @@ selectedCultivarCard model c role =
         , cardMenu model role
         , Card.text [ cs "catalog-list-item-card-text" ]
             [ hr [] []
-            , text <| Maybe.withDefault (tr model Phrases.DescriptionMissing) c.description
+            , div [] [ text <| (tr model Phrases.HardinessZone) ++ ": " ++ (tupleToString c.hardinessZone) ]
+            , div [] [ text <| (tr model Phrases.SunRequirements) ++ ": " ++ tr model (translateSunRequirement c.sunExposureRequirements) ]
+            , div [] [ text <| (tr model Phrases.GerminationTimeDays) ++ ": " ++ (tupleToString c.germinationTimeDays) ]
+            , div [] [ text <| (tr model Phrases.LifeCycle) ++ ": " ++ tr model (translatePlantLifeCycle c.lifeCycle) ]
+            , div [] [ text <| (tr model Phrases.DaysToMaturity) ++ ": " ++ (toString c.daysToMaturity) ]
+            , hr [] []
+            , div [] [ text <| Maybe.withDefault (tr model Phrases.DescriptionMissing) c.description ]
             ]
         ]
+
+
+tupleToString : ( a, b ) -> String
+tupleToString ( a, b ) =
+    (a |> toString) ++ " - " ++ (b |> toString)
