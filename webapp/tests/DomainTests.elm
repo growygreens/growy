@@ -17,7 +17,8 @@ makeTestCultivar id name plantType plantSubType =
     , hardinessZone = ( 5, 6 )
     , lifeCycle = Biennial
     , sunExposureRequirements = FullSun
-    , cultivationPlans = [ DirectSow ]
+    , cultivationPlans = [ DirectSow ( 2, 10 ) ]
+    , daysToMaturity = 60
     , germinationTimeDays = ( 10, 30 )
     , plantType = plantType
     , plantSubType = plantSubType
@@ -50,7 +51,6 @@ tests =
                         makeTestCultivar 0 "test0" Carrot (Just <| CarrotSubType NantesCarrot)
 
                     carrot1 =
-
                         makeTestCultivar 1 "test1" Carrot (Just <| CarrotSubType ChantenayCarrot)
 
                     onion2 =

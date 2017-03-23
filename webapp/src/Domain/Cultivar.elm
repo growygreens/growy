@@ -36,12 +36,12 @@ type alias CultivationPlans =
 
 
 type CultivationPlan
-    = SowInAutumn
-    | PlanInFall
-    | BuyPlant
-    | DirectSow
-    | StartIndoor
-    | Greenhouse
+    = SowInAutumn StartTime
+    | PlantInFall StartTime
+    | BuyPlant StartTime
+    | DirectSow StartTime
+    | StartIndoor StartTime
+    | Greenhouse StartTime
 
 
 type CarrotSubType
@@ -85,6 +85,18 @@ type alias GerminationTimeDays =
     ( Int, Int )
 
 
+type alias Week =
+    Int
+
+
+type alias StartTime =
+    ( Week, Week )
+
+
+type alias DaysToMaturity =
+    Int
+
+
 type alias Cultivar =
     { id : CultivarId
     , name : String
@@ -95,6 +107,7 @@ type alias Cultivar =
     , sunExposureRequirements : SunExposureRequirement
     , cultivationPlans : CultivationPlans
     , germinationTimeDays : GerminationTimeDays
+    , daysToMaturity : DaysToMaturity
     , plantType : PlantType
     , plantSubType : Maybe PlantSubType
     }
@@ -137,7 +150,8 @@ devCreateMockPlants =
       , hardinessZone = ( 4, 5 )
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
-      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
+      , daysToMaturity = 62
       , plantType = Carrot
       , plantSubType = Just <| CarrotSubType NantesCarrot
       }
@@ -149,7 +163,8 @@ devCreateMockPlants =
       , hardinessZone = ( 4, 5 )
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
-      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
+      , daysToMaturity = 62
       , plantType = Carrot
       , plantSubType = Just <| CarrotSubType FlakkerCarror
       }
@@ -161,7 +176,8 @@ devCreateMockPlants =
       , hardinessZone = ( 5, 5 )
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
-      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
+      , daysToMaturity = 62
       , plantType = Carrot
       , plantSubType = Just <| CarrotSubType ChantenayCarrot
       }
@@ -173,7 +189,8 @@ devCreateMockPlants =
       , hardinessZone = ( 5, 5 )
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
-      , cultivationPlans = [ DirectSow ]
+      , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
+      , daysToMaturity = 62
       , plantType = Carrot
       , plantSubType = Nothing
       }
@@ -185,7 +202,8 @@ devCreateMockPlants =
       , hardinessZone = ( 5, 5 )
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
-      , cultivationPlans = [ DirectSow ]
+      , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
+      , daysToMaturity = 62
       , plantType = Onion
       , plantSubType = Just <| OnionSubType BulbOnion
       }
@@ -197,7 +215,8 @@ devCreateMockPlants =
       , hardinessZone = ( 5, 6 )
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
-      , cultivationPlans = [ DirectSow ]
+      , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
+      , daysToMaturity = 62
       , plantType = Onion
       , plantSubType = Just <| OnionSubType BulbOnion
       }
@@ -209,7 +228,8 @@ devCreateMockPlants =
       , hardinessZone = ( 5, 7 )
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
-      , cultivationPlans = [ DirectSow ]
+      , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
+      , daysToMaturity = 62
       , plantType = Onion
       , plantSubType = Just <| OnionSubType BulbOnion
       }
@@ -221,7 +241,8 @@ devCreateMockPlants =
       , hardinessZone = ( 5, 8 )
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
-      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
+      , daysToMaturity = 62
       , plantType = Tomato
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
@@ -233,7 +254,8 @@ devCreateMockPlants =
       , hardinessZone = ( 1, 5 )
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
-      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
+      , daysToMaturity = 62
       , plantType = Tomato
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
@@ -245,7 +267,8 @@ devCreateMockPlants =
       , hardinessZone = ( 1, 5 )
       , sunExposureRequirements = FullSun
       , germinationTimeDays = ( 10, 30 )
-      , cultivationPlans = [ StartIndoor, BuyPlant ]
+      , cultivationPlans = [ StartIndoor ( 2, 5 ), BuyPlant ( 10, 20 ) ]
+      , daysToMaturity = 62
       , plantType = Tomato
       , plantSubType = Just <| TomatoSubType DeterminateTomato
       }
