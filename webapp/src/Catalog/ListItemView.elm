@@ -1,6 +1,7 @@
 module Catalog.ListItemView exposing (..)
 
 import Domain exposing (..)
+import Domain.Cultivar exposing (..)
 import Html exposing (Html, div, img, text, hr, i)
 import Material.Button as Button
 import Material.Card as Card

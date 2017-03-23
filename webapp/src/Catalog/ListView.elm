@@ -1,6 +1,7 @@
 module Catalog.ListView exposing (cultivarListView)
 
 import Domain exposing (..)
+import Domain.Cultivar exposing (..)
 import Html exposing (Html, div, img, text, hr, i)
 import Html.Attributes exposing (src, style, class)
 import Material.Elevation as Elevation
@@ -65,5 +66,5 @@ plantTypeSpacerView model plantType =
         [ hr [ class "catalog-type-spacer-hr" ]
             []
         , div [ class "catalog-type-spacer-text" ]
-            [ text <| translatePlantType model plantType ]
+            [ text <| tr model (translatePlantType plantType) ]
         ]

@@ -1,6 +1,7 @@
 module Catalog.DiffView exposing (..)
 
 import Domain exposing (..)
+import Domain.Cultivar exposing (..)
 import Html exposing (Html, div, img, text, hr, i)
 import Html.Attributes exposing (src, style, class)
 import Material.Button as Button
@@ -141,7 +142,7 @@ selectedCultivarCard model c role =
             , Card.head [ cs "catalog-sel-card-head" ]
                 [ text c.name ]
             , Card.subhead [ cs "catalog-sel-card-subhead" ]
-                [ text <| translatePlantType model c.plantType ]
+                [ text <| tr model (translatePlantType c.plantType) ]
             ]
         , cardMenu model role
         , Card.text [ cs "catalog-list-item-card-text" ]

@@ -3,6 +3,7 @@ module DomainTests exposing (tests)
 import Test exposing (..)
 import Expect
 import Domain exposing (..)
+import Domain.Cultivar exposing (..)
 import I18n
 import Routing
 
