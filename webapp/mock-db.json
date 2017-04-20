@@ -1,0 +1,245 @@
+{
+    "cultivars": [
+        { "id": 105295136411772,
+          "name": "Early Nantes",
+          "description": "Phasellus at dui in ligula mollis ultricies.  Cras placerat accumsan nulla.  Nulla posuere.  ",
+          "imgUrl": "img/carrot-1.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "DirectSow": [14, 25],
+              "SowInAutumn": [40, 48]
+          },
+          "daysToMaturity": 62,
+          "plantType": "Carrot",
+          "plantSubType": "NantesCarrot"
+        },
+        { "id": 225026235523732,
+          "name": "Amsterdam Forcing",
+          "description": "Phasellus at dui in ligula mollis ultricies.  Cras placerat accumsan nulla.  Nulla posuere.  ",
+          "imgUrl": "img/carrot-3.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "DirectSow": [14, 25],
+              "SowInAutumn": [40, 48],
+              "Greenhouse": [9, 25]
+          },
+          "daysToMaturity": 55,
+          "plantType": "Carrot"
+        },
+        { "id": 233444673082889,
+          "name": "Autumn King",
+          "description": "Pellentesque condimentum, magna ut suscipit hendrerit, ipsum augue ornare nulla, non luctus diam neque sit amet urna.  Etiam laoreet quam sed arcu.  ",
+          "imgUrl": "img/carrot-2.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "DirectSow": [14, 25],
+              "SowInAutumn": [40, 48]
+          },
+          "daysToMaturity": 75,
+          "plantType": "Carrot"
+        },
+        { "id": 989031222489761,
+          "name": "London Market",
+          "description": "Aenean in sem ac leo mollis blandit.  Aliquam feugiat tellus ut neque.  Nunc rutrum turpis sed pede.  Nullam libero mauris, consequat quis, varius et, dictum id, arcu.  ",
+          "imgUrl": "img/carrot-3.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "DirectSow": [14, 25],
+              "SowInAutumn": [40, 48]
+          },
+          "daysToMaturity": 70,
+          "plantType": "Carrot"
+        },
+        { "id": 429490899973647,
+          "name": "Oxhella",
+          "imgUrl": "img/carrot-1.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "DirectSow": [14, 25],
+              "SowInAutumn": [40, 48]
+          },
+          "daysToMaturity": 75,
+          "plantType": "Carrot"
+        },
+        { "id": 724189906221913,
+          "name": "Paris Market",
+          "imgUrl": "img/carrot-1.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "DirectSow": [14, 25],
+              "SowInAutumn": [40, 48]
+          },
+          "daysToMaturity": 55,
+          "plantType": "Carrot"
+        },
+        { "id": 836844003600167,
+          "name": "Nantes Fancy",
+          "imgUrl": "img/carrot-2.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "DirectSow": [14, 25],
+              "SowInAutumn": [40, 48]
+          },
+          "daysToMaturity": 65,
+          "plantType": "Carrot"
+        },
+        { "id": 163538233683543,
+          "name": "Atomic Red",
+          "imgUrl": "img/carrot-1.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "DirectSow": [14, 25],
+              "SowInAutumn": [40, 48]
+          },
+          "daysToMaturity": 70,
+          "plantType": "Carrot"
+        },
+        { "id": 753630792795779,
+          "name": "Yellowstone",
+          "imgUrl": "img/carrot-2.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "DirectSow": [14, 25],
+              "SowInAutumn": [40, 48]
+          },
+          "daysToMaturity": 72,
+          "plantType": "Carrot"
+        },
+        { "id": 615862676016153,
+          "name": "Flakker 2",
+          "imgUrl": "img/carrot-3.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "DirectSow": [14, 25],
+              "SowInAutumn": [40, 48]
+          },
+          "daysToMaturity": 80,
+          "plantType": "Carrot"
+        },
+        { "id": 641300595439137,
+          "name": "Sturon",
+          "description": "Etiam vel neque nec dui dignissim bibendum.  ",
+          "imgUrl": "img/onion-1.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "StartIndoor": [10, 16],
+              "DirectSow": [10, 20]
+          },
+          "daysToMaturity": 100,
+          "plantType": "Onion",
+          "plantSubType": "BulbOnion"
+        },
+        { "id": 650110521194623,
+          "name": "Ginsburg Bajosta",
+          "description": "Etiam vel neque nec dui dignissim bibendum.  ",
+          "imgUrl": "img/onion-1.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "StartIndoor": [10, 16],
+              "DirectSow": [10, 20]
+          },
+          "daysToMaturity": 100,
+          "plantType": "Onion",
+          "plantSubType": "BulbOnion"
+        },
+        { "id": 35117383168927,
+          "name": "Giant Stuttgart",
+          "imgUrl": "img/onion-1.png",
+          "lifeCycle": "Biennial",
+          "hardinessZone": [1, 6],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [10, 20],
+          "cultivationPlans": {
+              "StartIndoor": [10, 16],
+              "DirectSow": [10, 20]
+          },
+          "daysToMaturity": 110,
+          "plantType": "Onion",
+          "plantSubType": "BulbOnion"
+        },
+        { "id": 765749609404342,
+          "name": "Ida Gold",
+          "description": "Etiam vel neque nec dui dignissim bibendum.  ",
+          "imgUrl": "img/tomato-1.png",
+          "lifeCycle": "Annual",
+          "hardinessZone": [1, 3],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [5, 15],
+          "cultivationPlans": {
+              "StartIndoor": [2, 5],
+              "BuyPlant": [10, 20]
+          },
+          "daysToMaturity": 62,
+          "plantType": "Tomato",
+          "plantSubType": "DeterminateTomato"
+        },
+        { "id": 308345818500133,
+          "name": "Sub-Arctic Plenty",
+          "description": "Etiam vel neque nec dui dignissim bibendum.  ",
+          "imgUrl": "img/tomato-2.png",
+          "lifeCycle": "Annual",
+          "hardinessZone": [1, 3],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [5, 15],
+          "cultivationPlans": {
+              "StartIndoor": [2, 5],
+              "BuyPlant": [10, 20]
+          },
+          "daysToMaturity": 58,
+          "plantType": "Tomato",
+          "plantSubType": "DeterminateTomato"
+        },
+        { "id": 841737527473928,
+          "name": "Taxi",
+          "description": "Etiam vel neque nec dui dignissim bibendum.  ",
+          "imgUrl": "img/tomato-1.png",
+          "lifeCycle": "Annual",
+          "hardinessZone": [1, 3],
+          "sunExposureRequirements": "FullSun",
+          "germinationTimeDays": [5, 15],
+          "cultivationPlans": {
+              "StartIndoor": [2, 5],
+              "BuyPlant": [10, 20]
+          },
+          "daysToMaturity": 64,
+          "plantType": "Tomato",
+          "plantSubType": "DeterminateTomato"
+        }
+    ]
+}

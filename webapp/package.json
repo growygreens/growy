@@ -6,7 +6,8 @@
   "scripts": {
     "test": "elm-test tests/TestMain.elm",
     "build": "BUILD_ENV='production' webpack --optimize-minimize",
-    "serve": "webpack-dev-server --port 3000 --hot"
+    "serve": "webpack-dev-server --port 3000 --hot",
+    "api": "node api.js"
   },
   "keywords": [
     "growy"
@@ -17,6 +18,7 @@
     "elm-hot-loader": "^0.5.4",
     "elm-webpack-loader": "^4.2.0",
     "file-loader": "^0.10.1",
+    "json-server": "^0.9.6",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   },
