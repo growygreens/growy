@@ -68,3 +68,6 @@ update msg model =
 
         DismissSecondarySelectedCultivar ->
             model ! []
+
+        OnFetchCultivars response ->
+            { model | cultivars = response } ! []

@@ -1,6 +1,7 @@
 module Main exposing (..)
 
 import Domain exposing (..)
+import Catalog.RequestData exposing (fetchCultivars)
 import Material
 import Navigation exposing (Location)
 import Routing exposing (urlFor, Route(..))
@@ -17,7 +18,7 @@ init location =
         model =
             initModel
     in
-        { model | route = currentRoute } ! [ Material.init Mdl ]
+        { model | route = currentRoute } ! [ Material.init Mdl, fetchCultivars ]
 
 
 subscriptions : Model -> Sub Msg

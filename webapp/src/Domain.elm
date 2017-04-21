@@ -2,6 +2,7 @@ module Domain exposing (..)
 
 import Routing exposing (..)
 import Material
+import RemoteData exposing (WebData)
 import Navigation exposing (newUrl, Location)
 import Domain.Cultivar exposing (..)
 import I18n exposing (Language)
@@ -10,7 +11,7 @@ import I18n exposing (Language)
 type alias Model =
     { route : Routing.Route
     , language : Language
-    , cultivars : List Cultivar
+    , cultivars : WebData (List Cultivar)
     , selectedCultivar : Maybe CultivarId
     , pinnedSelectedCultivar : Maybe Bool
     , secondarySelectedCultivar : Maybe CultivarId
@@ -31,13 +32,14 @@ type Msg
     | DismissSelectedCultivar
     | PinSelectedCultivar
     | DismissSecondarySelectedCultivar
+    | OnFetchCultivars (WebData (List Cultivar))
 
 
 initModel : Model
 initModel =
     { route = Routing.CatalogRoute
     , language = I18n.SvSe
-    , cultivars = devCreateMockPlants
+    , cultivars = RemoteData.Loading
     , selectedCultivar = Nothing
     , pinnedSelectedCultivar = Nothing
     , secondarySelectedCultivar = Nothing
@@ -47,4 +49,8 @@ initModel =
 
 cultivarById : Maybe CultivarId -> Model -> Maybe Cultivar
 cultivarById id model =
-    List.filter (\x -> Just x.id == id) model.cultivars |> List.head
+    case model.cultivars of
+        RemoteData.Success cultivars ->
+            List.filter (\x -> Just x.id == id) cultivars |> List.head
+        _ ->
+            Nothing

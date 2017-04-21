@@ -4,24 +4,37 @@ import Domain exposing (..)
 import Domain.Cultivar exposing (..)
 import Html exposing (Html, div, img, text, hr, i)
 import Html.Attributes exposing (src, style, class)
-import Material.Elevation as Elevation
-import Material.Icon as Icon
-import Material.Options as Options exposing (css, cs)
 import Maybe
 import ViewHelpers exposing (..)
 import Catalog.ListItemView exposing (..)
-
+import RemoteData exposing (WebData)
 
 cultivarListView : Model -> Html Msg
 cultivarListView model =
     div [ class "catalog-box-outer" ]
         [ div [ class "catalog-box-inner" ]
-            (cultivarListItemsView model)
+          (maybeList model)
         ]
 
 
-cultivarListItemsView : Model -> List (Html Msg)
-cultivarListItemsView model =
+maybeList : Model -> List(Html Msg)
+maybeList model =
+    case model.cultivars of
+        RemoteData.NotAsked ->
+            [text "DBG NOT ASKED"]
+
+        RemoteData.Loading ->
+            [text "Loading..."]
+
+        RemoteData.Success cultivars ->
+            (cultivarListItemsView model cultivars)
+
+        RemoteData.Failure error ->
+            [text (toString error)]
+
+
+cultivarListItemsView : Model -> List Cultivar -> List (Html Msg)
+cultivarListItemsView model cultivars =
     let
         selectedType =
             case cultivarById model.selectedCultivar model of
@@ -35,9 +48,9 @@ cultivarListItemsView model =
             if model.pinnedSelectedCultivar == Just True then
                 List.filter
                     (\a -> (toString a.plantType) == selectedType)
-                    model.cultivars
+                        cultivars
             else
-                model.cultivars
+                cultivars
 
         groupedByType =
             groupCultivarsOnType filteredCultivars
