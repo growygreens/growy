@@ -5,6 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "elm-test tests/TestMain.elm",
+    "test-watch": "elm-test --watch tests/TestMain.elm",
     "build": "BUILD_ENV='production' webpack --optimize-minimize",
     "serve": "webpack-dev-server --port 3000 --hot",
     "api": "node api.js"
