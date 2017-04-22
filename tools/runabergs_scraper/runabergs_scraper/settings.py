@@ -67,7 +67,12 @@ ROBOTSTXT_OBEY = True
 #ITEM_PIPELINES = {
 #    'runabergs_scraper.pipelines.RunabergsScraperPipeline': 300,
 #}
-#ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
+IMAGES_STORE = 'imgs'
+
+ITEM_PIPELINES = {
+    'scrapy.pipelines.images.ImagesPipeline': 300,
+    'runabergs_scraper.pipelines.RunabergsScraperPipeline': 100,
+    'runabergs_scraper.pipelines.JsonWithEncodingPipeline': 200}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
