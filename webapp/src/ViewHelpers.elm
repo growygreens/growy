@@ -15,7 +15,7 @@ tr model phrase =
 
 imgUrl : Cultivar -> Url
 imgUrl c =
-    Maybe.withDefault "/img/generic-cultivar.png" c.imgUrl
+    Maybe.withDefault "/img/generic-cultivar.png" (List.head c.images)
 
 
 emptyNode : Html Msg

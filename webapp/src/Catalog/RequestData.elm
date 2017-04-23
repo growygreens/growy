@@ -210,7 +210,7 @@ cultivarDecoder =
         |> required "id" int
         |> required "name" string
         |> optional "description" (nullable string) Nothing
-        |> optional "imgUrl" (nullable urlDecoder) Nothing
+        |> optional "images" (list urlDecoder) []
         |> required "lifeCycle" lifeCycleDecoder
         |> required "hardinessZone" hardinessZoneDecoder
         |> required "sunExposureRequirements" sunExposureRequirementsDecoder

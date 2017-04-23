@@ -104,7 +104,7 @@ type alias Cultivar =
     { id : CultivarId
     , name : String
     , description : Maybe String
-    , imgUrl : Maybe Url
+    , images : List Url
     , lifeCycle : PlantLifeCycle
     , hardinessZone : HardinessZoneRequirement
     , sunExposureRequirements : SunExposureRequirement

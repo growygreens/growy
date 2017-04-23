@@ -12,7 +12,7 @@ sampleJsonCultivar =
     "{ \"id\": 105295136411772,"
         ++ "\"name\": \"Early Nantes\","
         ++ "\"description\": \"Some description.\","
-        ++ "\"imgUrl\": \"img.png\","
+        ++ "\"images\": [\"img.png\"],"
         ++ "\"lifeCycle\": \"Biennial\","
         ++ "\"hardinessZone\": [1, 6],"
         ++ "\"sunExposureRequirements\": \"FullSun\","
@@ -27,7 +27,7 @@ sampleJsonCultivar =
 
 sparseSampleJsonCultivar : String
 sparseSampleJsonCultivar =
-    -- No: description, imgUrl, plantSubType
+    -- No: description, images, plantSubType
     "{ \"id\": 105295136411772,"
         ++ "\"name\": \"Early Nantes\","
         ++ "\"lifeCycle\": \"Biennial\","
@@ -74,7 +74,7 @@ tests =
                                 [ \c -> Expect.equal 105295136411772 c.id
                                 , \c -> Expect.equal "Early Nantes" c.name
                                 , \c -> Expect.equal (Just "Some description.") c.description
-                                , \c -> Expect.equal (Just "img.png") c.imgUrl
+                                , \c -> Expect.equal ["img.png"] c.images
                                 , \c -> Expect.equal Biennial c.lifeCycle
                                 , \c -> Expect.equal ( 1, 6 ) c.hardinessZone
                                 , \c -> Expect.equal FullSun c.sunExposureRequirements
@@ -96,7 +96,7 @@ tests =
                                 [ \c -> Expect.equal 105295136411772 c.id
                                 , \c -> Expect.equal "Early Nantes" c.name
                                 , \c -> Expect.equal Nothing c.description
-                                , \c -> Expect.equal Nothing c.imgUrl
+                                , \c -> Expect.equal [] c.images
                                 , \c -> Expect.equal Biennial c.lifeCycle
                                 , \c -> Expect.equal ( 1, 6 ) c.hardinessZone
                                 , \c -> Expect.equal FullSun c.sunExposureRequirements
