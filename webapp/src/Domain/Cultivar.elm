@@ -69,7 +69,7 @@ type PlantLifeCycle
     = Annual
     | Biennial
     | Perennial
-
+    | UnknownLifeCycle
 
 type SunExposureRequirement
     = FullSun
@@ -180,3 +180,6 @@ translatePlantLifeCycle lifeCycle =
 
         Perennial ->
             Phrases.Perennial
+
+        UnknownLifeCycle ->
+            Phrases.UnknownLifeCycle

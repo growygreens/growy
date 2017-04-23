@@ -66,3 +66,6 @@ translate phrase =
 
         Perennial ->
             "Flerårig"
+
+        UnknownLifeCycle ->
+            "?"

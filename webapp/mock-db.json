@@ -4,9 +4,6 @@
           "name": "Early Nantes",
           "description": "Phasellus at dui in ligula mollis ultricies.  Cras placerat accumsan nulla.  Nulla posuere.  ",
           "images": ["img/carrot-1.png"],
-          "lifeCycle": "Biennial",
-          "hardinessZone": [1, 6],
-          "sunExposureRequirements": "FullSun",
           "germinationTimeDays": [10, 20],
           "cultivationPlans": {
               "DirectSow": [14, 25],

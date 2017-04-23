@@ -211,7 +211,7 @@ cultivarDecoder =
         |> required "name" string
         |> optional "description" (nullable string) Nothing
         |> optional "images" (list urlDecoder) []
-        |> required "lifeCycle" lifeCycleDecoder
+        |> optional "lifeCycle" lifeCycleDecoder UnknownLifeCycle
         |> optional "hardinessZone" (nullable hardinessZoneDecoder) Nothing
         |> optional "sunExposureRequirements" sunExposureRequirementsDecoder UnknownSunExposureRequirement
         |> required "cultivationPlans" cultivationPlansDecoder

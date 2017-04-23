@@ -26,3 +26,4 @@ type
     | Annual
     | Biennial
     | Perennial
+    | UnknownLifeCycle

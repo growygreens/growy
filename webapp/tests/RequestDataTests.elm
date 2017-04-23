@@ -27,10 +27,9 @@ sampleJsonCultivar =
 
 sparseSampleJsonCultivar : String
 sparseSampleJsonCultivar =
-    -- No: description, images, plantSubType, hardinessZone, sunExposureRequirements
+    -- No: description, images, plantSubType, hardinessZone, sunExposureRequirements, lifeCycle
     "{ \"id\": 105295136411772,"
         ++ "\"name\": \"Early Nantes\","
-        ++ "\"lifeCycle\": \"Biennial\","
         ++ "\"germinationTimeDays\": [10, 20],"
         ++ "\"cultivationPlans\": {"
         ++ "\"DirectSow\": [14, 25],"
@@ -95,7 +94,7 @@ tests =
                                 , \c -> Expect.equal "Early Nantes" c.name
                                 , \c -> Expect.equal Nothing c.description
                                 , \c -> Expect.equal [] c.images
-                                , \c -> Expect.equal Biennial c.lifeCycle
+                                , \c -> Expect.equal UnknownLifeCycle c.lifeCycle
                                 , \c -> Expect.equal Nothing c.hardinessZone
                                 , \c -> Expect.equal UnknownSunExposureRequirement c.sunExposureRequirements
                                 , \c -> Expect.equal ( 10, 20 ) c.germinationTimeDays
