@@ -37,9 +37,13 @@ class RunabergsSpider(scrapy.Spider):
                                'Ekologiskt odlat frö', 'Groningstabell',
                                'Sommar- och höstsådd', 'Odla ditt frö själv',
                                'Adresser', 'Kontakt', 'Öppettider', 'Mässor 2017',
-                               'Ängsväxter', 'Groddfröer', 'Bönmix']
-                if text in ignore_list:
+                               'Ängsväxter', 'Groddfröer', 'Bönmix', 'Ängsblandning']
+                url_ignore = ['344', '362', '163', '172', '189', '200', '205', '222', '360', '13', '777']
+
+                if text in ignore_list or  categoryUrl in url_ignore:
                     continue
+
+
 
                 next_page = response.urljoin('/?m=%s' % categoryUrl)
                 yield scrapy.Request(next_page, callback=lambda x, pt=text: self.parse(x, pt))
