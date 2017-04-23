@@ -50,7 +50,7 @@ def process_obj(data, names):
     data['license'] = 'CC-BY-SA 4.0'
 
 
-    data['id'] = str(uuid.uuid4())
+    data['id'] = int(uuid.uuid4())
 
 
     f1 = data['f1Hybrid']
@@ -76,12 +76,12 @@ def process_obj(data, names):
     return data
 
 def showSome(data):
-    print(json.dumps(data[0], indent=4, ensure_ascii=False))
+    print(json.dumps(data[0], indent=2, ensure_ascii=False))
 
 
 def writeData(data, filename='runabergs.json'):
     with codecs.open(filename, 'w', encoding='utf-8') as f:
-        f.write(json.dumps(data, ensure_ascii=False))
+        f.write(json.dumps(data, indent=2, ensure_ascii=False))
 
 
 # showSome(process_all(loadJson(), loadNames()))
