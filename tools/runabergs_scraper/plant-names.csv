@@ -1,0 +1,204 @@
+'Brytböna';'Vegetables';'PeasAndBeans';'Beans';'GreenFrenchDwarfBean'
+'Purpurböna';'Vegetables';'PeasAndBeans';'Beans';'PurpleFrenchDwarfBean'
+'Vaxböna';'Vegetables';'PeasAndBeans';'Beans';'YellowFrenchDwarfBean'
+'Skärböna';'Vegetables';'PeasAndBeans';'Beans';'FlatPodFrenchDwarfBean'
+'Spritböna';'Vegetables';'PeasAndBeans';'Beans';'ShellingBean'
+'Störböna';'Vegetables';'PeasAndBeans';'Beans';'FrenchClimbingBean'
+'Blomsterböna';'Vegetables';'PeasAndBeans';'Beans';'RunnerBean'
+'Bondböna';'Vegetables';'PeasAndBeans';'Beans';'BroadBean'
+'Brytärt';'Vegetables';'PeasAndBeans';'Peas';'EdiblePoddedPea'
+'Märgärt';'Vegetables';'PeasAndBeans';'Peas';'WrinkledPea'
+'Sockerärt';'Vegetables';'PeasAndBeans';'Peas';'Mangetout'
+'Spritärt';'Vegetables';'PeasAndBeans';'Peas';'RoundSeededPea'
+'Sparrisärt';'Vegetables';'PeasAndBeans';'Peas';'AsparagusPea'
+'Majs';'Vegetables';'FruitVegetables';'Corn';
+'Gurka';'Vegetables';'FruitVegetables';'Cucumber';
+'Kalebass';'Vegetables';'FruitVegetables';'Gourd';
+'Melon';'Vegetables';'FruitVegetables';'Melon';
+'Sommarsquash';'Vegetables';'FruitVegetables';'Squash';'Zucchini'
+'Pumpa';'Vegetables';'FruitVegetables';'Pumpkin';
+'Vintersquash';'Vegetables';'FruitVegetables';'Squash';'WinterSquash'
+'Paprika';'Vegetables';'FruitVegetables';'BellPepper';
+'Chilipeppar';'Vegetables';'FruitVegetables';'ChiliPeppers';
+'Busktomat';'Vegetables';'FruitVegetables';'Tomato';'BushTomato'
+'Högväxande tomat';'Vegetables';'FruitVegetables';'Tomato';'TallTomato'
+'Körsbärstomater';'Vegetables';'FruitVegetables';'Tomato';'CherryTomato'
+'Pastatomater';'Vegetables';'FruitVegetables';'Tomato';'PlumTomatoes'
+'Gyllenbär';'Vegetables';'FruitVegetables';'Physalis';
+'Tomatillo';'Vegetables';'FruitVegetables';'Tomatillo';
+'Äggplanta';'Vegetables';'FruitVegetables';'Eggplant';
+'Blomkål';'Vegetables';'Brassica';'Cauliflower';
+'Broccoli';'Vegetables';'Brassica';'Broccoli';
+'Broccolo';'Vegetables';'Brassica';'Broccolo';
+'Brysselkål';'Vegetables';'Brassica';'BrusselSprouts';
+'Grönkål';'Vegetables';'Brassica';'Cabbage';'Kale'
+'Rödkål';'Vegetables';'Brassica';'Cabbage';'RedCabbage'
+'Salladskål';'Vegetables';'Brassica';'Cabbage';'ChineseCabbage'
+'Savoykål';'Vegetables';'Brassica';'Cabbage';'SavoyCabbage'
+'Spetskål';'Vegetables';'Brassica';'Cabbage';'PointedCabbage'
+'Vitkål';'Vegetables';'Brassica';'Cabbage';'WhiteCabbage'
+'Kålrabbi';'Vegetables';'Brassica';'Kohlrabi';
+'Asiatiska bladgrönsaker';'Vegetables';'LeafVegetables';'AsianLeafVegetable';
+'Stjälk-/Bladselleri';'Vegetables';'LeafVegetables';'Celery';
+'Dill';'Vegetables';'LeafVegetables';'Dill';
+'Persilja';'Vegetables';'LeafVegetables';'Parsley';
+'Sallats- och drivcikoria';'Vegetables';'LeafVegetables';'Chicory';
+'Radicchio';'Vegetables';'LeafVegetables';'Radicchio';
+'Escarole- och friséesallat';'Vegetables';'LeafVegetables';'Lettuce';'EscaroleAndFriseeLettuce'
+'Sallat, Bataviasallat';'Vegetables';'LeafVegetables';'Lettuce';'BataviaLettuce'
+'Cossallat';'Vegetables';'LeafVegetables';'Lettuce';'CosLettuce'
+'Huvudsallat';'Vegetables';'LeafVegetables';'Lettuce';'ButterheadLettuce'
+'Isbergssallat';'Vegetables';'LeafVegetables';'Lettuce';'IcebergLettuce'
+'Plocksallat';'Vegetables';'LeafVegetables';'Lettuce';'LooseleafLettuce'
+'Vintersallat, Mâche';'Vegetables';'LeafVegetables';'CornSalad';
+'Rucola';'Vegetables';'LeafVegetables';'RocketSalad';
+'Portulak';'Vegetables';'LeafVegetables';'Purslane';
+'Kardon';'Vegetables';'LeafVegetables';'Cardoon';
+'Mangold';'Vegetables';'LeafVegetables';'Chard';
+'Målla';'Vegetables';'LeafVegetables';'Orache';
+'Spenat';'Vegetables';'LeafVegetables';'Spinach';
+'Nyzeeländsk spenat';'Vegetables';'LeafVegetables';'NewZealandSpinach';
+'Isört';'Vegetables';'LeafVegetables';'IcePlant';
+'Morot';'Vegetables';'RootVegetables';'Carrot';
+'Palsternacka';'Vegetables';'RootVegetables';'Parsnip';
+'Rotpersilja';'Vegetables';'RootVegetables';'RootParsley';
+'Rotselleri';'Vegetables';'RootVegetables';'Celeriac';
+'Kardborrerot';'Vegetables';'RootVegetables';'Burdock';
+'Svartrot';'Vegetables';'RootVegetables';'BlackSalsify';
+'Haverrot';'Vegetables';'RootVegetables';'Salsify';
+'Kålrot';'Vegetables';'RootVegetables';'Swede';
+'Majrova';'Vegetables';'RootVegetables';'Turnip';'EggTurnip'
+'Rova';'Vegetables';'RootVegetables';'Turnip';
+'Rädisa';'Vegetables';'RootVegetables';'Radish';
+'Daikon';'Vegetables';'RootVegetables';'Daikon';
+'Rättika';'Vegetables';'RootVegetables';'WinterRadish';
+'Rödbeta';'Vegetables';'RootVegetables';'Beetroot';
+'Gul- &amp; rödlök';'Vegetables';'Onions';'Onion';
+'Purjolök';'Vegetables';'Onions';'Leek';
+'Salladslök';'Vegetables';'Onions';'Scallion';
+'Comfrey';'Vegetables';'OtherVegetables';'Comfrey';
+'Knölfänkål';'Vegetables';'OtherVegetables';'Fennel';'FlorenceFennel'
+'Kronärtskocka';'Vegetables';'OtherVegetables';'Artichoke';
+'Rabarber';'Vegetables';'OtherVegetables';'Rhubarb';
+'Rankspenat';'Vegetables';'LeafVegetables';'Hablitzia';
+'Smultron';'Vegetables';'OtherVegetables';'WoodlandStrawberry';
+'Sparris';'Vegetables';'OtherVegetables';'Asparagus';
+'Strandkål';'Vegetables';'OtherVegetables';'Seakale';
+'Anis';'Spices';'AnnualSpices';'Anise';
+'Basilika';'Spices';'AnnualSpices';'Basil';
+'Epazote';'Spices';'AnnualSpices';'Epazote';
+'Gurkört';'Spices';'AnnualSpices';'Borage';
+'Kamomill';'Spices';'AnnualSpices';'Camomile';
+'Kardbenedikt';'Spices';'AnnualSpices';'BlessedThistle';
+'Koriander';'Spices';'AnnualSpices';'Coriander';
+'Kryddkrasse';'Spices';'AnnualSpices';'Cress';
+'Kyndel';'Spices';'AnnualSpices';'SummerSavory';
+'Körvel';'Spices';'AnnualSpices';'Chervil';
+'Shiso - perilla';'Spices';'AnnualSpices';'Shiso';
+'Tagetes, krydd-';'Spices';'AnnualSpices';'Tagetes';'SpicyTagetes'
+'Vattenkrasse';'Spices';'AnnualSpices';'Cress';'WaterCress'
+'Vinterportulak';'Spices';'AnnualSpices';'Claytonia';
+'Fänkål';'Spices';'BiennalSpices';'Fennel';
+'Kvanne';'Spices';'BiennalSpices';'Angelica';
+'Kummin';'Spices';'BiennalSpices';'Caraway';
+'Nattljus';'Spices';'BiennalSpices';'EveningPrimrose';
+'Vinterkrasse - vårgyllen';'Spices';'BiennalSpices';'Cress';'UplandCress'
+'Anisisop';'Spices';'PerennialSpices';'AniseHyssop';
+'Citronmeliss';'Spices';'PerennialSpices';'LemonBalm';
+'Dragon';'Spices';'PerennialSpices';'Tarragon';
+'Gräslök';'Spices';'PerennialSpices';'Chives';
+'Isop';'Spices';'PerennialSpices';'Hyssop';
+'Johannesört';'Spices';'PerennialSpices';'StJohnsWort';
+'Kamomill, romersk';'Spices';'PerennialSpices';'LawnCamomile';
+'Lavendel';'Spices';'PerennialSpices';'Lavender';
+'Libsticka';'Spices';'PerennialSpices';'Lovage';
+'Läkemalva';'Spices';'PerennialSpices';'MarshMallow';
+'Malört';'Spices';'PerennialSpices';'Wormwood';
+'Mejram';'Spices';'PerennialSpices';'Majoram';
+'Mexikansk dragon';'Spices';'PerennialSpices';'MexicanTarragon';
+'Mynta';'Spices';'PerennialSpices';'Mint';
+'Oregano';'Spices';'PerennialSpices';'Oregano';
+'Pimpinell';'Spices';'PerennialSpices';'BurnetSalad';
+'Ramslök';'Spices';'PerennialSpices';'Ramsons';
+'Rosmarin';'Spices';'PerennialSpices';'Rosemary';
+'Salvia';'Spices';'PerennialSpices';'Sage';
+'Spansk körvel';'Spices';'PerennialSpices';'SweetCicely';
+'Stevia, Sötflockel';'Spices';'PerennialSpices';'Stevia';
+'Syra';'Spices';'PerennialSpices';'Sorrel';
+'Temynta';'Spices';'PerennialSpices';'Mint';'BergamotMint'
+'Timjan';'Spices';'PerennialSpices';'Thyme';
+'Valeriana-Vänderot';'Spices';'PerennialSpices';'Valerian';
+'Vinruta';'Spices';'PerennialSpices';'Rue';
+'Amarant';'Flowers';'AnnualFlowers';'Amaranth';
+'Aster';'Flowers';'AnnualFlowers';'Aster';
+'Atlasblomma';'Flowers';'AnnualFlowers';'Godetia';
+'Ballongblomma';'Flowers';'AnnualFlowers';'ShooFlyPlant';
+'Blomman för dagen';'Flowers';'AnnualFlowers';'MorningGlory';
+'Blomsterlin';'Flowers';'AnnualFlowers';'Flax';
+'Clarkia';'Flowers';'AnnualFlowers';'Clarkia';
+'Doroteablomma';'Flowers';'AnnualFlowers';'Mesembryanthemum';
+'Gullskära';'Flowers';'AnnualFlowers';'GoldenCosmos';
+'Heliotrop';'Flowers';'AnnualFlowers';'Heliotrope';
+'Hänglobelia';'Flowers';'AnnualFlowers';'Lobelia';
+'Inkakrage';'Flowers';'AnnualFlowers';'MexicanSunflower';
+'Jungfrun i det gröna';'Flowers';'AnnualFlowers';'Nigella';
+'Jätteeternell';'Flowers';'AnnualFlowers';'Helichrysum';
+'Klint';'Flowers';'AnnualFlowers';'CornFlower';
+'Klockranka';'Flowers';'AnnualFlowers';'CupAndSaucerWine';
+'Klätt';'Flowers';'AnnualFlowers';'CornCockle';
+'Krasse';'Flowers';'AnnualFlowers';'Nasturtium';
+'Lejongap';'Flowers';'AnnualFlowers';'Snapdragon';
+'Luktärt';'Flowers';'AnnualFlowers';'SweetPea';
+'Lövkoja, grekisk';'Flowers';'AnnualFlowers';'GreekStock';
+'Mariatistel';'Flowers';'AnnualFlowers';'MilkThistle';
+'Nemesia';'Flowers';'AnnualFlowers';'Nemesia';
+'Paradisblomster';'Flowers';'AnnualFlowers';'SpiderFlower';
+'Praktmalva';'Flowers';'AnnualFlowers';'GreatFloweredMalope';
+'Praktvädd';'Flowers';'AnnualFlowers';'SweetScabious';
+'Prins Gustavs Öga';'Flowers';'AnnualFlowers';'Nemophilia';
+'Prydnadsmajs';'Flowers';'AnnualFlowers';'DecorativeCorn';
+'Prydnadskål';'Flowers';'AnnualFlowers';'Cabbage';'DecorativeCabbage'
+'Reseda';'Flowers';'AnnualFlowers';'Mingonette';
+'Ricin';'Flowers';'AnnualFlowers';'CastorOilPlant';
+'Riddarsporre';'Flowers';'AnnualFlowers';'RomanDelphinium';
+'Ringblomma';'Flowers';'AnnualFlowers';'Calendula';
+'Risp';'Flowers';'AnnualFlowers';'Statice';
+'Rosenskära';'Flowers';'AnnualFlowers';'Cosmos';
+'Rudbeckia';'Flowers';'AnnualFlowers';'ConeFlower';
+'Solros';'Flowers';'AnnualFlowers';'SunFlower';
+'Snokört';'Flowers';'AnnualFlowers';'BlueBedder';
+'Sommardahlia';'Flowers';'AnnualFlowers';'SummerDahlia';
+'Sommarlövkoja';'Flowers';'AnnualFlowers';'Stock';
+'Sommarmalva';'Flowers';'AnnualFlowers';'Mallow';'AnnualMallow'
+'Sommarslöja';'Flowers';'AnnualFlowers';'Gypsophyla';
+'Sömntuta';'Flowers';'AnnualFlowers';'Poppy';'CaliforniaPoppy'
+'Tagetes';'Flowers';'AnnualFlowers';'Marigold';
+'Vallmo, ettåriga';'Flowers';'AnnualFlowers';'Poppy';
+'Zinnia';'Flowers';'AnnualFlowers';'Zinnia';
+'Borstnejlika';'Flowers';'BiennalFlowers';'SweetWilliam';
+'Fingerborgsblomma';'Flowers';'BiennalFlowers';'Foxglove';
+'Gyllenlack';'Flowers';'BiennalFlowers';'SweetRocket';
+'Kungsljus';'Flowers';'BiennalFlowers';'Mullein';
+'Nattviol';'Flowers';'BiennalFlowers';'SweetRocket';
+'Stockros';'Flowers';'BiennalFlowers';'Hollyhock';
+'Vävarkarda';'Flowers';'BiennalFlowers';'WeaversTeasel';
+'Akleja';'Flowers';'PerennialFlowers';'Columbine';
+'Berglin';'Flowers';'PerennialFlowers';'PerennialFlax';
+'Blågull';'Flowers';'PerennialFlowers';'JacobsLadder';
+'Humle';'Flowers';'PerennialFlowers';'Hops';
+'Japansk Lykta';'Flowers';'PerennialFlowers';'JapaneseLantern';
+'Jätteverbena';'Flowers';'PerennialFlowers';'Vervain';
+'Karpaterklocka';'Flowers';'PerennialFlowers';'CarpathianBell';
+'Kungsljus';'Flowers';'PerennialFlowers';;
+'Lupin';'Flowers';'PerennialFlowers';'Lupin';
+'Moses brinnande buske';'Flowers';'PerennialFlowers';'BurningBrush';
+'Myskmalva';'Flowers';'PerennialFlowers';'Mallow';'MuskMallow'
+'Praktriddarsporre';'Flowers';'PerennialFlowers';'LarkSpur';
+'Prästkrage';'Flowers';'PerennialFlowers';'OxeyeDaisy';
+'Rosenmalva';'Flowers';'PerennialFlowers';'Mallow';'GreaterMuskMallow'
+'Rosenvial';'Flowers';'PerennialFlowers';'PerennialSweetPea';
+'Rödmalva';'Flowers';'PerennialFlowers';'Mallow';'CommonMallow'
+'Röd rudbeckia /Solhatt';'Flowers';'PerennialFlowers';'PurpleConeFlower';
+'Studentnejlika';'Flowers';'PerennialFlowers';'MalteseCross';
+'Såpnejlika';'Flowers';'PerennialFlowers';'SoapWort';
+'Vallmo, fleråriga';'Flowers';'PerennialFlowers';'Poppy';'PerennialPoppy'

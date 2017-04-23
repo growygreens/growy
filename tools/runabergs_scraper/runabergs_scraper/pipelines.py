@@ -35,12 +35,6 @@ def descriptionTranslator(val):
 
 
 class RunabergsScraperPipeline(object):
-    # def __init__(self):
-    #     self.plantTypeDict = {}
-    #     with open('/home/anders/growy/Dropbox/plant-names2.csv') as csvfile:
-    #         csvreader = csv.reader(csvfile, delimiter=';', quotechar='\'')
-    #         for names in csvreader:
-    #             self.plantTypeDict[names[0]] = names[1:]
 
     def process_item(self, item, spider):
         item.pop(u'Storlekssorterat', None)
@@ -55,15 +49,6 @@ class RunabergsScraperPipeline(object):
         replaceIfPresent(item, u'Årighet', u'lifeCycle', lifeCycleTranslator)
         replaceIfPresent(item, u'Botanisk familj', u'botanicalFamily')
         replaceIfPresent(item, u'description', u'description', descriptionTranslator)
-
-
-        # seKey = item.pop(u'plantType', None)
-        # if seKey is not None:
-        #     desc = self.plantTypeDict[seKey]
-        #     item[u'plantGroup'] = desc[0]
-        #     item[u'plantSubGroup'] = desc[1]
-        #     item[u'plantType'] = desc[2]
-        #     item[u'plantSubType'] = desc[3]
 
         return item
 
