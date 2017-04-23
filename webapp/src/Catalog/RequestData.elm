@@ -112,7 +112,7 @@ cultivationPlansDecoder =
             )
 
 
-cultivationPlanDecoder : (String, (List Int)) -> Maybe CultivationPlan
+cultivationPlanDecoder : ( String, List Int ) -> Maybe CultivationPlan
 cultivationPlanDecoder kvp =
     case kvp of
         ( "SowInAutumn", [ f, t ] ) ->
@@ -216,7 +216,7 @@ cultivarDecoder =
         |> optional "sunExposureRequirements" sunExposureRequirementsDecoder UnknownSunExposureRequirement
         |> optional "cultivationPlans" cultivationPlansDecoder []
         |> optional "germinationTimeDays" (nullable ((list int) |> andThen rangeDecoder)) Nothing
-        |> required "daysToMaturity" int
+        |> optional "daysToMaturity" (nullable ((list int) |> andThen rangeDecoder)) Nothing
         |> optional "height" (nullable int) Nothing
         |> required "plantType" plantTypeDecoder
         |> optional "plantSubType" (nullable plantSubTypeDecoder) Nothing

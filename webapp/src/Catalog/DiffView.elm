@@ -151,7 +151,7 @@ selectedCultivarCard model c role =
             , div [] [ text <| (tr model Phrases.SunRequirements) ++ ": " ++ tr model (translateSunRequirement c.sunExposureRequirements) ]
             , div [] [ text <| (tr model Phrases.GerminationTimeDays) ++ ": " ++ (maybeTupleToString c.germinationTimeDays) ]
             , div [] [ text <| (tr model Phrases.LifeCycle) ++ ": " ++ tr model (translatePlantLifeCycle c.lifeCycle) ]
-            , div [] [ text <| (tr model Phrases.DaysToMaturity) ++ ": " ++ (toString c.daysToMaturity) ]
+            , div [] [ text <| (tr model Phrases.DaysToMaturity) ++ ": " ++ (maybeTupleToString c.daysToMaturity) ]
             , hr [] []
             , div [] [ text <| Maybe.withDefault (tr model Phrases.DescriptionMissing) c.description ]
             ]

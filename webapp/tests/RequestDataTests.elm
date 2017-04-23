@@ -20,7 +20,7 @@ sampleJsonCultivar =
         ++ "\"cultivationPlans\": {"
         ++ "\"DirectSow\": [14, 25],"
         ++ "\"SowInAutumn\": [40, 48] },"
-        ++ "\"daysToMaturity\": 62,"
+        ++ "\"daysToMaturity\": [62, 62],"
         ++ "\"plantType\": \"Carrot\","
         ++ "\"plantSubType\": \"NantesCarrot\"}"
 
@@ -29,10 +29,9 @@ sparseSampleJsonCultivar : String
 sparseSampleJsonCultivar =
     -- No: description, images, plantSubType,
     -- hardinessZone, sunExposureRequirements, lifeCycle
-    -- germinationTimeDays, cultivationPlans
+    -- germinationTimeDays, cultivationPlans, daysToMaturity
     "{ \"id\": 105295136411772,"
         ++ "\"name\": \"Early Nantes\","
-        ++ "\"daysToMaturity\": 62,"
         ++ "\"plantType\": \"Carrot\"}"
 
 
@@ -75,7 +74,7 @@ tests =
                                 , \c -> Expect.equal FullSun c.sunExposureRequirements
                                 , \c -> Expect.equal (Just ( 10, 20 )) c.germinationTimeDays
                                 , \c -> Expect.equal [ DirectSow ( 14, 25 ), SowInAutumn ( 40, 48 ) ] c.cultivationPlans
-                                , \c -> Expect.equal 62 c.daysToMaturity
+                                , \c -> Expect.equal (Just ( 62, 62 )) c.daysToMaturity
                                 , \c -> Expect.equal Carrot c.plantType
                                 , \c -> Expect.equal (Just <| CarrotSubType NantesCarrot) c.plantSubType
                                 ]
@@ -97,7 +96,7 @@ tests =
                                 , \c -> Expect.equal UnknownSunExposureRequirement c.sunExposureRequirements
                                 , \c -> Expect.equal Nothing c.germinationTimeDays
                                 , \c -> Expect.equal [] c.cultivationPlans
-                                , \c -> Expect.equal 62 c.daysToMaturity
+                                , \c -> Expect.equal Nothing c.daysToMaturity
                                 , \c -> Expect.equal Carrot c.plantType
                                 , \c -> Expect.equal Nothing c.plantSubType
                                 ]

@@ -95,7 +95,7 @@ type alias StartTime =
 
 
 type alias DaysToMaturity =
-    Int
+    ( Int, Int )
 
 
 type alias Cultivar =
@@ -108,7 +108,7 @@ type alias Cultivar =
     , sunExposureRequirements : SunExposureRequirement
     , cultivationPlans : List CultivationPlan
     , germinationTimeDays : Maybe GerminationTimeDays
-    , daysToMaturity : DaysToMaturity
+    , daysToMaturity : Maybe DaysToMaturity
     , height : Maybe HeightCm
     , plantType : PlantType
     , plantSubType : Maybe PlantSubType
