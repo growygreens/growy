@@ -99,7 +99,7 @@ sunExposureRequirementsDecoder =
             )
 
 
-cultivationPlansDecoder : Decoder CultivationPlans
+cultivationPlansDecoder : Decoder (List CultivationPlan)
 cultivationPlansDecoder =
     (dict (list int))
         |> andThen
@@ -214,7 +214,7 @@ cultivarDecoder =
         |> optional "lifeCycle" lifeCycleDecoder UnknownLifeCycle
         |> optional "hardinessZone" (nullable hardinessZoneDecoder) Nothing
         |> optional "sunExposureRequirements" sunExposureRequirementsDecoder UnknownSunExposureRequirement
-        |> required "cultivationPlans" cultivationPlansDecoder
+        |> optional "cultivationPlans" cultivationPlansDecoder []
         |> optional "germinationTimeDays" (nullable ((list int) |> andThen rangeDecoder)) Nothing
         |> required "daysToMaturity" int
         |> optional "height" (nullable int) Nothing

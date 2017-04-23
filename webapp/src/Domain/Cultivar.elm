@@ -31,10 +31,6 @@ type OnionSubType
     | SpringOnion
 
 
-type alias CultivationPlans =
-    List CultivationPlan
-
-
 type CultivationPlan
     = SowInAutumn StartTime
     | PlantInFall StartTime
@@ -71,6 +67,7 @@ type PlantLifeCycle
     | Perennial
     | UnknownLifeCycle
 
+
 type SunExposureRequirement
     = FullSun
     | DappledSun
@@ -79,6 +76,7 @@ type SunExposureRequirement
     | PartialShadeToFullShade
     | FullShade
     | UnknownSunExposureRequirement
+
 
 type alias GerminationTimeDays =
     ( Int, Int )
@@ -108,7 +106,7 @@ type alias Cultivar =
     , lifeCycle : PlantLifeCycle
     , hardinessZone : Maybe HardinessZoneRequirement
     , sunExposureRequirements : SunExposureRequirement
-    , cultivationPlans : CultivationPlans
+    , cultivationPlans : List CultivationPlan
     , germinationTimeDays : Maybe GerminationTimeDays
     , daysToMaturity : DaysToMaturity
     , height : Maybe HeightCm
