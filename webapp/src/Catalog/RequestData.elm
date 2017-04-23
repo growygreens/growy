@@ -213,7 +213,7 @@ cultivarDecoder =
         |> optional "images" (list urlDecoder) []
         |> required "lifeCycle" lifeCycleDecoder
         |> optional "hardinessZone" (nullable hardinessZoneDecoder) Nothing
-        |> required "sunExposureRequirements" sunExposureRequirementsDecoder
+        |> optional "sunExposureRequirements" sunExposureRequirementsDecoder UnknownSunExposureRequirement
         |> required "cultivationPlans" cultivationPlansDecoder
         |> required "germinationTimeDays" ((list int) |> andThen rangeDecoder)
         |> required "daysToMaturity" int

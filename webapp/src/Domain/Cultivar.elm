@@ -78,7 +78,7 @@ type SunExposureRequirement
     | FullSunToPartialShade
     | PartialShadeToFullShade
     | FullShade
-
+    | UnknownSunExposureRequirement
 
 type alias GerminationTimeDays =
     ( Int, Int )
@@ -164,6 +164,9 @@ translateSunRequirement sunRequirement =
 
         FullShade ->
             Phrases.FullShade
+
+        UnknownSunExposureRequirement ->
+            Phrases.UnknownSunExposureRequirement
 
 
 translatePlantLifeCycle : PlantLifeCycle -> Phrases

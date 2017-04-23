@@ -15,6 +15,7 @@ type
     | FullSunToPartialShade
     | PartialShadeToFullShade
     | FullShade
+    | UnknownSunExposureRequirement
       -- Cultivar Fields
     | HardinessZone
     | SunRequirements

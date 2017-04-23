@@ -38,6 +38,9 @@ translate phrase =
         FullShade ->
             "Sugar"
 
+        UnknownSunExposureRequirement ->
+            "?"
+
         -- Cultivar Fields
         HardinessZone ->
             "Växtzon"
