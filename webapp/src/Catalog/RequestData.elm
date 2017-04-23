@@ -215,7 +215,7 @@ cultivarDecoder =
         |> optional "hardinessZone" (nullable hardinessZoneDecoder) Nothing
         |> optional "sunExposureRequirements" sunExposureRequirementsDecoder UnknownSunExposureRequirement
         |> required "cultivationPlans" cultivationPlansDecoder
-        |> required "germinationTimeDays" ((list int) |> andThen rangeDecoder)
+        |> optional "germinationTimeDays" (nullable ((list int) |> andThen rangeDecoder)) Nothing
         |> required "daysToMaturity" int
         |> optional "height" (nullable int) Nothing
         |> required "plantType" plantTypeDecoder

@@ -4,7 +4,6 @@
           "name": "Early Nantes",
           "description": "Phasellus at dui in ligula mollis ultricies.  Cras placerat accumsan nulla.  Nulla posuere.  ",
           "images": ["img/carrot-1.png"],
-          "germinationTimeDays": [10, 20],
           "cultivationPlans": {
               "DirectSow": [14, 25],
               "SowInAutumn": [40, 48]

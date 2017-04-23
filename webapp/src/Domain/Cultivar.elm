@@ -109,7 +109,7 @@ type alias Cultivar =
     , hardinessZone : Maybe HardinessZoneRequirement
     , sunExposureRequirements : SunExposureRequirement
     , cultivationPlans : CultivationPlans
-    , germinationTimeDays : GerminationTimeDays
+    , germinationTimeDays : Maybe GerminationTimeDays
     , daysToMaturity : DaysToMaturity
     , height : Maybe HeightCm
     , plantType : PlantType

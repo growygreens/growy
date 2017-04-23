@@ -27,10 +27,11 @@ sampleJsonCultivar =
 
 sparseSampleJsonCultivar : String
 sparseSampleJsonCultivar =
-    -- No: description, images, plantSubType, hardinessZone, sunExposureRequirements, lifeCycle
+    -- No: description, images, plantSubType,
+    -- hardinessZone, sunExposureRequirements, lifeCycle
+    -- germinationTimeDays
     "{ \"id\": 105295136411772,"
         ++ "\"name\": \"Early Nantes\","
-        ++ "\"germinationTimeDays\": [10, 20],"
         ++ "\"cultivationPlans\": {"
         ++ "\"DirectSow\": [14, 25],"
         ++ "\"SowInAutumn\": [40, 48] },"
@@ -75,7 +76,7 @@ tests =
                                 , \c -> Expect.equal Biennial c.lifeCycle
                                 , \c -> Expect.equal (Just ( 1, 6 )) c.hardinessZone
                                 , \c -> Expect.equal FullSun c.sunExposureRequirements
-                                , \c -> Expect.equal ( 10, 20 ) c.germinationTimeDays
+                                , \c -> Expect.equal (Just ( 10, 20 )) c.germinationTimeDays
                                 , \c -> Expect.equal [ DirectSow ( 14, 25 ), SowInAutumn ( 40, 48 ) ] c.cultivationPlans
                                 , \c -> Expect.equal 62 c.daysToMaturity
                                 , \c -> Expect.equal Carrot c.plantType
@@ -97,7 +98,7 @@ tests =
                                 , \c -> Expect.equal UnknownLifeCycle c.lifeCycle
                                 , \c -> Expect.equal Nothing c.hardinessZone
                                 , \c -> Expect.equal UnknownSunExposureRequirement c.sunExposureRequirements
-                                , \c -> Expect.equal ( 10, 20 ) c.germinationTimeDays
+                                , \c -> Expect.equal Nothing c.germinationTimeDays
                                 , \c -> Expect.equal [ DirectSow ( 14, 25 ), SowInAutumn ( 40, 48 ) ] c.cultivationPlans
                                 , \c -> Expect.equal 62 c.daysToMaturity
                                 , \c -> Expect.equal Carrot c.plantType

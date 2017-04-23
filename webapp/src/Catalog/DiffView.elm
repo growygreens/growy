@@ -149,7 +149,7 @@ selectedCultivarCard model c role =
             [ hr [] []
             , div [] [ text <| (tr model Phrases.HardinessZone) ++ ": " ++ (maybeTupleToString c.hardinessZone) ]
             , div [] [ text <| (tr model Phrases.SunRequirements) ++ ": " ++ tr model (translateSunRequirement c.sunExposureRequirements) ]
-            , div [] [ text <| (tr model Phrases.GerminationTimeDays) ++ ": " ++ (tupleToString c.germinationTimeDays) ]
+            , div [] [ text <| (tr model Phrases.GerminationTimeDays) ++ ": " ++ (maybeTupleToString c.germinationTimeDays) ]
             , div [] [ text <| (tr model Phrases.LifeCycle) ++ ": " ++ tr model (translatePlantLifeCycle c.lifeCycle) ]
             , div [] [ text <| (tr model Phrases.DaysToMaturity) ++ ": " ++ (toString c.daysToMaturity) ]
             , hr [] []
