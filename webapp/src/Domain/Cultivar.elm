@@ -12,25 +12,6 @@ type alias CultivarId =
     Int
 
 
-type PlantType
-    = Carrot
-    | Onion
-    | Tomato
-
-
-type TomatoSubType
-    = BeefsteakTomato
-    | CherryTomato
-    | DeterminateTomato
-    | PlumTomato
-
-
-type OnionSubType
-    = BulbOnion
-    | LeekOnion
-    | SpringOnion
-
-
 type CultivationPlan
     = SowInAutumn StartTime
     | PlantInFall StartTime
@@ -38,19 +19,6 @@ type CultivationPlan
     | DirectSow StartTime
     | StartIndoor StartTime
     | Greenhouse StartTime
-
-
-type CarrotSubType
-    = ChantenayCarrot
-    | DanversCarrot
-    | ImperatorCarrot
-    | NantesCarrot
-
-
-type PlantSubType
-    = TomatoSubType TomatoSubType
-    | OnionSubType OnionSubType
-    | CarrotSubType CarrotSubType
 
 
 type alias HardinessZone =
@@ -98,6 +66,12 @@ type alias DaysToMaturity =
     ( Int, Int )
 
 
+type alias PlantType =
+    String
+
+type alias PlantSubType =
+    String
+
 type alias Cultivar =
     { id : CultivarId
     , name : String
@@ -131,15 +105,7 @@ groupCultivarsOnType cultivars =
 
 translatePlantType : PlantType -> Phrases
 translatePlantType plantType =
-    case plantType of
-        Carrot ->
-            Phrases.Carrot
-
-        Onion ->
-            Phrases.Onion
-
-        Tomato ->
-            Phrases.Tomato
+    Phrases.PlantTypePhrase plantType
 
 
 translateSunRequirement : SunExposureRequirement -> Phrases

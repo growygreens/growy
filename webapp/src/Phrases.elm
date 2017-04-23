@@ -3,11 +3,7 @@ module Phrases exposing (..)
 
 type
     Phrases
-    -- PlantType
-    = Carrot
-    | Onion
-    | Tomato
-    | DescriptionMissing
+    = DescriptionMissing
       -- SunExposureRequirement
     | FullSun
     | DappledSun
@@ -27,3 +23,8 @@ type
     | Biennial
     | Perennial
     | UnknownLifeCycle
+    -- Plant types and groups
+    | PlantTypePhrase String
+    | PlantSubTypePhrase String
+    | PlantGroupPhrase String
+    | PlantSubGroupPhrase String

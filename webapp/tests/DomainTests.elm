@@ -39,7 +39,7 @@ tests =
             \() ->
                 let
                     cultivars =
-                        [ makeTestCultivar 0 "test0" Carrot (Just <| CarrotSubType NantesCarrot) ]
+                        [ makeTestCultivar 0 "test0" "Carrot" (Just "NantesCarrot") ]
 
                     groups =
                         groupCultivarsOnType cultivars
@@ -49,19 +49,19 @@ tests =
             \() ->
                 let
                     carrot0 =
-                        makeTestCultivar 0 "test0" Carrot (Just <| CarrotSubType NantesCarrot)
+                        makeTestCultivar 0 "test0" "Carrot" (Just "NantesCarrot")
 
                     carrot1 =
-                        makeTestCultivar 1 "test1" Carrot (Just <| CarrotSubType ChantenayCarrot)
+                        makeTestCultivar 1 "test1" "Carrot" (Just "ChantenayCarrot")
 
                     onion2 =
-                        makeTestCultivar 2 "test2" Onion (Just <| OnionSubType BulbOnion)
+                        makeTestCultivar 2 "test2" "Onion" (Just "BulbOnion")
 
                     tomato3 =
-                        makeTestCultivar 3 "test3" Tomato (Just <| TomatoSubType CherryTomato)
+                        makeTestCultivar 3 "test3" "Tomato" (Just "CherryTomato")
 
                     tomato4 =
-                        makeTestCultivar 4 "test4" Tomato (Just <| TomatoSubType DeterminateTomato)
+                        makeTestCultivar 4 "test4" "Tomato" (Just "DeterminateTomato")
 
                     cultivars =
                         [ carrot0, carrot1, onion2, tomato3, tomato4 ]
@@ -74,19 +74,19 @@ tests =
             \() ->
                 let
                     carrot0 =
-                        makeTestCultivar 0 "test0" Carrot (Just <| CarrotSubType NantesCarrot)
+                        makeTestCultivar 0 "test0" "Carrot" (Just "NantesCarrot")
 
                     carrot1 =
-                        makeTestCultivar 1 "test1" Carrot (Just <| CarrotSubType ChantenayCarrot)
+                        makeTestCultivar 1 "test1" "Carrot" (Just "ChantenayCarrot")
 
                     onion2 =
-                        makeTestCultivar 2 "test2" Onion (Just <| OnionSubType BulbOnion)
+                        makeTestCultivar 2 "test2" "Onion" (Just "BulbOnion")
 
                     tomato3 =
-                        makeTestCultivar 3 "test3" Tomato (Just <| TomatoSubType CherryTomato)
+                        makeTestCultivar 3 "test3" "Tomato" (Just "CherryTomato")
 
                     tomato4 =
-                        makeTestCultivar 4 "test4" Tomato (Just <| TomatoSubType DeterminateTomato)
+                        makeTestCultivar 4 "test4" "Tomato" (Just "DeterminateTomato")
 
                     cultivars =
                         [ carrot0, onion2, tomato3, carrot1, tomato4 ]
@@ -99,10 +99,10 @@ tests =
             \() ->
                 let
                     carrot0 =
-                        makeTestCultivar 0 "test0" Carrot (Just <| CarrotSubType NantesCarrot)
+                        makeTestCultivar 0 "test0" "Carrot" (Just "NantesCarrot")
 
                     carrot1 =
-                        makeTestCultivar 1 "test1" Carrot (Just <| CarrotSubType ChantenayCarrot)
+                        makeTestCultivar 1 "test1" "Carrot" (Just "ChantenayCarrot")
 
                     cultivars =
                         [ carrot0, carrot1 ]

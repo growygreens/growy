@@ -77,8 +77,8 @@ tests =
                                 , \c -> Expect.equal (Just ( 100, 120 )) c.heightCm
                                 , \c -> Expect.equal [ DirectSow ( 14, 25 ), SowInAutumn ( 40, 48 ) ] c.cultivationPlans
                                 , \c -> Expect.equal (Just ( 62, 62 )) c.daysToMaturity
-                                , \c -> Expect.equal Carrot c.plantType
-                                , \c -> Expect.equal (Just <| CarrotSubType NantesCarrot) c.plantSubType
+                                , \c -> Expect.equal "Carrot" c.plantType
+                                , \c -> Expect.equal (Just "NantesCarrot") c.plantSubType
                                 ]
 
                     Err err ->
@@ -99,7 +99,7 @@ tests =
                                 , \c -> Expect.equal Nothing c.germinationTimeDays
                                 , \c -> Expect.equal [] c.cultivationPlans
                                 , \c -> Expect.equal Nothing c.daysToMaturity
-                                , \c -> Expect.equal Carrot c.plantType
+                                , \c -> Expect.equal "Carrot" c.plantType
                                 , \c -> Expect.equal Nothing c.plantSubType
                                 ]
 

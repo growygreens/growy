@@ -137,71 +137,6 @@ cultivationPlanDecoder kvp =
             Nothing
 
 
-plantTypeDecoder : Decoder PlantType
-plantTypeDecoder =
-    string
-        |> andThen
-            (\t ->
-                case t of
-                    "Carrot" ->
-                        succeed Carrot
-
-                    "Onion" ->
-                        succeed Onion
-
-                    "Tomato" ->
-                        succeed Tomato
-
-                    _ ->
-                        fail "cannot decode"
-            )
-
-
-plantSubTypeDecoder : Decoder PlantSubType
-plantSubTypeDecoder =
-    string
-        |> andThen
-            (\t ->
-                case t of
-                    -- Tomatoes
-                    "BeefsteakTomato" ->
-                        succeed <| TomatoSubType BeefsteakTomato
-
-                    "CherryTomato" ->
-                        succeed <| TomatoSubType CherryTomato
-
-                    "DeterminateTomato" ->
-                        succeed <| TomatoSubType DeterminateTomato
-
-                    "PlumTomato" ->
-                        succeed <| TomatoSubType PlumTomato
-
-                    -- Onions
-                    "BulbOnion" ->
-                        succeed <| OnionSubType BulbOnion
-
-                    "LeekOnion" ->
-                        succeed <| OnionSubType LeekOnion
-
-                    "SpringOnion" ->
-                        succeed <| OnionSubType SpringOnion
-
-                    -- Carrots
-                    "ChantenayCarrot" ->
-                        succeed <| CarrotSubType ChantenayCarrot
-
-                    "DanversCarrot" ->
-                        succeed <| CarrotSubType DanversCarrot
-
-                    "ImperatorCarrot" ->
-                        succeed <| CarrotSubType ImperatorCarrot
-
-                    "NantesCarrot" ->
-                        succeed <| CarrotSubType NantesCarrot
-
-                    _ ->
-                        fail "cannot decode"
-            )
 
 
 cultivarDecoder : Decoder Cultivar
@@ -218,5 +153,5 @@ cultivarDecoder =
         |> optional "germinationTimeDays" (nullable ((list int) |> andThen rangeDecoder)) Nothing
         |> optional "daysToMaturity" (nullable ((list int) |> andThen rangeDecoder)) Nothing
         |> optional "height" (nullable ((list int) |> andThen rangeDecoder)) Nothing
-        |> required "plantType" plantTypeDecoder
-        |> optional "plantSubType" (nullable plantSubTypeDecoder) Nothing
+        |> required "plantType" string
+        |> optional "plantSubType" (nullable string) Nothing

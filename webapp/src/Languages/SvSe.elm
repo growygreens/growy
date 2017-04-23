@@ -6,16 +6,6 @@ import Phrases exposing (..)
 translate : Phrases -> String
 translate phrase =
     case phrase of
-        -- PlantType
-        Tomato ->
-            "Tomat"
-
-        Carrot ->
-            "Morot"
-
-        Onion ->
-            "Lök"
-
         DescriptionMissing ->
             "Beskrivning saknas"
 
@@ -69,3 +59,15 @@ translate phrase =
 
         UnknownLifeCycle ->
             "?"
+
+        PlantTypePhrase t ->
+            t
+
+        PlantSubTypePhrase t ->
+            t
+
+        PlantGroupPhrase t ->
+            t
+
+        PlantSubGroupPhrase t ->
+            t
