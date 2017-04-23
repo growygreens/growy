@@ -73,7 +73,23 @@ def process_obj(data, names):
             data[u'plantType'] = names[seKey][2]
             data[u'plantSubType'] = names[seKey][3]
 
+    if 'daysToMaturity' in data:
+        data['daysToMaturity'] = intOrRange(data['daysToMaturity'])
+
     return data
+
+def intOrRange(s):
+    parts = [x.strip() for x in s.strip('-').split('-')]
+    print("DEBUG %s -- %s" % (str(parts), s))
+
+    if len(parts) == 1:
+        return int(parts[0])
+    elif len(parts) == 2:
+        return [int(x) for x in parts]
+    else:
+        print("Bad Range %s" % s)
+        return None
+
 
 def showSome(data):
     print(json.dumps(data[0], indent=2, ensure_ascii=False))
