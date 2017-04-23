@@ -21,6 +21,7 @@ sampleJsonCultivar =
         ++ "\"DirectSow\": [14, 25],"
         ++ "\"SowInAutumn\": [40, 48] },"
         ++ "\"daysToMaturity\": [62, 62],"
+        ++ "\"height\": [100, 120],"
         ++ "\"plantType\": \"Carrot\","
         ++ "\"plantSubType\": \"NantesCarrot\"}"
 
@@ -73,6 +74,7 @@ tests =
                                 , \c -> Expect.equal (Just ( 1, 6 )) c.hardinessZone
                                 , \c -> Expect.equal FullSun c.sunExposureRequirements
                                 , \c -> Expect.equal (Just ( 10, 20 )) c.germinationTimeDays
+                                , \c -> Expect.equal (Just ( 100, 120 )) c.heightCm
                                 , \c -> Expect.equal [ DirectSow ( 14, 25 ), SowInAutumn ( 40, 48 ) ] c.cultivationPlans
                                 , \c -> Expect.equal (Just ( 62, 62 )) c.daysToMaturity
                                 , \c -> Expect.equal Carrot c.plantType

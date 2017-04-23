@@ -20,7 +20,7 @@ makeTestCultivar id name plantType plantSubType =
     , cultivationPlans = [ DirectSow ( 2, 10 ) ]
     , daysToMaturity = Just ( 60, 60 )
     , germinationTimeDays = Just ( 10, 30 )
-    , height = Just 40
+    , heightCm = Just ( 40, 60 )
     , plantType = plantType
     , plantSubType = plantSubType
     }

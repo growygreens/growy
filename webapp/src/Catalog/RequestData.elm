@@ -217,6 +217,6 @@ cultivarDecoder =
         |> optional "cultivationPlans" cultivationPlansDecoder []
         |> optional "germinationTimeDays" (nullable ((list int) |> andThen rangeDecoder)) Nothing
         |> optional "daysToMaturity" (nullable ((list int) |> andThen rangeDecoder)) Nothing
-        |> optional "height" (nullable int) Nothing
+        |> optional "height" (nullable ((list int) |> andThen rangeDecoder)) Nothing
         |> required "plantType" plantTypeDecoder
         |> optional "plantSubType" (nullable plantSubTypeDecoder) Nothing

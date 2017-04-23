@@ -87,7 +87,7 @@ type alias Week =
 
 
 type alias HeightCm =
-    Int
+    ( Int, Int )
 
 
 type alias StartTime =
@@ -109,7 +109,7 @@ type alias Cultivar =
     , cultivationPlans : List CultivationPlan
     , germinationTimeDays : Maybe GerminationTimeDays
     , daysToMaturity : Maybe DaysToMaturity
-    , height : Maybe HeightCm
+    , heightCm : Maybe HeightCm
     , plantType : PlantType
     , plantSubType : Maybe PlantSubType
     }

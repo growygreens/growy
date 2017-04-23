@@ -3,12 +3,6 @@
         { "id": 105295136411772,
           "name": "Early Nantes",
           "description": "Phasellus at dui in ligula mollis ultricies.  Cras placerat accumsan nulla.  Nulla posuere.  ",
-          "images": ["img/carrot-1.png"],
-          "cultivationPlans": {
-              "DirectSow": [14, 25],
-              "SowInAutumn": [40, 48]
-          },
-          "daysToMaturity": 62,
           "plantType": "Carrot",
           "plantSubType": "NantesCarrot"
         },
@@ -25,7 +19,7 @@
               "SowInAutumn": [40, 48],
               "Greenhouse": [9, 25]
           },
-          "daysToMaturity": 55,
+          "daysToMaturity": [55, 55],
           "plantType": "Carrot"
         },
         { "id": 233444673082889,
@@ -40,7 +34,7 @@
               "DirectSow": [14, 25],
               "SowInAutumn": [40, 48]
           },
-          "daysToMaturity": 75,
+          "daysToMaturity": [75, 75],
           "plantType": "Carrot"
         },
         { "id": 989031222489761,
@@ -55,7 +49,7 @@
               "DirectSow": [14, 25],
               "SowInAutumn": [40, 48]
           },
-          "daysToMaturity": 70,
+          "daysToMaturity": [70, 70],
           "plantType": "Carrot"
         },
         { "id": 429490899973647,
@@ -69,7 +63,7 @@
               "DirectSow": [14, 25],
               "SowInAutumn": [40, 48]
           },
-          "daysToMaturity": 75,
+          "daysToMaturity": [75, 75],
           "plantType": "Carrot"
         },
         { "id": 724189906221913,
@@ -83,7 +77,7 @@
               "DirectSow": [14, 25],
               "SowInAutumn": [40, 48]
           },
-          "daysToMaturity": 55,
+          "daysToMaturity": [55, 55],
           "plantType": "Carrot"
         },
         { "id": 836844003600167,
@@ -97,7 +91,7 @@
               "DirectSow": [14, 25],
               "SowInAutumn": [40, 48]
           },
-          "daysToMaturity": 65,
+          "daysToMaturity": [65, 65],
           "plantType": "Carrot"
         },
         { "id": 163538233683543,
@@ -111,7 +105,7 @@
               "DirectSow": [14, 25],
               "SowInAutumn": [40, 48]
           },
-          "daysToMaturity": 70,
+          "daysToMaturity": [70, 70],
           "plantType": "Carrot"
         },
         { "id": 753630792795779,
@@ -125,7 +119,7 @@
               "DirectSow": [14, 25],
               "SowInAutumn": [40, 48]
           },
-          "daysToMaturity": 72,
+          "daysToMaturity": [72, 72],
           "plantType": "Carrot"
         },
         { "id": 615862676016153,
@@ -139,7 +133,7 @@
               "DirectSow": [14, 25],
               "SowInAutumn": [40, 48]
           },
-          "daysToMaturity": 80,
+          "daysToMaturity": [80, 80],
           "plantType": "Carrot"
         },
         { "id": 641300595439137,
@@ -154,7 +148,7 @@
               "StartIndoor": [10, 16],
               "DirectSow": [10, 20]
           },
-          "daysToMaturity": 100,
+          "daysToMaturity": [100, 100],
           "plantType": "Onion",
           "plantSubType": "BulbOnion"
         },
@@ -170,7 +164,7 @@
               "StartIndoor": [10, 16],
               "DirectSow": [10, 20]
           },
-          "daysToMaturity": 100,
+          "daysToMaturity": [100, 100],
           "plantType": "Onion",
           "plantSubType": "BulbOnion"
         },
@@ -185,7 +179,7 @@
               "StartIndoor": [10, 16],
               "DirectSow": [10, 20]
           },
-          "daysToMaturity": 110,
+          "daysToMaturity": [110, 110],
           "plantType": "Onion",
           "plantSubType": "BulbOnion"
         },
@@ -201,7 +195,7 @@
               "StartIndoor": [2, 5],
               "BuyPlant": [10, 20]
           },
-          "daysToMaturity": 62,
+          "daysToMaturity": [62, 62],
           "plantType": "Tomato",
           "plantSubType": "DeterminateTomato"
         },
@@ -217,7 +211,7 @@
               "StartIndoor": [2, 5],
               "BuyPlant": [10, 20]
           },
-          "daysToMaturity": 58,
+          "daysToMaturity": [58, 58],
           "plantType": "Tomato",
           "plantSubType": "DeterminateTomato"
         },
@@ -233,7 +227,7 @@
               "StartIndoor": [2, 5],
               "BuyPlant": [10, 20]
           },
-          "daysToMaturity": 64,
+          "daysToMaturity": [64, 64],
           "plantType": "Tomato",
           "plantSubType": "DeterminateTomato"
         }
