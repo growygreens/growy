@@ -70,7 +70,7 @@ ROBOTSTXT_OBEY = True
 IMAGES_STORE = 'imgs'
 
 ITEM_PIPELINES = {
-    'scrapy.pipelines.images.ImagesPipeline': 300,
+    'scrapy.pipelines.images.ImagesPipeline': 1,
     'runabergs_scraper.pipelines.RunabergsScraperPipeline': 100,
     'runabergs_scraper.pipelines.JsonWithEncodingPipeline': 200}
 
