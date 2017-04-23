@@ -4,6 +4,7 @@ import json
 import codecs
 import csv
 import uuid
+import random
 
 def loadJson(filename='runabergs_scraped.json'):
     data = []
@@ -74,25 +75,37 @@ def process_obj(data, names):
             data[u'plantSubType'] = names[seKey][3]
 
     if 'daysToMaturity' in data:
-        data['daysToMaturity'] = intOrRange(data['daysToMaturity'])
+        s = data['daysToMaturity'].lstrip('ca. ')\
+                                  .lstrip('drygt ')\
+                                  .replace('1 meter', '100')\
+                                  .replace('1,5-2,5 meter', '150-250')\
+                                  .replace('3-4 meter', '300-400')
+        data['daysToMaturity'] = intOrRange(s)
+
+    if 'height' in data:
+        data['height'] = intOrRange(data['height'])
 
     return data
 
 def intOrRange(s):
     parts = [x.strip() for x in s.strip('-').split('-')]
-    print("DEBUG %s -- %s" % (str(parts), s))
 
-    if len(parts) == 1:
-        return int(parts[0])
-    elif len(parts) == 2:
-        return [int(x) for x in parts]
-    else:
-        print("Bad Range %s" % s)
-        return None
+    try:
+        if len(parts) == 1:
+            return int(parts[0])
+        elif len(parts) == 2:
+            return [int(x) for x in parts]
+        else:
+            print("Bad Range %s" % s)
+
+    except ValueError:
+        pass
+
+    return None
 
 
 def showSome(data):
-    print(json.dumps(data[0], indent=2, ensure_ascii=False))
+    print(json.dumps(data[random.randint(0, len(data)-1)], indent=2, ensure_ascii=False))
 
 
 def writeData(data, filename='runabergs.json'):
