@@ -36,7 +36,8 @@ class RunabergsSpider(scrapy.Spider):
                                'Sortlista', 'Utvecklingsdagar',
                                'Ekologiskt odlat frö', 'Groningstabell',
                                'Sommar- och höstsådd', 'Odla ditt frö själv',
-                               'Adresser', 'Kontakt', 'Öppettider', 'Mässor 2017']
+                               'Adresser', 'Kontakt', 'Öppettider', 'Mässor 2017',
+                               'Ängsväxter', 'Groddfröer', 'Bönmix']
                 if text in ignore_list:
                     continue
 
@@ -73,7 +74,6 @@ class RunabergsSpider(scrapy.Spider):
                 'latinName': latin_name,
                 'description': description,
                 'plantType': plantType,
-                'plantSubType': plantType,
                 'image_urls': [image_url]
             }
 
