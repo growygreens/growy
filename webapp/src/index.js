@@ -1,6 +1,7 @@
 'use strict';
 
 require.context('../assets', true, /\.png$/);
+require.context('../assets', true, /\.jpg$/);
 require.context('../assets/mdl', true, /\.css$/);
 
 require('../assets/font-awesome-4.7.0/css/font-awesome.min.css');

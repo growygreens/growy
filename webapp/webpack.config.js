@@ -27,6 +27,10 @@ module.exports = {
         use: 'file-loader?name=img/[name].[ext]'
       },
       {
+        test: /\.jpg$/,
+        use: 'file-loader?name=img/[name].[ext]'
+      },
+      {
         test: /\.css$/,
         use: 'file-loader?name=[name].[ext]'
       },
