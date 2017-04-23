@@ -25,7 +25,8 @@ def lifeCycleTranslator(val):
         return u'Perennial'
 
 def heightTranslator(val):
-    return val.rstrip('.').rstrip('cm').strip()
+    if val is not None:
+        return val.rstrip('.').rstrip('cm').strip()
 
 
 def descriptionTranslator(val):
@@ -47,7 +48,7 @@ class RunabergsScraperPipeline(object):
         item.pop(u'Nyhet', None)
         item.pop(u'Latinskt namn', None)
 
-        replaceIfPresent(item, u'Höjd', 'height')
+        replaceIfPresent(item, u'Höjd', 'height', heightTranslator)
         replaceIfPresent(item, u'Utvecklingstid, dagar', 'daysToMaturity')
         replaceIfPresent(item, u'F1 Hybrid', 'f1Hybrid')
         replaceIfPresent(item, u'Artikelnummer', 'runabergsArtNo')
