@@ -147,7 +147,7 @@ selectedCultivarCard model c role =
         , cardMenu model role
         , Card.text [ cs "catalog-list-item-card-text" ]
             [ hr [] []
-            , div [] [ text <| (tr model Phrases.HardinessZone) ++ ": " ++ (tupleToString c.hardinessZone) ]
+            , div [] [ text <| (tr model Phrases.HardinessZone) ++ ": " ++ (maybeTupleToString c.hardinessZone) ]
             , div [] [ text <| (tr model Phrases.SunRequirements) ++ ": " ++ tr model (translateSunRequirement c.sunExposureRequirements) ]
             , div [] [ text <| (tr model Phrases.GerminationTimeDays) ++ ": " ++ (tupleToString c.germinationTimeDays) ]
             , div [] [ text <| (tr model Phrases.LifeCycle) ++ ": " ++ tr model (translatePlantLifeCycle c.lifeCycle) ]
@@ -156,6 +156,16 @@ selectedCultivarCard model c role =
             , div [] [ text <| Maybe.withDefault (tr model Phrases.DescriptionMissing) c.description ]
             ]
         ]
+
+
+maybeTupleToString : Maybe ( a, b ) -> String
+maybeTupleToString t =
+    case t of
+        Just ( a, b ) ->
+            tupleToString ( a, b )
+
+        Nothing ->
+            "?"
 
 
 tupleToString : ( a, b ) -> String

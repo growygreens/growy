@@ -106,7 +106,7 @@ type alias Cultivar =
     , description : Maybe String
     , images : List Url
     , lifeCycle : PlantLifeCycle
-    , hardinessZone : HardinessZoneRequirement
+    , hardinessZone : Maybe HardinessZoneRequirement
     , sunExposureRequirements : SunExposureRequirement
     , cultivationPlans : CultivationPlans
     , germinationTimeDays : GerminationTimeDays

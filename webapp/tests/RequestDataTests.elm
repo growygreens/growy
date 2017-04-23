@@ -27,11 +27,10 @@ sampleJsonCultivar =
 
 sparseSampleJsonCultivar : String
 sparseSampleJsonCultivar =
-    -- No: description, images, plantSubType
+    -- No: description, images, plantSubType, hardinessZone
     "{ \"id\": 105295136411772,"
         ++ "\"name\": \"Early Nantes\","
         ++ "\"lifeCycle\": \"Biennial\","
-        ++ "\"hardinessZone\": [1, 6],"
         ++ "\"sunExposureRequirements\": \"FullSun\","
         ++ "\"germinationTimeDays\": [10, 20],"
         ++ "\"cultivationPlans\": {"
@@ -74,9 +73,9 @@ tests =
                                 [ \c -> Expect.equal 105295136411772 c.id
                                 , \c -> Expect.equal "Early Nantes" c.name
                                 , \c -> Expect.equal (Just "Some description.") c.description
-                                , \c -> Expect.equal ["img.png"] c.images
+                                , \c -> Expect.equal [ "img.png" ] c.images
                                 , \c -> Expect.equal Biennial c.lifeCycle
-                                , \c -> Expect.equal ( 1, 6 ) c.hardinessZone
+                                , \c -> Expect.equal (Just ( 1, 6 )) c.hardinessZone
                                 , \c -> Expect.equal FullSun c.sunExposureRequirements
                                 , \c -> Expect.equal ( 10, 20 ) c.germinationTimeDays
                                 , \c -> Expect.equal [ DirectSow ( 14, 25 ), SowInAutumn ( 40, 48 ) ] c.cultivationPlans
@@ -98,7 +97,7 @@ tests =
                                 , \c -> Expect.equal Nothing c.description
                                 , \c -> Expect.equal [] c.images
                                 , \c -> Expect.equal Biennial c.lifeCycle
-                                , \c -> Expect.equal ( 1, 6 ) c.hardinessZone
+                                , \c -> Expect.equal Nothing c.hardinessZone
                                 , \c -> Expect.equal FullSun c.sunExposureRequirements
                                 , \c -> Expect.equal ( 10, 20 ) c.germinationTimeDays
                                 , \c -> Expect.equal [ DirectSow ( 14, 25 ), SowInAutumn ( 40, 48 ) ] c.cultivationPlans
