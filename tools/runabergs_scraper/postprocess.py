@@ -92,7 +92,7 @@ def intOrRange(s):
 
     try:
         if len(parts) == 1:
-            return int(parts[0])
+            return [int(parts[0]), int(parts[0])]
         elif len(parts) == 2:
             return [int(x) for x in parts]
         else:
