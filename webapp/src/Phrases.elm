@@ -5,6 +5,7 @@ type
     Phrases
     = DescriptionMissing
     | LoadingPlants
+    | BackendError String
     -- SunExposureRequirement
     | FullSun
     | DappledSun

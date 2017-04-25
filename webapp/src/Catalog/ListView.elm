@@ -17,39 +17,45 @@ cultivarListView model =
     maybeList model
 
 
+centerDiv : List (Html Msg) -> Html Msg
+centerDiv content =
+    div
+        [ style
+            [ ( "display", "flex" )
+            , ( "flex-direction", "row" )
+            , ( "flex-grow", "1" )
+            , ( "justify-content", "center" )
+            ]
+        ]
+        [ div
+            [ style
+                [ ( "display", "flex" )
+                , ( "flex-direction", "column" )
+                , ( "justify-content", "center" )
+                , ( "align-items", "center" )
+                ]
+            ]
+            content
+        ]
+
+
 maybeList : Model -> Html Msg
 maybeList model =
     case model.cultivars of
         RemoteData.NotAsked ->
-            text "DBG NOT ASKED"
+            emptyNode
 
         RemoteData.Loading ->
-            div
-                [ style
-                    [ ( "display", "flex" )
-                    , ( "flex-direction", "row" )
-                    , ( "flex-grow", "1" )
-                    , ( "justify-content", "center" )
+            centerDiv
+                [ Loading.spinner
+                    [ Loading.active True
+                    , Loading.singleColor True
                     ]
-                ]
-                [ div
+                , div
                     [ style
-                        [ ( "display", "flex" )
-                        , ( "flex-direction", "column" )
-                        , ( "justify-content", "center" )
-                        , ( "align-items", "center" )
-                        ]
+                        [ ( "margin-top", "6px" ) ]
                     ]
-                    [ Loading.spinner
-                        [ Loading.active True
-                        , Loading.singleColor True
-                        ]
-                    , div
-                        [ style
-                            [ ( "margin-top", "6px" ) ]
-                        ]
-                        [ Phrases.LoadingPlants |> (tr model) |> text ]
-                    ]
+                    [ Phrases.LoadingPlants |> (tr model) |> text ]
                 ]
 
         RemoteData.Success cultivars ->
@@ -65,7 +71,7 @@ maybeList model =
                 ]
 
         RemoteData.Failure error ->
-            text (toString error)
+            centerDiv [error |> toString |> Phrases.BackendError |> (tr model) |> text]
 
 
 cultivarListItemsView : Model -> List Cultivar -> List (Html Msg)

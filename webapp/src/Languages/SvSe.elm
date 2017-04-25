@@ -12,6 +12,12 @@ translate phrase =
         LoadingPlants ->
             "Hämtar växtdata..."
 
+        BackendError "NetworkError" ->
+            "Kan inte ansluta till servern :("
+
+        BackendError _ ->
+            "Ett fel uppstod :("
+
         -- SunExposureRequirement
         FullSun ->
             "Sol"
