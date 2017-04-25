@@ -6,31 +6,66 @@ import Html exposing (Html, div, img, text, hr, i)
 import Html.Attributes exposing (src, style, class)
 import Maybe
 import ViewHelpers exposing (..)
+import Phrases exposing (..)
 import Catalog.ListItemView exposing (..)
 import RemoteData exposing (WebData)
+import Material.Spinner as Loading exposing (..)
+
 
 cultivarListView : Model -> Html Msg
 cultivarListView model =
-    div [ class "catalog-box-outer" ]
-        [ div [ class "catalog-box-inner" ]
-          (maybeList model)
-        ]
+    maybeList model
 
 
-maybeList : Model -> List(Html Msg)
+maybeList : Model -> Html Msg
 maybeList model =
     case model.cultivars of
         RemoteData.NotAsked ->
-            [text "DBG NOT ASKED"]
+            text "DBG NOT ASKED"
 
         RemoteData.Loading ->
-            [text "Loading..."]
+            div
+                [ style
+                    [ ( "display", "flex" )
+                    , ( "flex-direction", "row" )
+                    , ( "flex-grow", "1" )
+                    , ( "justify-content", "center" )
+                    ]
+                ]
+                [ div
+                    [ style
+                        [ ( "display", "flex" )
+                        , ( "flex-direction", "column" )
+                        , ( "justify-content", "center" )
+                        , ( "align-items", "center" )
+                        ]
+                    ]
+                    [ Loading.spinner
+                        [ Loading.active True
+                        , Loading.singleColor True
+                        ]
+                    , div
+                        [ style
+                            [ ( "margin-top", "6px" ) ]
+                        ]
+                        [ Phrases.LoadingPlants |> (tr model) |> text ]
+                    ]
+                ]
 
         RemoteData.Success cultivars ->
-            (cultivarListItemsView model cultivars)
+            -- DEBUG --
+            -- Just pick some smaller number until we have a proper
+            -- solution to the overwhelming ammount of data
+            div [ class "catalog-box-outer" ]
+                [ div [ class "catalog-box-inner" ]
+                    (cultivars
+                        |> (cultivarListItemsView model)
+                        |> (List.take 100)
+                    )
+                ]
 
         RemoteData.Failure error ->
-            [text (toString error)]
+            text (toString error)
 
 
 cultivarListItemsView : Model -> List Cultivar -> List (Html Msg)
@@ -48,7 +83,7 @@ cultivarListItemsView model cultivars =
             if model.pinnedSelectedCultivar == Just True then
                 List.filter
                     (\a -> (toString a.plantType) == selectedType)
-                        cultivars
+                    cultivars
             else
                 cultivars
 

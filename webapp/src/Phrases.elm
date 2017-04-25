@@ -4,7 +4,8 @@ module Phrases exposing (..)
 type
     Phrases
     = DescriptionMissing
-      -- SunExposureRequirement
+    | LoadingPlants
+    -- SunExposureRequirement
     | FullSun
     | DappledSun
     | PartialShade

@@ -9,6 +9,9 @@ translate phrase =
         DescriptionMissing ->
             "Beskrivning saknas"
 
+        LoadingPlants ->
+            "Hämtar växtdata..."
+
         -- SunExposureRequirement
         FullSun ->
             "Sol"
