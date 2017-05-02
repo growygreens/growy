@@ -3,8 +3,8 @@ module Catalog.ListItemView exposing (..)
 import Domain exposing (..)
 import Domain.Cultivar exposing (..)
 import Html exposing (Html, div, img, text, hr, i)
+import Html.Attributes exposing (src, height, style, width)
 import Material.Button as Button
-import Material.Card as Card
 import Material.Color as Color
 import Material.Elevation as Elevation
 import Material.Icon as Icon
@@ -39,23 +39,41 @@ pinnedMarker model c =
 
 cultivarListItemView : Model -> Cultivar -> Html Msg
 cultivarListItemView model c =
-    Card.view
+    Options.div
         [ Options.onClick (SelectCultivar c.id)
-        , cs "catalog-list-item-card"
-        , Color.background (Color.color Color.Green Color.S200)
         , Elevation.transition 250
         , itemElevation model c
+        , css "display" "flex"
+        , css "flex-direction" "row"
+        , css "margin" "10px"
+        , css "width" "450px"
+        , css "border-radius" "2px"
         ]
-        [ Card.menu [ cs "catalog-list-item-card-menu" ]
-            [ maybePinnedMarker model c ]
-        , Card.media
-            [ css "background" <| plantBgCss c
-            , cs "catalog-list-item-card-media"
+        [ Options.div
+            [ css "min-width" "180px"
+            , css "min-height" "180px"
+            , css "border-radius" "2px 0 0 2px"
+            , css "background" (plantBgCss c)
             ]
             []
-        , Card.title [ cs "catalog-list-item-card-title" ]
-            [ Card.head [ cs "catalog-list-item-card-head" ]
+        , Options.div
+            [ css "margin" "10px" ]
+            [ Options.div
+                [ css "font-size" "18px"
+                , css "font-weight" "400"
+                ]
                 [ text c.name ]
+            , Options.div
+                [ css "font-size" "16px"
+                , css "color" "#404040"
+                ]
+                [ text c.plantType ]
+            , hr [ style [ ( "margin-top", "4px" ), ( "margin-bottom", "6px" ) ] ] []
+            , Options.div
+                [ css "font-size" "14px"
+                , css "color" "#606060"
+                ]
+                [ text <| String.slice 0 100 (Maybe.withDefault "asdf" c.description) ]
             ]
         ]
 
@@ -70,4 +88,4 @@ itemElevation model c =
     if model.selectedCultivar == Just c.id || model.secondarySelectedCultivar == Just c.id then
         Elevation.e6
     else
-        Elevation.e2
+        Elevation.e4

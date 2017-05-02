@@ -96,29 +96,8 @@ cultivarListItemsView model cultivars =
         groupedByType =
             groupCultivarsOnType filteredCultivars
 
-        typeViewFromGroup =
-            \cultivarGroup ->
-                case List.head cultivarGroup of
-                    Just plant ->
-                        plantTypeSpacerView model plant.plantType
-
-                    Nothing ->
-                        emptyNode
-
         processCultivarGroup =
             \cultivarGroup ->
-                [ typeViewFromGroup cultivarGroup ]
-                    ++ (List.map (cultivarListItemView model) <| cultivarGroup)
+                (List.map (cultivarListItemView model) <| cultivarGroup)
     in
         List.concat (List.map processCultivarGroup groupedByType)
-
-
-plantTypeSpacerView : Model -> PlantType -> Html Msg
-plantTypeSpacerView model plantType =
-    div
-        [ class "catalog-type-spacer" ]
-        [ hr [ class "catalog-type-spacer-hr" ]
-            []
-        , div [ class "catalog-type-spacer-text" ]
-            [ text <| tr model (translatePlantType plantType) ]
-        ]
