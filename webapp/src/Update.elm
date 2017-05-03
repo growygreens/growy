@@ -47,6 +47,7 @@ update msg model =
                 | selectedCultivar = Nothing
                 , pinnedSelectedCultivar = Nothing
                 , secondarySelectedCultivar = Nothing
+                , cultivarEditMode = False
             }
                 ! []
 
