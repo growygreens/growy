@@ -169,6 +169,7 @@ selectedCultivarCard model c role =
                         , Textfield.floatingLabel
                         , Textfield.text_
                         , Textfield.value c.name
+                        , Options.onInput EditCultivarName
                         ]
                         []
                   else

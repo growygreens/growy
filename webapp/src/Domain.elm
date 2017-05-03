@@ -35,6 +35,7 @@ type Msg
     | DismissSecondarySelectedCultivar
     | OnFetchCultivars (WebData (List Cultivar))
     | ToggleCultivarEditMode
+    | EditCultivarName String
 
 
 initModel : Model

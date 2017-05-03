@@ -75,3 +75,11 @@ update msg model =
 
         OnFetchCultivars response ->
             { model | cultivars = response } ! []
+
+        EditCultivarName newName ->
+            case model.selectedCultivar of
+                Nothing ->
+                    model ! []
+
+                Just c ->
+                    { model | selectedCultivar = Just { c | name = newName } } ! []
