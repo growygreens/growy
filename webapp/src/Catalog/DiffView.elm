@@ -21,7 +21,7 @@ type CultivarCardRole
 
 maybeSelectedCultivar : Model -> Html Msg
 maybeSelectedCultivar model =
-    case cultivarById model.selectedCultivar model of
+    case model.selectedCultivar of
         Nothing ->
             emptyNode
 
@@ -31,7 +31,7 @@ maybeSelectedCultivar model =
 
 maybeSecondarySelection : Model -> Html Msg
 maybeSecondarySelection model =
-    case cultivarById model.secondarySelectedCultivar model of
+    case model.secondarySelectedCultivar of
         Nothing ->
             emptyNode
 

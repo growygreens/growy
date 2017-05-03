@@ -78,7 +78,7 @@ cultivarListItemsView : Model -> List Cultivar -> List (Html Msg)
 cultivarListItemsView model cultivars =
     let
         selectedType =
-            case cultivarById model.selectedCultivar model of
+            case model.selectedCultivar of
                 Just sel ->
                     toString sel.plantType
 

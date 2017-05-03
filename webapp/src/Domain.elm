@@ -12,9 +12,9 @@ type alias Model =
     { route : Routing.Route
     , language : Language
     , cultivars : WebData (List Cultivar)
-    , selectedCultivar : Maybe CultivarId
+    , selectedCultivar : Maybe Cultivar
     , pinnedSelectedCultivar : Maybe Bool
-    , secondarySelectedCultivar : Maybe CultivarId
+    , secondarySelectedCultivar : Maybe Cultivar
     , mdl : Material.Model
     }
 

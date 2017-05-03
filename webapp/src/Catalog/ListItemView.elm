@@ -15,7 +15,7 @@ import ViewHelpers exposing (..)
 
 maybePinnedMarker : Model -> Cultivar -> Html Msg
 maybePinnedMarker model c =
-    if model.selectedCultivar == Just c.id && model.pinnedSelectedCultivar == Just True then
+    if cultivarId model.selectedCultivar == Just c.id && model.pinnedSelectedCultivar == Just True then
         pinnedMarker model c
     else
         emptyNode
@@ -85,7 +85,12 @@ plantBgCss c =
 
 itemElevation : Model -> Cultivar -> Options.Property a b
 itemElevation model c =
-    if model.selectedCultivar == Just c.id || model.secondarySelectedCultivar == Just c.id then
+    if
+        cultivarId model.selectedCultivar
+            == Just c.id
+            || cultivarId model.secondarySelectedCultivar
+            == Just c.id
+    then
         Elevation.e6
     else
         Elevation.e4

@@ -1,6 +1,7 @@
 module Update exposing (..)
 
-import Domain exposing (Model, Msg(..))
+import Domain exposing (Model, Msg(..), cultivarById)
+import Domain.Cultivar exposing (Cultivar, cultivarId)
 import Material exposing (update)
 import Navigation exposing (newUrl)
 import Routing exposing (urlFor)
@@ -28,15 +29,15 @@ update msg model =
         SelectCultivar id ->
             case model.pinnedSelectedCultivar of
                 Just True ->
-                    if model.selectedCultivar == Just id then
+                    if cultivarId model.selectedCultivar == Just id then
                         -- Trying to select same cultivar for both primary and secondary: NOP
                         model ! []
                     else
-                        { model | secondarySelectedCultivar = Just id } ! []
+                        { model | secondarySelectedCultivar = cultivarById (Just id) model } ! []
 
                 _ ->
                     { model
-                        | selectedCultivar = Just id
+                        | selectedCultivar = cultivarById (Just id) model
                         , pinnedSelectedCultivar = Just False
                     }
                         ! []

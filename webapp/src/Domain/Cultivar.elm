@@ -4,6 +4,16 @@ import List.Extra exposing (groupWhile)
 import Phrases exposing (..)
 
 
+cultivarId : Maybe Cultivar -> Maybe Int
+cultivarId mc =
+    case mc of
+        Nothing ->
+            Nothing
+
+        Just c ->
+            Just c.id
+
+
 type alias Url =
     String
 
@@ -69,8 +79,10 @@ type alias DaysToMaturity =
 type alias PlantType =
     String
 
+
 type alias PlantSubType =
     String
+
 
 type alias Cultivar =
     { id : CultivarId

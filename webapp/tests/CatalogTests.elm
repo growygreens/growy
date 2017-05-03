@@ -4,6 +4,38 @@ import Test exposing (..)
 import TestUtils exposing (..)
 import Expect
 import Domain exposing (initModel, Model, Msg(..))
+import Domain.Cultivar exposing (..)
+import RemoteData exposing (WebData)
+
+
+makeTestCultivar : CultivarId -> Cultivar
+makeTestCultivar id =
+    { id = id
+    , name = "TestCultivar"
+    , description = Nothing
+    , images = []
+    , hardinessZone = Just ( 5, 6 )
+    , lifeCycle = Biennial
+    , sunExposureRequirements = FullSun
+    , cultivationPlans = [ DirectSow ( 2, 10 ) ]
+    , daysToMaturity = Just ( 60, 60 )
+    , germinationTimeDays = Just ( 10, 30 )
+    , heightCm = Just ( 40, 60 )
+    , plantType = "Carrot"
+    , plantSubType = Nothing
+    }
+
+
+simpleModel : Model
+simpleModel =
+    { initModel
+        | cultivars =
+            RemoteData.Success
+                [ makeTestCultivar 0
+                , makeTestCultivar 1
+                , makeTestCultivar 2
+                ]
+    }
 
 
 tests : Test
@@ -13,14 +45,14 @@ tests =
             \() ->
                 let
                     newModel =
-                        initModel |> updateModel (SelectCultivar 0)
+                        simpleModel |> updateModel (SelectCultivar 0)
                 in
-                    Expect.equal newModel.selectedCultivar (Just 0)
+                    Expect.equal (newModel.selectedCultivar |> cultivarId) (Just 0)
         , test "De-select cultivar deselects it" <|
             \() ->
                 let
                     newModel =
-                        initModel
+                        simpleModel
                             |> updateModel (SelectCultivar 1)
                             |> updateModel DismissSelectedCultivar
                 in
@@ -29,14 +61,14 @@ tests =
             \() ->
                 let
                     newModel =
-                        initModel |> updateModel (SelectCultivar 0)
+                        simpleModel |> updateModel (SelectCultivar 0)
                 in
                     Expect.equal newModel.pinnedSelectedCultivar <| Just False
         , test "Pin selected cultivar pins" <|
             \() ->
                 let
                     newModel =
-                        initModel
+                        simpleModel
                             |> updateModel (SelectCultivar 1)
                             |> updateModel PinSelectedCultivar
                 in
@@ -45,7 +77,7 @@ tests =
             \() ->
                 let
                     newModel =
-                        initModel
+                        simpleModel
                             |> updateModel PinSelectedCultivar
                 in
                     Expect.equal newModel.pinnedSelectedCultivar Nothing
@@ -53,7 +85,7 @@ tests =
             \() ->
                 let
                     newModel =
-                        initModel
+                        simpleModel
                             |> updateModel (SelectCultivar 1)
                             |> updateModel PinSelectedCultivar
                             |> updateModel (SelectCultivar 2)
@@ -64,7 +96,7 @@ tests =
             \() ->
                 let
                     newModel =
-                        initModel
+                        simpleModel
                             |> updateModel (SelectCultivar 1)
                             |> updateModel PinSelectedCultivar
                             |> updateModel (SelectCultivar 2)
@@ -75,17 +107,17 @@ tests =
             \() ->
                 let
                     newModel =
-                        initModel
+                        simpleModel
                             |> updateModel (SelectCultivar 1)
                             |> updateModel PinSelectedCultivar
                             |> updateModel (SelectCultivar 2)
                 in
-                    Expect.equal newModel.secondarySelectedCultivar <| Just 2
+                    Expect.equal (cultivarId newModel.secondarySelectedCultivar) <| Just 2
         , test "Re-selecting same as pinned does nothing" <|
             \() ->
                 let
                     newModel =
-                        initModel
+                        simpleModel
                             |> updateModel (SelectCultivar 1)
                             |> updateModel PinSelectedCultivar
                             |> updateModel (SelectCultivar 1)
@@ -95,7 +127,7 @@ tests =
             \() ->
                 let
                     newModel =
-                        initModel
+                        simpleModel
                             |> updateModel (SelectCultivar 1)
                             |> updateModel PinSelectedCultivar
                             |> updateModel (SelectCultivar 2)
