@@ -6,7 +6,6 @@ import Html exposing (Html, div, img, text, hr, i)
 import Html.Attributes exposing (src, style, class)
 import Material.Button as Button
 import Material.Card as Card
-import Material.Color as Color
 import Material.Elevation as Elevation
 import Material.Icon as Icon
 import Material.Options as Options exposing (css, cs)
@@ -73,8 +72,7 @@ pinButton model =
         [ Button.icon
         , Button.ripple
         , Options.onClick PinSelectedCultivar
-        , Color.background Color.accent
-        , Color.text Color.accentContrast
+        , cs "color-white color-brown-0-bg"
         , css "position" "absolute"
         , css "left" "16px"
         ]
@@ -93,8 +91,7 @@ dismissSelectedButton model =
         [ Button.icon
         , Button.ripple
         , Options.onClick DismissSelectedCultivar
-        , Color.background Color.accent
-        , Color.text Color.accentContrast
+        , cs "color-white color-brown-0-bg"
         , css "position" "absolute"
         , css "right" "16px"
         ]

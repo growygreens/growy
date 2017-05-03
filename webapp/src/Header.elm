@@ -16,6 +16,7 @@ headerButton model id msg buttonClass =
         model.mdl
         [ Options.onClick msg
         , cs "header-button"
+        , cs "color-brown-0"
         ]
         [ i [ class buttonClass ] [] ]
 
@@ -23,7 +24,8 @@ headerButton model id msg buttonClass =
 logo : Html Msg
 logo =
     h4
-        [ style
+        [ class "color-brown-0"
+        , style
             [ ( "padding", "0 0 0 22px" )
             , ( "margin", "0px" )
             ]
@@ -41,7 +43,8 @@ viewHeader : Model -> Html Msg
 viewHeader model =
     div
         -- Outer header row
-        [ class "header-row" ]
+        [ class "header-row color-green-2-bg"
+        ]
         [ logo
         , span [ style [ ( "flex-grow", "1" ) ] ] []
         , span [ style [ ( "padding", "0 16px 0 0" ) ] ]
