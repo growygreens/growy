@@ -16,7 +16,7 @@ headerButton model id msg buttonClass =
         model.mdl
         [ Options.onClick msg
         , cs "header-button"
-        , cs "color-brown-0"
+        , cs "color-white"
         ]
         [ i [ class buttonClass ] [] ]
 
@@ -24,7 +24,7 @@ headerButton model id msg buttonClass =
 logo : Html Msg
 logo =
     h4
-        [ class "color-brown-0"
+        [ class "color-white"
         , style
             [ ( "padding", "0 0 0 22px" )
             , ( "margin", "0px" )

@@ -73,7 +73,7 @@ pinButton model =
         [ Button.icon
         , Button.ripple
         , Options.onClick PinSelectedCultivar
-        , cs "color-white color-brown-0-bg"
+        , cs "color-white color-green-2-bg"
         , css "position" "absolute"
         , css "left" "16px"
         , css "font-size" "18px"
@@ -93,7 +93,7 @@ editButton model =
         [ Button.icon
         , Button.ripple
         , Options.onClick ToggleCultivarEditMode
-        , cs "color-white color-brown-0-bg"
+        , cs "color-white color-green-2-bg"
         , css "position" "absolute"
         , css "left" "60px"
         , css "font-size" "18px"
@@ -113,7 +113,7 @@ dismissSelectedButton model =
         [ Button.icon
         , Button.ripple
         , Options.onClick DismissSelectedCultivar
-        , cs "color-white color-brown-0-bg"
+        , cs "color-white color-green-2-bg"
         , css "position" "absolute"
         , css "right" "16px"
         , css "font-size" "18px"
