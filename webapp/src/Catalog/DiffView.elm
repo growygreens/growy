@@ -162,16 +162,7 @@ selectedCultivarCard model c role =
                 []
             , Card.head [ cs "catalog-sel-card-head" ]
                 [ if model.cultivarEditMode then
-                    Textfield.render Mdl
-                        [ 2 ]
-                        model.mdl
-                        [ Textfield.label "Name"
-                        , Textfield.floatingLabel
-                        , Textfield.text_
-                        , Textfield.value c.name
-                        , Options.onInput EditCultivarName
-                        ]
-                        []
+                    editNameView model c
                   else
                     text c.name
                 ]
@@ -205,3 +196,17 @@ maybeTupleToString t =
 tupleToString : ( a, b ) -> String
 tupleToString ( a, b ) =
     (a |> toString) ++ " - " ++ (b |> toString)
+
+
+editNameView : Model -> Cultivar -> Html Msg
+editNameView model c =
+    Textfield.render Mdl
+        [ 2 ]
+        model.mdl
+        [ Textfield.label "Name"
+        , Textfield.floatingLabel
+        , Textfield.text_
+        , Textfield.value c.name
+        , Options.onInput EditCultivarName
+        ]
+        []
