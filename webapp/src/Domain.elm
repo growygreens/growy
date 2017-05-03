@@ -13,6 +13,7 @@ type alias Model =
     , language : Language
     , cultivars : WebData (List Cultivar)
     , selectedCultivar : Maybe Cultivar
+    , cultivarEditMode : Bool
     , pinnedSelectedCultivar : Maybe Bool
     , secondarySelectedCultivar : Maybe Cultivar
     , mdl : Material.Model
@@ -33,6 +34,7 @@ type Msg
     | PinSelectedCultivar
     | DismissSecondarySelectedCultivar
     | OnFetchCultivars (WebData (List Cultivar))
+    | ToggleCultivarEditMode
 
 
 initModel : Model
@@ -41,6 +43,7 @@ initModel =
     , language = I18n.SvSe
     , cultivars = RemoteData.Loading
     , selectedCultivar = Nothing
+    , cultivarEditMode = False
     , pinnedSelectedCultivar = Nothing
     , secondarySelectedCultivar = Nothing
     , mdl = Material.model

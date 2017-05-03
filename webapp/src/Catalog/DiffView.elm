@@ -9,6 +9,7 @@ import Material.Card as Card
 import Material.Elevation as Elevation
 import Material.Icon as Icon
 import Material.Options as Options exposing (css, cs)
+import Material.Textfield as Textfield
 import Maybe
 import Phrases exposing (..)
 import ViewHelpers exposing (..)
@@ -75,6 +76,7 @@ pinButton model =
         , cs "color-white color-brown-0-bg"
         , css "position" "absolute"
         , css "left" "16px"
+        , css "font-size" "18px"
         ]
         [ if model.pinnedSelectedCultivar == Just True then
             i [ class "fa fa-lock" ] []
@@ -83,10 +85,30 @@ pinButton model =
         ]
 
 
+editButton : Model -> Html Msg
+editButton model =
+    Button.render Mdl
+        [ 0, 1 ]
+        model.mdl
+        [ Button.icon
+        , Button.ripple
+        , Options.onClick ToggleCultivarEditMode
+        , cs "color-white color-brown-0-bg"
+        , css "position" "absolute"
+        , css "left" "60px"
+        , css "font-size" "18px"
+        ]
+        [ if model.cultivarEditMode == True then
+            i [ class "fa fa-save" ] []
+          else
+            i [ class "fa fa-edit" ] []
+        ]
+
+
 dismissSelectedButton : Model -> Html Msg
 dismissSelectedButton model =
     Button.render Mdl
-        [ 0, 0 ]
+        [ 0, 2 ]
         model.mdl
         [ Button.icon
         , Button.ripple
@@ -94,6 +116,7 @@ dismissSelectedButton model =
         , cs "color-white color-brown-0-bg"
         , css "position" "absolute"
         , css "right" "16px"
+        , css "font-size" "18px"
         ]
         [ Icon.i "close" ]
 
@@ -103,6 +126,7 @@ primaryCardMenu model =
     Card.menu [ cs "catalog-sel-card-menu" ]
         [ dismissSelectedButton model
         , pinButton model
+        , editButton model
         ]
 
 
@@ -137,7 +161,19 @@ selectedCultivarCard model c role =
                 ]
                 []
             , Card.head [ cs "catalog-sel-card-head" ]
-                [ text c.name ]
+                [ if model.cultivarEditMode then
+                    Textfield.render Mdl
+                        [ 2 ]
+                        model.mdl
+                        [ Textfield.label "Name"
+                        , Textfield.floatingLabel
+                        , Textfield.text_
+                        , Textfield.value c.name
+                        ]
+                        []
+                  else
+                    text c.name
+                ]
             , Card.subhead [ cs "catalog-sel-card-subhead" ]
                 [ text <| tr model (translatePlantType c.plantType) ]
             ]

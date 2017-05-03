@@ -50,6 +50,9 @@ update msg model =
             }
                 ! []
 
+        ToggleCultivarEditMode ->
+            { model | cultivarEditMode = not model.cultivarEditMode } ! []
+
         PinSelectedCultivar ->
             case model.pinnedSelectedCultivar of
                 Just True ->
