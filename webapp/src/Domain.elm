@@ -36,6 +36,7 @@ type Msg
     | OnFetchCultivars (WebData (List Cultivar))
     | ToggleCultivarEditMode
     | EditCultivarName String
+    | EditCultivarDescription String
 
 
 initModel : Model

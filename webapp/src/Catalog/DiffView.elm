@@ -178,7 +178,11 @@ selectedCultivarCard model c role =
             , div [] [ text <| (tr model Phrases.LifeCycle) ++ ": " ++ tr model (translatePlantLifeCycle c.lifeCycle) ]
             , div [] [ text <| (tr model Phrases.DaysToMaturity) ++ ": " ++ (maybeTupleToString c.daysToMaturity) ]
             , hr [] []
-            , div [] [ text <| Maybe.withDefault (tr model Phrases.DescriptionMissing) c.description ]
+            , div [] [
+                   if model.cultivarEditMode then
+                       editDescriptionView model c
+                   else
+                       text <| Maybe.withDefault (tr model Phrases.DescriptionMissing) c.description ]
             ]
         ]
 
@@ -208,5 +212,19 @@ editNameView model c =
         , Textfield.text_
         , Textfield.value c.name
         , Options.onInput EditCultivarName
+        ]
+        []
+
+editDescriptionView : Model -> Cultivar -> Html Msg
+editDescriptionView model c =
+    Textfield.render Mdl
+        [ 2 ]
+        model.mdl
+        [ Textfield.label "Description"
+        , Textfield.floatingLabel
+        , Textfield.textarea
+        , Textfield.rows 6
+        , Textfield.value <| Maybe.withDefault "" c.description
+        , Options.onInput EditCultivarDescription
         ]
         []

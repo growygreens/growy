@@ -83,3 +83,14 @@ update msg model =
 
                 Just c ->
                     { model | selectedCultivar = Just { c | name = newName } } ! []
+
+        EditCultivarDescription newDescription ->
+            case model.selectedCultivar of
+                Nothing ->
+                    model ! []
+
+                Just c ->
+                    if newDescription == "" then
+                        { model | selectedCultivar = Just { c | description = Nothing } } ! []
+                    else
+                        { model | selectedCultivar = Just { c | description = Just newDescription } } ! []
